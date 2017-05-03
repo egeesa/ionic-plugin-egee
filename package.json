@@ -1,0 +1,30 @@
+{
+  "name": "ionic-plugin-egee",
+  "version": "1.0.1",
+  "description": "e-GEE Ionic Package",
+  "cordova": {
+    "id": "ionic-plugin-egee",
+    "platforms": [
+      "android",
+      "ios",
+      "blackberry10",
+      "wp8",
+      "windows"
+    ]
+  },
+  "keywords": [
+    "e-GEE",
+    "SA",
+    "ionic",
+    "cordova",
+    "keyboard",
+    "ecosystem:cordova",
+    "cordova-android",
+    "cordova-ios",
+    "cordova-blackberry10",
+    "cordova-wp8",
+    "cordova-windows"
+  ],
+  "author": "e-GEE SA",
+  "license": "ISC"
+}
