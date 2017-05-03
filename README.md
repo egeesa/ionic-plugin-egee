@@ -3,7 +3,7 @@ eGEE SA
 
 The `ionic.plugin.egee` 
 
-    cordova plugin add ionic.plugin.egee
+    ionic plugin add ionic.plugin.egee
 
 Methods
 -------
