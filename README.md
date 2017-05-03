@@ -1,9 +1,9 @@
 eGEE SA
 ======
 
-The `ionic.plugin.egee` 
+The `ionic-plugin-egee` 
 
-    ionic plugin add ionic.plugin.egee
+    ionic plugin add ionic-plugin-egee
 
 Methods
 -------
