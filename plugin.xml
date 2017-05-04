@@ -8,7 +8,6 @@
     <license>Apache 2.0</license>
     <keywords>Ionic,egee</keywords>
 
-
     <!-- android -->
     <platform name="android">
         <js-module src="www/android/egee.js" name="egee">
@@ -16,7 +15,7 @@
             <clobbers target="cordova.plugins.Egee" />
         </js-module>
         <config-file target="res/xml/config.xml" parent="/*">
-            <feature name="egee">
+            <feature name="Egee">
               <param name="android-package" value="io.ionic.egee.Egee" />
               <param name="onload" value="true" />
             </feature>
