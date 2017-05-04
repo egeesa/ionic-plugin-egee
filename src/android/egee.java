@@ -21,14 +21,14 @@ import android.view.Display;
 import android.graphics.Point;
 import android.os.Build;
 
-public class IonicEgee extends CordovaPlugin {
+public class Egee extends CordovaPlugin {
 
     public void initialize(CordovaInterface cordova, CordovaWebView webView) {
         super.initialize(cordova, webView);
     }
 
     public boolean execute(String action, JSONArray args, final CallbackContext callbackContext) throws JSONException {
-        if ("totodelasvegas".equals(action)) {
+        if ("helloworld".equals(action)) {
             // cordova.getThreadPool().execute(new Runnable() {
             //     public void run() {
             //         callbackContext.success("totodelasvegas"); // Thread-safe.

@@ -7,8 +7,8 @@ var argscheck = require('cordova/argscheck'),
 var Egee = function () {
 };
 
-Egee.totodelasvegas = function (success, error, message) {
-    exec(success, error, "Egee", "totodelasvegas", [message]);
+Egee.helloworld = function (success, error, message) {
+    exec(success, error, "Egee", "helloworld", [message]);
 };
 
 // channel.onCordovaReady.subscribe(function() {
