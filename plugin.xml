@@ -13,7 +13,7 @@
     <platform name="android">
         <js-module src="www/android/egee.js" name="egee">
             <runs/>
-            <clobbers target="cordova.plugins.egee" />
+            <clobbers target="cordova.plugins.Egee" />
         </js-module>
         <config-file target="res/xml/config.xml" parent="/*">
             <feature name="egee">
