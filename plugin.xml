@@ -22,7 +22,7 @@
             </feature>
         </config-file>
 
-        <source-file src="src/android/egee.java" target-dir="src/io/ionic/egee" />
+        <source-file src="src/android/Egee.java" target-dir="src/io/ionic/egee" />
     </platform>
 	
 </plugin>
