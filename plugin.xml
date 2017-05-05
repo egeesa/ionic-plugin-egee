@@ -23,5 +23,16 @@
 
         <source-file src="src/android/Egee.java" target-dir="src/io/ionic/egee" />
     </platform>
-	
+
+    <!-- windows -->
+    <platform name="windows">
+        <js-module src="src/windows/egeeProxy.js" name="EgeeProxy">
+        <merges target="" />
+        </js-module>
+        <config-file target="config.xml" parent="/*">
+        <feature name="Egee" value="Egee" />
+        </config-file>
+        <framework src="src/windows/_lib/Egee.csproj" custom="true" type="projectReference" versions="&lt;=8.1"/>
+    </platform>
+        
 </plugin>

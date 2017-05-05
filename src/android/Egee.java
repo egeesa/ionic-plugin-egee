@@ -39,6 +39,17 @@ public class Egee extends CordovaPlugin {
             callbackContext.success("Salut " + message); // Thread-safe.
             return true;
         }
+        if ("sappel_checkVersion".equals(action)) {
+            // cordova.getThreadPool().execute(new Runnable() {
+            //     public void run() {
+            //         callbackContext.success("totodelasvegas"); // Thread-safe.
+            //     }
+            // });
+            String message = args.getString(0);
+
+            callbackContext.success("Salut " + message); // Thread-safe.
+            return true;
+        }
         // if ("init".equals(action)) {
         //     cordova.getThreadPool().execute(new Runnable() {
         //         public void run() {
