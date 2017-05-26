@@ -10,7 +10,7 @@
 
     <!-- android -->
     <platform name="android">
-        <js-module src="www/android/egee.js" name="egee">
+        <js-module src="www/egee.js" name="egee">
             <runs/>
             <clobbers target="cordova.plugins.Egee" />
         </js-module>
@@ -27,7 +27,7 @@
     <!-- windows -->
     <platform name="windows">
         <js-module src="src/windows/egeeProxy.js" name="EgeeProxy">
-        <merges target="" />
+            <merges target="" />
         </js-module>
         <config-file target="config.xml" parent="/*">
         <feature name="Egee" value="Egee" />
