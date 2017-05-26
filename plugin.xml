@@ -33,6 +33,8 @@
         <feature name="Egee" value="Egee" />
         </config-file>
         <framework src="src/windows/_lib/Egee.csproj" custom="true" type="projectReference" versions="&lt;=8.1"/>
+        <hook src="hooks/windows/check-arch.js" type="before_compile"/>
+        <hook src="hooks/windows/check-arch.js" type="before_run"/>
     </platform>
         
 </plugin>
