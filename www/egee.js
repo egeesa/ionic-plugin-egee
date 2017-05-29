@@ -4,10 +4,10 @@ var argscheck = require('cordova/argscheck'),
     channel = require('cordova/channel');
 
 
-var Egee = function () {
+function Egee() {
 };
 
-Egee.helloworld = function (success, error, message) {
+Egee.prototype.helloworld = function (success, error, message) {
     exec(success, error, "Egee", "helloworld", [message]);
 };
 
@@ -19,7 +19,7 @@ Egee.helloworld = function (success, error, message) {
 //     }
 // });
 
-module.exports = Egee;
+module.exports = new Egee();
 
 
 

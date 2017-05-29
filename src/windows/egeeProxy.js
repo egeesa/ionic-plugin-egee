@@ -21,14 +21,17 @@
 // };
 //
 
-cordova.commandProxy.add("Egee", {
+module.exports = {
     helloworld: function (success, error, message) {
-        alert('test windows');
-        if(!strInput || !strInput.length) {
-            errorCallback("Error, something was wrong with the input string. =>" + strInput);
-        }
-        else {
-            successCallback(strInput + "echo");
+        try {
+            if (!message || !message.length) {
+                error("Error, something was wrong with the input string. =>" + message);
+            }
+            else {
+                success(message + "echo");
+            }
+        } catch (e) {
+            error("Erreur helloworld");
         }
 
         // alert('test windows');
@@ -59,4 +62,6 @@ cordova.commandProxy.add("Egee", {
         //  +            );
 
     }
-});
+};
+
+require("cordova/exec/proxy").add("Egee", module.exports);

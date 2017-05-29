@@ -9,7 +9,7 @@
     <keywords>Ionic,egee</keywords>
 
     <js-module src="www/egee.js" name="egee">
-        <clobbers target="window.egee" />
+        <clobbers target="egee" />
     </js-module>
 
     <!-- android -->
@@ -31,7 +31,7 @@
     <!-- windows -->
     <platform name="windows">
         <js-module src="src/windows/egeeProxy.js" name="EgeeProxy">
-            <merges target="" />
+            <runs />
         </js-module>
         <!--<config-file target="config.xml" parent="/*">
         <feature name="Egee" value="Egee" />
