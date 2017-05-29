@@ -1,6 +1,6 @@
 {
   "name": "ionic-plugin-egee",
-  "version": "1.0.1",
+  "version": "0.1.0",
   "description": "e-GEE Ionic Package",
   "cordova": {
     "id": "ionic-plugin-egee",
