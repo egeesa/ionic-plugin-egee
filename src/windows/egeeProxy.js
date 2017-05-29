@@ -1,5 +1,5 @@
 /**
- * @author e-GEE SA 
+ * @author e-GEE SA
  */
 
 // function Egee () {
@@ -19,6 +19,7 @@
 //         return classe.HelloWorld(message);
 //     }
 // };
+//
 
 cordova.commandProxy.add("Egee", {
     helloworld: function (success, error, message) {
@@ -49,4 +50,4 @@ cordova.commandProxy.add("Egee", {
         //  +            );
 
     }
-}); 
+});
