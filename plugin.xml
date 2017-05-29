@@ -8,6 +8,10 @@
     <license>Apache 2.0</license>
     <keywords>Ionic,egee</keywords>
 
+    <js-module src="www/egee.js" name="egee">
+        <clobbers target="window.egee" />
+    </js-module>
+
     <!-- android -->
     <platform name="android">
         <js-module src="www/egee.js" name="egee">
@@ -29,12 +33,12 @@
         <js-module src="src/windows/egeeProxy.js" name="EgeeProxy">
             <merges target="" />
         </js-module>
-        <config-file target="config.xml" parent="/*">
+        <!--<config-file target="config.xml" parent="/*">
         <feature name="Egee" value="Egee" />
         </config-file>
         <framework src="src/windows/_lib/Egee.csproj" custom="true" type="projectReference" versions="&lt;=8.1"/>
         <hook src="hooks/windows/check-arch.js" type="before_compile"/>
-        <hook src="hooks/windows/check-arch.js" type="before_run"/>
+        <hook src="hooks/windows/check-arch.js" type="before_run"/>-->
     </platform>
-        
+
 </plugin>
