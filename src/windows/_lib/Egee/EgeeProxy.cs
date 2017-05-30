@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Egee
+namespace Egee.Proxy
 {
-    public class Egee
+    public sealed class EgeeProxy
     {
-        public string HelloWorld(string message)
+        public static string HelloWorld(string message)
         {
             return "Salut " + message;
         }
