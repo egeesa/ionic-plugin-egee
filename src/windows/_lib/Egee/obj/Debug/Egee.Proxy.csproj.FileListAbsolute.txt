@@ -1,0 +1,42 @@
+C:\Projets GIT\Plugins\Projet c#\Egee\bin\Debug\Egee.Proxy.winmd
+C:\Projets GIT\Plugins\Projet c#\Egee\bin\Debug\Egee.Proxy.pdb
+C:\Projets GIT\Plugins\Projet c#\Egee\bin\Debug\Egee.Proxy.pri
+C:\Projets GIT\Plugins\Projet c#\Egee\obj\Debug\Egee.Proxy.csprojResolveAssemblyReference.cache
+C:\Projets GIT\Plugins\Projet c#\Egee\obj\Debug\Interop.IZAR_CSIXLib.dll
+C:\Projets GIT\Plugins\Projet c#\Egee\obj\Debug\Egee.Proxy.csproj.ResolveComReference.cache
+C:\Projets GIT\Plugins\Projet c#\Egee\obj\Debug\Egee.Proxy.winmd
+C:\Projets GIT\Plugins\Projet c#\Egee\obj\Debug\Egee.Proxy.pdb
+C:\Projets GIT\Plugins\Projet c#\Egee\obj\Debug\Egee.Proxy.winmdobj
+C:\Projets GIT\Plugins\Projet c#\Egee\obj\Debug\Egee.Proxy.compile.pdb
+C:\Projets GIT\Plugins\Projet c#\Egee\obj\Debug\priconfig.xml
+C:\Projets GIT\Plugins\Projet c#\Egee\obj\Debug\priconfig.xml.intermediate
+C:\Projets GIT\Plugins\Projet c#\Egee\obj\Debug\layout.resfiles
+C:\Projets GIT\Plugins\Projet c#\Egee\obj\Debug\layout.resfiles.intermediate
+C:\Projets GIT\Plugins\Projet c#\Egee\obj\Debug\resources.resfiles
+C:\Projets GIT\Plugins\Projet c#\Egee\obj\Debug\resources.resfiles.intermediate
+C:\Projets GIT\Plugins\Projet c#\Egee\obj\Debug\pri.resfiles
+C:\Projets GIT\Plugins\Projet c#\Egee\obj\Debug\pri.resfiles.intermediate
+C:\Projets GIT\Plugins\Projet c#\Egee\obj\Debug\qualifiers.txt
+C:\Projets GIT\Plugins\Projet c#\Egee\obj\Debug\qualifiers.txt.intermediate
+C:\Projets GIT\Plugins\Projet c#\Egee\obj\Debug\MultipleQualifiersPerDimensionFound.txt
+C:\Projets GIT\Plugins\ionic-plugin-egee\src\windows\_lib\Egee\bin\Debug\Egee.Proxy.winmd
+C:\Projets GIT\Plugins\ionic-plugin-egee\src\windows\_lib\Egee\bin\Debug\Egee.Proxy.pdb
+C:\Projets GIT\Plugins\ionic-plugin-egee\src\windows\_lib\Egee\bin\Debug\Egee.Proxy.pri
+C:\Projets GIT\Plugins\ionic-plugin-egee\src\windows\_lib\Egee\obj\Debug\Egee.Proxy.csprojResolveAssemblyReference.cache
+C:\Projets GIT\Plugins\ionic-plugin-egee\src\windows\_lib\Egee\obj\Debug\Interop.IZAR_CSIXLib.dll
+C:\Projets GIT\Plugins\ionic-plugin-egee\src\windows\_lib\Egee\obj\Debug\Egee.Proxy.csproj.ResolveComReference.cache
+C:\Projets GIT\Plugins\ionic-plugin-egee\src\windows\_lib\Egee\obj\Debug\Egee.Proxy.winmd
+C:\Projets GIT\Plugins\ionic-plugin-egee\src\windows\_lib\Egee\obj\Debug\Egee.Proxy.pdb
+C:\Projets GIT\Plugins\ionic-plugin-egee\src\windows\_lib\Egee\obj\Debug\Egee.Proxy.winmdobj
+C:\Projets GIT\Plugins\ionic-plugin-egee\src\windows\_lib\Egee\obj\Debug\Egee.Proxy.compile.pdb
+C:\Projets GIT\Plugins\ionic-plugin-egee\src\windows\_lib\Egee\obj\Debug\priconfig.xml
+C:\Projets GIT\Plugins\ionic-plugin-egee\src\windows\_lib\Egee\obj\Debug\priconfig.xml.intermediate
+C:\Projets GIT\Plugins\ionic-plugin-egee\src\windows\_lib\Egee\obj\Debug\layout.resfiles
+C:\Projets GIT\Plugins\ionic-plugin-egee\src\windows\_lib\Egee\obj\Debug\layout.resfiles.intermediate
+C:\Projets GIT\Plugins\ionic-plugin-egee\src\windows\_lib\Egee\obj\Debug\resources.resfiles
+C:\Projets GIT\Plugins\ionic-plugin-egee\src\windows\_lib\Egee\obj\Debug\resources.resfiles.intermediate
+C:\Projets GIT\Plugins\ionic-plugin-egee\src\windows\_lib\Egee\obj\Debug\pri.resfiles
+C:\Projets GIT\Plugins\ionic-plugin-egee\src\windows\_lib\Egee\obj\Debug\pri.resfiles.intermediate
+C:\Projets GIT\Plugins\ionic-plugin-egee\src\windows\_lib\Egee\obj\Debug\qualifiers.txt
+C:\Projets GIT\Plugins\ionic-plugin-egee\src\windows\_lib\Egee\obj\Debug\qualifiers.txt.intermediate
+C:\Projets GIT\Plugins\ionic-plugin-egee\src\windows\_lib\Egee\obj\Debug\MultipleQualifiersPerDimensionFound.txt

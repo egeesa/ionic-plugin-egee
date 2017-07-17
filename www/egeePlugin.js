@@ -11,7 +11,9 @@ EgeePlugin.prototype.helloworld = function (success, error, message) {
     exec(success, error, "EgeePlugin", "helloworld", [message]);
 };
 
-
+EgeePlugin.prototype.getVersion = function (success, error, message) {
+    exec(success, error, "EgeePlugin", "getVersion", [message]);
+};
 
 module.exports = new EgeePlugin();
 

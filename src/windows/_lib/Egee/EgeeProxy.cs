@@ -12,5 +12,7 @@ namespace Egee.Proxy
         {
             return "Salut " + message;
         }
+
+        
     }
 }

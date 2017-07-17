@@ -30,5 +30,6 @@
             <runs />
         </js-module>
         <framework src="src/windows/_lib/Egee/Egee.Proxy.csproj" custom="true" type="projectReference"/>
-    </platform>
+        <!--<framework src="src/windows/_lib/Egee.Proxy.winmd" custom="true"/>-->
+    </platform> 
 </plugin>

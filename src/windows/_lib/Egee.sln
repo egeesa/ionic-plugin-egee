@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RuntimeComponent2", "RuntimeComponent2\RuntimeComponent2.csproj", "{BD5EA2A9-6471-4FC7-AC2F-88AEADD8A82F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Egee.Proxy", "Egee\Egee.Proxy.csproj", "{BD5EA2A9-6471-4FC7-AC2F-88AEADD8A82F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

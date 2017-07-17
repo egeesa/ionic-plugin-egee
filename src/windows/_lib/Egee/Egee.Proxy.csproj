@@ -110,6 +110,18 @@
   <ItemGroup>
     <Compile Include="EgeeProxy.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SappelProxy.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="IZAR_CSIXLib">
+      <Guid>{4E34927D-ACCE-4E68-B39A-8D06B9632B1B}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
