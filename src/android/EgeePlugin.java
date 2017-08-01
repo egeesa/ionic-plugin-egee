@@ -21,7 +21,7 @@ import android.view.Display;
 import android.graphics.Point;
 import android.os.Build;
 
-public class Egee extends CordovaPlugin {
+public class EgeePlugin extends CordovaPlugin {
 
     public void initialize(CordovaInterface cordova, CordovaWebView webView) {
         super.initialize(cordova, webView);
