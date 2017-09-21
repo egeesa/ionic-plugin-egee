@@ -76,39 +76,48 @@ public class EgeePlugin extends CordovaPlugin {
             return true;
         }
         if ("sappelBluetooth".equals(action)) {
-            final String adresseMAC = args.getString(0);
-            final String messageSupplementaire = "";
+            cordova.getActivity().runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    final String adresseMAC = args.getString(0);
+                    final String messageSupplementaire = "";
+                    Log.d("RECEIVER", "sappelBluetooth");
+                    verifierLicence();
+
+                    Receiver.start("00:12:F3:18:E0:3E", new IReceiverCallback() {
+
+                        @Override
+                        public void onKeepAlive() {
+                            // TODO Auto-generated method stub
+                            Log.d("RECEIVER", "onKeepAlive");
+                        }
+
+                        @Override
+                        public void onFrame(final String arg0, final String arg1) {
+                            System.out.println(arg0 + " " + arg1);
+                            Log.d("RECEIVER", "Trame reçue" + s + " " + s1);
+                        }
+
+                        @Override
+                        public void onError(final Exception arg0) {
+                            // TODO Auto-generated method stub
+                            Log.e("RECEIVER", "Une erreur est survenue", e);
+                        }
+
+                        @Override
+                        public void onConnectionClosed() {
+                            // TODO Auto-generated method stub
+                            Log.d("RECEIVER", "Deconnexion");
+                        }
+                    });
+
+                }
+            });
+
             try {
-                Log.d("RECEIVER", "sappelBluetooth");
-                Receiver.IReceiverCallback myReceiverCallback = new Receiver.IReceiverCallback() {
-                    @Override
-                    public void onFrame(String s, String s1) {
-                        Log.d("RECEIVER", "Trame reçue");
-                        //listeTrames.add(s + "\n" + s1);
-                    }
-
-                    @Override
-                    public void onKeepAlive() {
-                        Log.d("RECEIVER", "onKeepAlive");
-                    }
-
-                    @Override
-                    public void onError(Exception e) {
-                        Log.e("RECEIVER", "Une erreur est survenue", e);
-                    }
-
-                    @Override
-                    public void onConnectionClosed() {
-                        Log.d("RECEIVER", "Deconnexion");
-                    }
-                };
-                verifierLicence();
-                Receiver myReceiver = Receiver.start("00:12:F3:18:E0:3E", myReceiverCallback);
-                callbackContext.success("test bluetooth"); // Thread-safe.
-
-            } catch (Exception e) {
-                Log.e("RECEIVER", "sappelBluetooth ", e);
-                callbackContext.error("Erreur lors de la connexion bluetooth " + adresseMAC + " " + e);
+                Thread.sleep(100000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
             }
             return true;
         }
