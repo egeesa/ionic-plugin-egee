@@ -8,6 +8,7 @@ import org.apache.cordova.PluginResult;
 import org.apache.cordova.PluginResult.Status;
 import org.json.JSONArray;
 import org.json.JSONException;
+import org.json.JSONObject;
 
 import android.content.Context;
 import android.graphics.Rect;
@@ -25,6 +26,7 @@ import android.util.Log;
 import com.diehl.metering.izar.license.lic.License;
 import com.diehl.metering.izar.module.readout.text.impl.RadioInterpret;
 import com.diehl.metering.izar.module.readout.text.impl.Receiver;
+import com.diehl.metering.izar.module.readout.text.impl.Receiver.IReceiverCallback;
 import com.diehl.metering.izar.module.readout.api.v1r0.IReadoutInterpretSPI;
 import java.lang.Exception;
 
