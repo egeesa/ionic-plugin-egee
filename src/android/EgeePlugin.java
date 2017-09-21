@@ -81,8 +81,7 @@ public class EgeePlugin extends CordovaPlugin {
             cordova.getActivity().runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
-                    final String adresseMAC = args.getString(0);
-                    final String messageSupplementaire = "";
+                    //String adresseMAC = args.getString(0);
                     Log.d("RECEIVER", "sappelBluetooth");
                     verifierLicence();
 
