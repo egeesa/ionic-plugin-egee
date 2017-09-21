@@ -97,13 +97,13 @@ public class EgeePlugin extends CordovaPlugin {
                         @Override
                         public void onFrame(final String arg0, final String arg1) {
                             System.out.println(arg0 + " " + arg1);
-                            Log.d("RECEIVER", "Trame reçue" + s + " " + s1);
+                            Log.d("RECEIVER", "Trame reçue" + arg0 + " " + arg1);
                         }
 
                         @Override
                         public void onError(final Exception arg0) {
                             // TODO Auto-generated method stub
-                            Log.e("RECEIVER", "Une erreur est survenue", e);
+                            Log.e("RECEIVER", "Une erreur est survenue", arg0);
                         }
 
                         @Override
