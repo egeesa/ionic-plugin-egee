@@ -1,0 +1,2 @@
+C:\Projets GIT\Plugins\src\windows\_lib\Egee.Proxy.Test\Egee.Proxy.Test.csproj;x86
+C:\Projets GIT\Plugins\src\windows\_lib\Egee\Egee.Proxy.csproj;neutral
