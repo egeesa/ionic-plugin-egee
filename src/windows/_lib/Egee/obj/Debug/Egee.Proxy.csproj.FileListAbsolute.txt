@@ -39,3 +39,26 @@ C:\Projets GIT\Plugins\ionic-plugin-egee\src\windows\_lib\Egee\obj\Debug\pri.res
 C:\Projets GIT\Plugins\ionic-plugin-egee\src\windows\_lib\Egee\obj\Debug\qualifiers.txt
 C:\Projets GIT\Plugins\ionic-plugin-egee\src\windows\_lib\Egee\obj\Debug\qualifiers.txt.intermediate
 C:\Projets GIT\Plugins\ionic-plugin-egee\src\windows\_lib\Egee\obj\Debug\MultipleQualifiersPerDimensionFound.txt
+C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee\obj\Debug\Egee.Proxy.winmdobj
+C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee\obj\Debug\Egee.Proxy.compile.pdb
+C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee\bin\Debug\IzarLibraryWrapper.dll
+C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee\bin\Debug\Egee.Proxy.winmd
+C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee\bin\Debug\Egee.Proxy.pdb
+C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee\bin\Debug\Egee.Proxy.pri
+C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee\obj\Debug\Interop.IZAR_CSIXLib.dll
+C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee\obj\Debug\Egee.Proxy.csproj.ResolveComReference.cache
+C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee\obj\Debug\Egee.Proxy.winmd
+C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee\obj\Debug\Egee.Proxy.pdb
+C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee\obj\Debug\priconfig.xml
+C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee\obj\Debug\priconfig.xml.intermediate
+C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee\obj\Debug\layout.resfiles
+C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee\obj\Debug\layout.resfiles.intermediate
+C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee\obj\Debug\resources.resfiles
+C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee\obj\Debug\resources.resfiles.intermediate
+C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee\obj\Debug\pri.resfiles
+C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee\obj\Debug\pri.resfiles.intermediate
+C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee\obj\Debug\qualifiers.txt
+C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee\obj\Debug\qualifiers.txt.intermediate
+C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee\obj\Debug\MultipleQualifiersPerDimensionFound.txt
+C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee\bin\Debug\SappelWindowsRuntimeComponent.winmd
+C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee\obj\Debug\Egee.Proxy.csprojResolveAssemblyReference.cache

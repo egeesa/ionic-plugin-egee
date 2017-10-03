@@ -3,9 +3,9 @@
  */
 
 module.exports = {
-    getVersion: function (success, error, message) {
+    getversion: function (success, error, message) {
         try {
-            success(Egee.Proxy.SappelProxy.getVersion());
+            success(Egee.Proxy.EgeeProxy.getversion());
         } catch (e) {
             error("Erreur getVersion " + e.message);
         }
@@ -18,7 +18,7 @@ module.exports = {
             } else {
                 //Créer une instance de la classe CS
                 //var classe = new Egee.Egee();
-                success(Egee.Proxy.EgeeProxy.helloWorld(message) + " echo");
+                success(Egee.Proxy.EgeeProxy.helloworld(message) + " echo");
             }
         } catch (e) {
             error("Erreur helloworld " + e.message);
