@@ -1,0 +1,62 @@
+﻿Installation de l'assembly 'C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee.Wcf.Service.Host\bin\Debug\Egee.Wcf.Service.Host.exe'.
+Les paramètres affectés sont :
+   assemblypath = C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee.Wcf.Service.Host\bin\Debug\Egee.Wcf.Service.Host.exe
+   logfile = C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee.Wcf.Service.Host\bin\Debug\Egee.Wcf.Service.Host.InstallLog
+Installation du service WinSvcHostedSappelWCF en cours...
+Création d'une source EventLog WinSvcHostedSappelWCF dans le journal Application...
+Consultez le contenu du fichier journal pour l'avancement de l'assembly C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee.Wcf.Service.Host\bin\Debug\Egee.Wcf.Service.Host.exe.
+Le fichier se trouve à C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee.Wcf.Service.Host\bin\Debug\Egee.Wcf.Service.Host.InstallLog.
+Restauration de l'assembly 'C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee.Wcf.Service.Host\bin\Debug\Egee.Wcf.Service.Host.exe'.
+Les paramètres affectés sont :
+   logtoconsole = 
+   logfile = C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee.Wcf.Service.Host\bin\Debug\Egee.Wcf.Service.Host.InstallLog
+   assemblypath = C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee.Wcf.Service.Host\bin\Debug\Egee.Wcf.Service.Host.exe
+Restauration de l'état précédent du journal des événements pour la source WinSvcHostedSappelWCF.
+Une exception s'est produite lors de la phase de restauration du programme d'installation System.Diagnostics.EventLogInstaller.
+System.Security.SecurityException: La source est introuvable mais certains ou l'ensemble des journaux des événements n'ont pas pu faire l'objet d'une recherche. Journaux inaccessibles : Security.
+Une exception s'est produite lors de la phase de restauration de l'installation. Cette exception est ignorée et la restauration se poursuit. Cependant, l'ordinateur ne sera pas totalement restauré à son état initial à la fin de la restauration.
+Installation de l'assembly 'C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee.Wcf.Service.Host\bin\Debug\Egee.Wcf.Service.Host.exe'.
+Les paramètres affectés sont :
+   assemblypath = C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee.Wcf.Service.Host\bin\Debug\Egee.Wcf.Service.Host.exe
+   logfile = C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee.Wcf.Service.Host\bin\Debug\Egee.Wcf.Service.Host.InstallLog
+Installation du service WinSvcHostedSappelWCF en cours...
+Création d'une source EventLog WinSvcHostedSappelWCF dans le journal Application...
+Consultez le contenu du fichier journal pour l'avancement de l'assembly C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee.Wcf.Service.Host\bin\Debug\Egee.Wcf.Service.Host.exe.
+Le fichier se trouve à C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee.Wcf.Service.Host\bin\Debug\Egee.Wcf.Service.Host.InstallLog.
+Restauration de l'assembly 'C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee.Wcf.Service.Host\bin\Debug\Egee.Wcf.Service.Host.exe'.
+Les paramètres affectés sont :
+   logtoconsole = 
+   logfile = C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee.Wcf.Service.Host\bin\Debug\Egee.Wcf.Service.Host.InstallLog
+   assemblypath = C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee.Wcf.Service.Host\bin\Debug\Egee.Wcf.Service.Host.exe
+Restauration de l'état précédent du journal des événements pour la source WinSvcHostedSappelWCF.
+Une exception s'est produite lors de la phase de restauration du programme d'installation System.Diagnostics.EventLogInstaller.
+System.Security.SecurityException: La source est introuvable mais certains ou l'ensemble des journaux des événements n'ont pas pu faire l'objet d'une recherche. Journaux inaccessibles : Security.
+Une exception s'est produite lors de la phase de restauration de l'installation. Cette exception est ignorée et la restauration se poursuit. Cependant, l'ordinateur ne sera pas totalement restauré à son état initial à la fin de la restauration.
+Installation de l'assembly 'C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee.Wcf.Service.Host\bin\Debug\Egee.Wcf.Service.Host.exe'.
+Les paramètres affectés sont :
+   assemblypath = C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee.Wcf.Service.Host\bin\Debug\Egee.Wcf.Service.Host.exe
+   logfile = C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee.Wcf.Service.Host\bin\Debug\Egee.Wcf.Service.Host.InstallLog
+Installation du service WinSvcHostedSappelWCF en cours...
+Le service WinSvcHostedSappelWCF a été installé avec succès.
+Création d'une source EventLog WinSvcHostedSappelWCF dans le journal Application...
+Consultez le contenu du fichier journal pour l'avancement de l'assembly C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee.Wcf.Service.Host\bin\Debug\Egee.Wcf.Service.Host.exe.
+Le fichier se trouve à C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee.Wcf.Service.Host\bin\Debug\Egee.Wcf.Service.Host.InstallLog.
+Validation de l'assembly 'C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee.Wcf.Service.Host\bin\Debug\Egee.Wcf.Service.Host.exe'.
+Les paramètres affectés sont :
+   logtoconsole = 
+   logfile = C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee.Wcf.Service.Host\bin\Debug\Egee.Wcf.Service.Host.InstallLog
+   assemblypath = C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee.Wcf.Service.Host\bin\Debug\Egee.Wcf.Service.Host.exe
+Installation de l'assembly 'C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee.Wcf.Service.Host\bin\Debug\Egee.Wcf.Service.Host.exe'.
+Les paramètres affectés sont :
+   assemblypath = C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee.Wcf.Service.Host\bin\Debug\Egee.Wcf.Service.Host.exe
+   logfile = C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee.Wcf.Service.Host\bin\Debug\Egee.Wcf.Service.Host.InstallLog
+Installation du service WinSvcHostedSappelWCF en cours...
+Création d'une source EventLog WinSvcHostedSappelWCF dans le journal Application...
+Consultez le contenu du fichier journal pour l'avancement de l'assembly C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee.Wcf.Service.Host\bin\Debug\Egee.Wcf.Service.Host.exe.
+Le fichier se trouve à C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee.Wcf.Service.Host\bin\Debug\Egee.Wcf.Service.Host.InstallLog.
+Restauration de l'assembly 'C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee.Wcf.Service.Host\bin\Debug\Egee.Wcf.Service.Host.exe'.
+Les paramètres affectés sont :
+   logtoconsole = 
+   logfile = C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee.Wcf.Service.Host\bin\Debug\Egee.Wcf.Service.Host.InstallLog
+   assemblypath = C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee.Wcf.Service.Host\bin\Debug\Egee.Wcf.Service.Host.exe
+Restauration de l'état précédent du journal des événements pour la source WinSvcHostedSappelWCF.

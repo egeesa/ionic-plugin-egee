@@ -1,0 +1,1045 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://MAC" elementFormDefault="qualified" targetNamespace="http://MAC" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://51.254.179.28/MAC_EAU_WS/MAC.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Pracdis.CIR.BO" />
+  <xs:import schemaLocation="http://51.254.179.28/MAC_EAU_WS/MAC.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Pracdis.Exchange.BO" />
+  <xs:import schemaLocation="http://51.254.179.28/MAC_EAU_WS/MAC.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/Pracdis.SITR.BO" />
+  <xs:element name="Liste">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Pracdis.CIR.BO" minOccurs="0" name="liste" type="q1:EListe" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Pracdis.Exchange.BO" minOccurs="0" name="ListeResult" nillable="true" type="q2:ArrayOfCodeLibelle" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RechercherClients">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="criteres" nillable="true" type="tns:CriteresRechercheClient" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="CriteresRechercheClient">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q3="http://schemas.datacontract.org/2004/07/Pracdis.CIR.BO" base="q3:CriteresRechercheDelegation">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CodePostal" nillable="true" type="xs:string" />
+          <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/Pracdis.Exchange.BO" minOccurs="0" name="CodePostalOption" type="q4:ESearchTextOption" />
+          <xs:element minOccurs="0" name="Nom" nillable="true" type="xs:string" />
+          <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/Pracdis.Exchange.BO" minOccurs="0" name="NomOption" type="q5:ESearchTextOption" />
+          <xs:element minOccurs="0" name="Prenom" nillable="true" type="xs:string" />
+          <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/Pracdis.Exchange.BO" minOccurs="0" name="PrenomOption" type="q6:ESearchTextOption" />
+          <xs:element minOccurs="0" name="ReferenceClient" nillable="true" type="xs:string" />
+          <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/Pracdis.Exchange.BO" minOccurs="0" name="ReferenceClientOption" type="q7:ESearchTextOption" />
+          <xs:element minOccurs="0" name="Rue" nillable="true" type="xs:string" />
+          <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/Pracdis.Exchange.BO" minOccurs="0" name="RueOption" type="q8:ESearchTextOption" />
+          <xs:element minOccurs="0" name="Telephone" nillable="true" type="xs:string" />
+          <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/Pracdis.Exchange.BO" minOccurs="0" name="TelephoneOption" type="q9:ESearchTextOption" />
+          <xs:element minOccurs="0" name="Ville" nillable="true" type="xs:string" />
+          <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/Pracdis.Exchange.BO" minOccurs="0" name="VilleOption" type="q10:ESearchTextOption" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="CriteresRechercheClient" nillable="true" type="tns:CriteresRechercheClient" />
+  <xs:element name="RechercherClientsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="RechercherClientsResult" nillable="true" type="tns:ArrayOfClient" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="ArrayOfClient">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Client" nillable="true" type="tns:Client" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfClient" nillable="true" type="tns:ArrayOfClient" />
+  <xs:complexType name="Client">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:DataObjectCIRDelegation">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Civilite" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CodePostal" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Fax" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Nom" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Prenom" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ReferenceClient" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Rue" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Telephone" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TelephonePro" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Ville" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Client" nillable="true" type="tns:Client" />
+  <xs:complexType name="DataObjectCIRDelegation">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q11="http://schemas.datacontract.org/2004/07/Pracdis.CIR.BO" base="q11:DataObjectCIR">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DataObjectCIRDelegation" nillable="true" type="tns:DataObjectCIRDelegation" />
+  <xs:element name="RechercherPagesClients">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="criteres" nillable="true" type="tns:CriteresRechercheClient" />
+        <xs:element minOccurs="0" name="pageSize" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RechercherPagesClientsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/Pracdis.Exchange.BO" minOccurs="0" name="RechercherPagesClientsResult" nillable="true" type="q12:PagingCollectionOfClientn3JMDHw_P" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RafraichirPagesClients">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/Pracdis.Exchange.BO" minOccurs="0" name="clients" nillable="true" type="q13:PagingCollectionOfClientn3JMDHw_P" />
+        <xs:element minOccurs="0" name="page" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RafraichirPagesClientsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="RafraichirPagesClientsResult" nillable="true" type="tns:ArrayOfClient" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RechercherPDS">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/Pracdis.CIR.BO" minOccurs="0" name="criteres" nillable="true" type="q14:CriteresRecherchePDS" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RechercherPDSResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="RechercherPDSResult" nillable="true" type="tns:ArrayOfPDS" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="ArrayOfPDS">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PDS" nillable="true" type="tns:PDS" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPDS" nillable="true" type="tns:ArrayOfPDS" />
+  <xs:complexType name="PDS">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ObjetCaracteristiques">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CodePostal" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Commentaire" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Compteur" nillable="true" type="tns:Compteur" />
+          <xs:element minOccurs="0" name="DateMES" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="DepartBT" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Emetteur" nillable="true" type="tns:Emetteur" />
+          <xs:element minOccurs="0" name="EnService" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Energie" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Etat" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="NomClient" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PosteHT" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Provisoire" type="xs:boolean" />
+          <xs:element minOccurs="0" name="ReferenceClient" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ReferenceEnergie" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ReferenceEtat" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ReferenceExterne" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ReferenceExterneClient" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ReferenceStatut" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ReferenceType" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ReferenceTypeComptage" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Rue" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="STRef" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Statut" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Telephone" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Type" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TypeComptage" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Verification" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Ville" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="PDS" nillable="true" type="tns:PDS" />
+  <xs:complexType name="ObjetCaracteristiques">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q15="http://schemas.datacontract.org/2004/07/Pracdis.CIR.BO" base="q15:DataObjectCIR">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Caracteristiques" nillable="true" type="tns:ArrayOfCaracteristique" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ObjetCaracteristiques" nillable="true" type="tns:ObjetCaracteristiques" />
+  <xs:complexType name="ArrayOfCaracteristique">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Caracteristique" nillable="true" type="tns:Caracteristique" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCaracteristique" nillable="true" type="tns:ArrayOfCaracteristique" />
+  <xs:complexType name="Caracteristique">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q16="http://schemas.datacontract.org/2004/07/Pracdis.CIR.BO" base="q16:DataObjectCIR">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Afficher" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Editable" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Famille" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Libelle" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Type" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Valeur" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Caracteristique" nillable="true" type="tns:Caracteristique" />
+  <xs:complexType name="Compteur">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ObjetCaracteristiques">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CommandeReleve" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Constructeur" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DateConstruction" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Energie" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Etat" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="NombreCadran" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="NombreRoues" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="NumeroSerie" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ReferenceConstructeur" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ReferenceEmetteur" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ReferenceEnergie" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ReferenceEtat" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ReferencePDS" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ReferenceType" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ReferenceTypePracdis" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Type" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TypePracdis" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Compteur" nillable="true" type="tns:Compteur" />
+  <xs:complexType name="Emetteur">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ObjetCaracteristiques">
+        <xs:sequence>
+          <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/Pracdis.CIR.BO" minOccurs="0" name="Association" type="q17:EStatutAssociation" />
+          <xs:element minOccurs="0" name="DateAssociation" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="IndexAssociation" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Nom" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="NumeroSerie" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="NumeroSerieCompteur" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ReferenceCompteur" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ReferenceExterne" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ReferencePDS" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ReferencePDSExterne" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Emetteur" nillable="true" type="tns:Emetteur" />
+  <xs:element name="RechercherPagesPDS">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/Pracdis.CIR.BO" minOccurs="0" name="criteres" nillable="true" type="q18:CriteresRecherchePDS" />
+        <xs:element minOccurs="0" name="pageSize" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RechercherPagesPDSResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/Pracdis.Exchange.BO" minOccurs="0" name="RechercherPagesPDSResult" nillable="true" type="q19:PagingCollectionOfPDSn3JMDHw_P" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RafraichirPagesPDS">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/Pracdis.Exchange.BO" minOccurs="0" name="pds" nillable="true" type="q20:PagingCollectionOfPDSn3JMDHw_P" />
+        <xs:element minOccurs="0" name="page" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RafraichirPagesPDSResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="RafraichirPagesPDSResult" nillable="true" type="tns:ArrayOfPDS" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ClientPDS">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="client" nillable="true" type="tns:Client" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ClientPDSResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ClientPDSResult" nillable="true" type="tns:ArrayOfPDS" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ClientPagesPDS">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="client" nillable="true" type="tns:Client" />
+        <xs:element minOccurs="0" name="pageSize" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ClientPagesPDSResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/Pracdis.Exchange.BO" minOccurs="0" name="ClientPagesPDSResult" nillable="true" type="q21:PagingCollectionOfPDSn3JMDHw_P" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RechercherCompteurs">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/Pracdis.CIR.BO" minOccurs="0" name="criteres" nillable="true" type="q22:CriteresRechercheCompteur" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RechercherCompteursResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="RechercherCompteursResult" nillable="true" type="tns:ArrayOfCompteur" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="ArrayOfCompteur">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Compteur" nillable="true" type="tns:Compteur" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCompteur" nillable="true" type="tns:ArrayOfCompteur" />
+  <xs:element name="RechercherPagesCompteurs">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/Pracdis.CIR.BO" minOccurs="0" name="criteres" nillable="true" type="q23:CriteresRechercheCompteur" />
+        <xs:element minOccurs="0" name="pageSize" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RechercherPagesCompteursResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/Pracdis.Exchange.BO" minOccurs="0" name="RechercherPagesCompteursResult" nillable="true" type="q24:PagingCollectionOfCompteurn3JMDHw_P" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RafraichirPagesCompteurs">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/Pracdis.Exchange.BO" minOccurs="0" name="compteurs" nillable="true" type="q25:PagingCollectionOfCompteurn3JMDHw_P" />
+        <xs:element minOccurs="0" name="page" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RafraichirPagesCompteursResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="RafraichirPagesCompteursResult" nillable="true" type="tns:ArrayOfCompteur" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RechercherEmetteurs">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/Pracdis.CIR.BO" minOccurs="0" name="criteres" nillable="true" type="q26:CriteresRechercheEmetteur" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RechercherEmetteursResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="RechercherEmetteursResult" nillable="true" type="tns:ArrayOfEmetteur" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="ArrayOfEmetteur">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Emetteur" nillable="true" type="tns:Emetteur" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfEmetteur" nillable="true" type="tns:ArrayOfEmetteur" />
+  <xs:element name="RechercherPagesEmetteurs">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/Pracdis.CIR.BO" minOccurs="0" name="criteres" nillable="true" type="q27:CriteresRechercheEmetteur" />
+        <xs:element minOccurs="0" name="pageSize" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RechercherPagesEmetteursResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/Pracdis.Exchange.BO" minOccurs="0" name="RechercherPagesEmetteursResult" nillable="true" type="q28:PagingCollectionOfEmetteurn3JMDHw_P" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RafraichirPagesEmetteurs">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/Pracdis.Exchange.BO" minOccurs="0" name="emetteurs" nillable="true" type="q29:PagingCollectionOfEmetteurn3JMDHw_P" />
+        <xs:element minOccurs="0" name="page" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RafraichirPagesEmetteursResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="RafraichirPagesEmetteursResult" nillable="true" type="tns:ArrayOfEmetteur" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RechercherContratsTelecollecte">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/Pracdis.SITR.BO" minOccurs="0" name="criteres" nillable="true" type="q30:CriteresRechercheContrat" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RechercherContratsTelecollecteResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="RechercherContratsTelecollecteResult" nillable="true" type="tns:ArrayOfContratTelecollecte" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="ArrayOfContratTelecollecte">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ContratTelecollecte" nillable="true" type="tns:ContratTelecollecte" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfContratTelecollecte" nillable="true" type="tns:ArrayOfContratTelecollecte" />
+  <xs:complexType name="ContratTelecollecte">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:DataObjectSITR">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Nom" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SousContrats" nillable="true" type="tns:ArrayOfSousContratTelecollecte" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ContratTelecollecte" nillable="true" type="tns:ContratTelecollecte" />
+  <xs:complexType name="DataObjectSITR">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q31="http://schemas.datacontract.org/2004/07/Pracdis.Exchange.BO" base="q31:DataObject">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DataObjectSITR" nillable="true" type="tns:DataObjectSITR" />
+  <xs:complexType name="ArrayOfSousContratTelecollecte">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SousContratTelecollecte" nillable="true" type="tns:SousContratTelecollecte" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSousContratTelecollecte" nillable="true" type="tns:ArrayOfSousContratTelecollecte" />
+  <xs:complexType name="SousContratTelecollecte">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:DataObjectSITR">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CibleContrat" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Nom" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PeriodeAffectation" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="ReferenceContrat" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SousContratTelecollecte" nillable="true" type="tns:SousContratTelecollecte" />
+  <xs:element name="RechercherPagesContratsTelecollecte">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q32="http://schemas.datacontract.org/2004/07/Pracdis.SITR.BO" minOccurs="0" name="criteres" nillable="true" type="q32:CriteresRechercheContrat" />
+        <xs:element minOccurs="0" name="pageSize" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RechercherPagesContratsTelecollecteResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q33="http://schemas.datacontract.org/2004/07/Pracdis.Exchange.BO" minOccurs="0" name="RechercherPagesContratsTelecollecteResult" nillable="true" type="q33:PagingCollectionOfContratTelecollecten3JMDHw_P" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RafraichirPagesContratsTelecollecte">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q34="http://schemas.datacontract.org/2004/07/Pracdis.Exchange.BO" minOccurs="0" name="contrats" nillable="true" type="q34:PagingCollectionOfContratTelecollecten3JMDHw_P" />
+        <xs:element minOccurs="0" name="page" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RafraichirPagesContratsTelecollecteResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="RafraichirPagesContratsTelecollecteResult" nillable="true" type="tns:ArrayOfContratTelecollecte" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RechercherRecepteurs">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q35="http://schemas.datacontract.org/2004/07/Pracdis.SITR.BO" minOccurs="0" name="criteres" nillable="true" type="q35:CriteresRechercheRecepteur" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RechercherRecepteursResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="RechercherRecepteursResult" nillable="true" type="tns:ArrayOfRecepteur" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="ArrayOfRecepteur">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Recepteur" nillable="true" type="tns:Recepteur" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRecepteur" nillable="true" type="tns:ArrayOfRecepteur" />
+  <xs:complexType name="Recepteur">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:DataObjectSITR">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Adresse" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="NumeroSerie" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Zone" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Recepteur" nillable="true" type="tns:Recepteur" />
+  <xs:element name="RechercherPagesRecepteurs">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q36="http://schemas.datacontract.org/2004/07/Pracdis.SITR.BO" minOccurs="0" name="criteres" nillable="true" type="q36:CriteresRechercheRecepteur" />
+        <xs:element minOccurs="0" name="pageSize" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RechercherPagesRecepteursResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q37="http://schemas.datacontract.org/2004/07/Pracdis.Exchange.BO" minOccurs="0" name="RechercherPagesRecepteursResult" nillable="true" type="q37:PagingCollectionOfRecepteurn3JMDHw_P" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RafraichirPagesRecepteurs">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q38="http://schemas.datacontract.org/2004/07/Pracdis.Exchange.BO" minOccurs="0" name="recepteurs" nillable="true" type="q38:PagingCollectionOfRecepteurn3JMDHw_P" />
+        <xs:element minOccurs="0" name="page" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RafraichirPagesRecepteursResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="RafraichirPagesRecepteursResult" nillable="true" type="tns:ArrayOfRecepteur" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PDSReleves">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="pds" nillable="true" type="tns:PDS" />
+        <xs:element minOccurs="0" name="facturation" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PDSRelevesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="PDSRelevesResult" nillable="true" type="tns:ArrayOfReleve" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="ArrayOfReleve">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Releve" nillable="true" type="tns:Releve" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfReleve" nillable="true" type="tns:ArrayOfReleve" />
+  <xs:complexType name="Releve">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q39="http://schemas.datacontract.org/2004/07/Pracdis.CIR.BO" base="q39:DataObjectCIR">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="DateReleve" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="DonneesFacturationBleu" nillable="true" type="tns:DonneesFacturationBleu" />
+          <xs:element minOccurs="0" name="DonneesFacturationEau" nillable="true" type="tns:DonneesFacturationEau" />
+          <xs:element minOccurs="0" name="DonneesFacturationGaz" nillable="true" type="tns:DonneesFacturationGaz" />
+          <xs:element minOccurs="0" name="DonneesFacturationJaune" nillable="true" type="tns:DonneesFacturationJaune" />
+          <xs:element minOccurs="0" name="DonneesFacturationVert" nillable="true" type="tns:DonneesFacturationVert" />
+          <xs:element minOccurs="0" name="Mesures" nillable="true" type="tns:ArrayOfMesure" />
+          <xs:element minOccurs="0" name="NumeroSerie" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ReferenceClient" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ReferenceCompteur" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Releve" nillable="true" type="tns:Releve" />
+  <xs:complexType name="DonneesFacturationBleu">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:DonneesFacturation">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Index1" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Index2" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Index3" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Index4" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Index5" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Index6" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DonneesFacturationBleu" nillable="true" type="tns:DonneesFacturationBleu" />
+  <xs:complexType name="DonneesFacturation">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q40="http://schemas.datacontract.org/2004/07/Pracdis.CIR.BO" base="q40:DataObjectCIR">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DonneesFacturation" nillable="true" type="tns:DonneesFacturation" />
+  <xs:complexType name="DonneesFacturationEau">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:DonneesFacturation">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Index" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="IndexM3" nillable="true" type="xs:decimal" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DonneesFacturationEau" nillable="true" type="tns:DonneesFacturationEau" />
+  <xs:complexType name="DonneesFacturationGaz">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:DonneesFacturation">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Index" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="IndexConvertisseur" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="IndexM3" nillable="true" type="xs:decimal" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DonneesFacturationGaz" nillable="true" type="tns:DonneesFacturationGaz" />
+  <xs:complexType name="DonneesFacturationJaune">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:DonneesFacturation">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Index1" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Index2" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Index3" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Index4" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PuissanceMaximum" type="xs:decimal" />
+          <xs:element minOccurs="0" name="TempsFonctionnement" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DonneesFacturationJaune" nillable="true" type="tns:DonneesFacturationJaune" />
+  <xs:complexType name="DonneesFacturationVert">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:DonneesFacturation">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="DepassementHC" type="xs:int" />
+          <xs:element minOccurs="0" name="DepassementHP" type="xs:int" />
+          <xs:element minOccurs="0" name="DepassementP" type="xs:int" />
+          <xs:element minOccurs="0" name="IndexActifHC" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="IndexActifHP" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="IndexActifP" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="IndexReactifHC" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="IndexReactifHP" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="IndexReactifP" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="NombreDepassementHC" type="xs:int" />
+          <xs:element minOccurs="0" name="NombreDepassementHP" type="xs:int" />
+          <xs:element minOccurs="0" name="NombreDepassementP" type="xs:int" />
+          <xs:element minOccurs="0" name="PuissanceMaximumHC" type="xs:int" />
+          <xs:element minOccurs="0" name="PuissanceMaximumHP" type="xs:int" />
+          <xs:element minOccurs="0" name="PuissanceMaximumP" type="xs:int" />
+          <xs:element minOccurs="0" name="TempsFonctionnementHC" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TempsFonctionnementHP" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TempsFonctionnementP" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DonneesFacturationVert" nillable="true" type="tns:DonneesFacturationVert" />
+  <xs:complexType name="ArrayOfMesure">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Mesure" nillable="true" type="tns:Mesure" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMesure" nillable="true" type="tns:ArrayOfMesure" />
+  <xs:complexType name="Mesure">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q41="http://schemas.datacontract.org/2004/07/Pracdis.CIR.BO" base="q41:DataObjectCIR">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Date" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Libelle" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Unite" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Valeur" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Mesure" nillable="true" type="tns:Mesure" />
+  <xs:element name="PDSPagesReleves">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="pds" nillable="true" type="tns:PDS" />
+        <xs:element minOccurs="0" name="facturation" type="xs:boolean" />
+        <xs:element minOccurs="0" name="pageSize" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PDSPagesRelevesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q42="http://schemas.datacontract.org/2004/07/Pracdis.Exchange.BO" minOccurs="0" name="PDSPagesRelevesResult" nillable="true" type="q42:PagingCollectionOfReleven3JMDHw_P" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CompteurReleves">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="compteur" nillable="true" type="tns:Compteur" />
+        <xs:element minOccurs="0" name="facturation" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CompteurRelevesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CompteurRelevesResult" nillable="true" type="tns:ArrayOfReleve" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CompteurPagesReleves">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="compteur" nillable="true" type="tns:Compteur" />
+        <xs:element minOccurs="0" name="facturation" type="xs:boolean" />
+        <xs:element minOccurs="0" name="pageSize" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CompteurPagesRelevesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q43="http://schemas.datacontract.org/2004/07/Pracdis.Exchange.BO" minOccurs="0" name="CompteurPagesRelevesResult" nillable="true" type="q43:PagingCollectionOfReleven3JMDHw_P" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RafraichirPagesReleves">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q44="http://schemas.datacontract.org/2004/07/Pracdis.Exchange.BO" minOccurs="0" name="releves" nillable="true" type="q44:PagingCollectionOfReleven3JMDHw_P" />
+        <xs:element minOccurs="0" name="page" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RafraichirPagesRelevesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="RafraichirPagesRelevesResult" nillable="true" type="tns:ArrayOfReleve" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PDSReleve">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="pds" nillable="true" type="tns:PDS" />
+        <xs:element minOccurs="0" name="date" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PDSReleveResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="PDSReleveResult" nillable="true" type="tns:Releve" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PDSReleveFacturation">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="pds" nillable="true" type="tns:PDS" />
+        <xs:element minOccurs="0" name="date" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PDSReleveFacturationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="PDSReleveFacturationResult" nillable="true" type="tns:Releve" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PDSIndexFacturation">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="reference" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="date" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PDSIndexFacturationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="PDSIndexFacturationResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CompteurReleve">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="compteur" nillable="true" type="tns:Compteur" />
+        <xs:element minOccurs="0" name="date" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CompteurReleveResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CompteurReleveResult" nillable="true" type="tns:Releve" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CompteurReleveFacturation">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="compteur" nillable="true" type="tns:Compteur" />
+        <xs:element minOccurs="0" name="date" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CompteurReleveFacturationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CompteurReleveFacturationResult" nillable="true" type="tns:Releve" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CompteurIndexFacturation">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="reference" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="date" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CompteurIndexFacturationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CompteurIndexFacturationResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ChangementsCompteur">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="limit" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ChangementsCompteurResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q45="http://schemas.datacontract.org/2004/07/Pracdis.CIR.BO" minOccurs="0" name="ChangementsCompteurResult" nillable="true" type="q45:ArrayOfGestionCIR.ChangementCompteur" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PDSConsommations">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="pds" nillable="true" type="tns:PDS" />
+        <xs:element xmlns:q46="http://schemas.datacontract.org/2004/07/Pracdis.CIR.BO" minOccurs="0" name="pas" type="q46:EPasCourbe" />
+        <xs:element minOccurs="0" name="debut" nillable="true" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="fin" nillable="true" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PDSConsommationsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q47="http://schemas.datacontract.org/2004/07/Pracdis.CIR.BO" minOccurs="0" name="PDSConsommationsResult" nillable="true" type="q47:CourbeConsommation" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CompteurConsommations">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="compteur" nillable="true" type="tns:Compteur" />
+        <xs:element xmlns:q48="http://schemas.datacontract.org/2004/07/Pracdis.CIR.BO" minOccurs="0" name="pas" type="q48:EPasCourbe" />
+        <xs:element minOccurs="0" name="debut" nillable="true" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="fin" nillable="true" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CompteurConsommationsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q49="http://schemas.datacontract.org/2004/07/Pracdis.CIR.BO" minOccurs="0" name="CompteurConsommationsResult" nillable="true" type="q49:CourbeConsommation" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PDSConfigurationAlarme">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="pds" nillable="true" type="tns:PDS" />
+        <xs:element xmlns:q50="http://schemas.datacontract.org/2004/07/Pracdis.CIR.BO" minOccurs="0" name="typeAlarme" type="q50:EAlarme" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PDSConfigurationAlarmeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q51="http://schemas.datacontract.org/2004/07/Pracdis.CIR.BO" minOccurs="0" name="PDSConfigurationAlarmeResult" nillable="true" type="q51:ConfigurationAlarme" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PDSConfigurerAlarme">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="pds" nillable="true" type="tns:PDS" />
+        <xs:element xmlns:q52="http://schemas.datacontract.org/2004/07/Pracdis.CIR.BO" minOccurs="0" name="configuration" nillable="true" type="q52:ConfigurationAlarme" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PDSConfigurerAlarmeResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CompteurConfigurationAlarme">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="compteur" nillable="true" type="tns:Compteur" />
+        <xs:element xmlns:q53="http://schemas.datacontract.org/2004/07/Pracdis.CIR.BO" minOccurs="0" name="typeAlarme" type="q53:EAlarme" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CompteurConfigurationAlarmeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q54="http://schemas.datacontract.org/2004/07/Pracdis.CIR.BO" minOccurs="0" name="CompteurConfigurationAlarmeResult" nillable="true" type="q54:ConfigurationAlarme" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CompteurConfigurerAlarme">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="compteur" nillable="true" type="tns:Compteur" />
+        <xs:element xmlns:q55="http://schemas.datacontract.org/2004/07/Pracdis.CIR.BO" minOccurs="0" name="configuration" nillable="true" type="q55:ConfigurationAlarme" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CompteurConfigurerAlarmeResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PDSAlarmes">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="pds" nillable="true" type="tns:PDS" />
+        <xs:element minOccurs="0" name="debut" nillable="true" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="fin" nillable="true" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PDSAlarmesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q56="http://schemas.datacontract.org/2004/07/Pracdis.CIR.BO" minOccurs="0" name="PDSAlarmesResult" nillable="true" type="q56:ArrayOfAlarme" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PDSPagesAlarmes">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="pds" nillable="true" type="tns:PDS" />
+        <xs:element minOccurs="0" name="debut" nillable="true" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="fin" nillable="true" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PDSPagesAlarmesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q57="http://schemas.datacontract.org/2004/07/Pracdis.Exchange.BO" minOccurs="0" name="PDSPagesAlarmesResult" nillable="true" type="q57:PagingCollectionOfAlarme332Y6MAk" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CompteurAlarmes">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="compteur" nillable="true" type="tns:Compteur" />
+        <xs:element minOccurs="0" name="debut" nillable="true" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="fin" nillable="true" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CompteurAlarmesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q58="http://schemas.datacontract.org/2004/07/Pracdis.CIR.BO" minOccurs="0" name="CompteurAlarmesResult" nillable="true" type="q58:ArrayOfAlarme" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CompteurPagesAlarmes">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="compteur" nillable="true" type="tns:Compteur" />
+        <xs:element minOccurs="0" name="debut" nillable="true" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="fin" nillable="true" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CompteurPagesAlarmesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q59="http://schemas.datacontract.org/2004/07/Pracdis.Exchange.BO" minOccurs="0" name="CompteurPagesAlarmesResult" nillable="true" type="q59:PagingCollectionOfAlarme332Y6MAk" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RafraichirPagesAlarmes">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q60="http://schemas.datacontract.org/2004/07/Pracdis.Exchange.BO" minOccurs="0" name="alarmes" nillable="true" type="q60:PagingCollectionOfAlarme332Y6MAk" />
+        <xs:element minOccurs="0" name="page" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RafraichirPagesAlarmesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q61="http://schemas.datacontract.org/2004/07/Pracdis.CIR.BO" minOccurs="0" name="RafraichirPagesAlarmesResult" nillable="true" type="q61:ArrayOfAlarme" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

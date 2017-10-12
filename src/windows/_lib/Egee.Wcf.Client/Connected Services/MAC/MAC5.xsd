@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Pracdis.CIR.BO" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Pracdis.CIR.BO" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://51.254.179.28/MAC_EAU_WS/MAC.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Pracdis.Exchange.BO" />
+  <xs:import schemaLocation="http://51.254.179.28/MAC_EAU_WS/MAC.svc?xsd=xsd5" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:import schemaLocation="http://51.254.179.28/MAC_EAU_WS/MAC.svc?xsd=xsd4" namespace="http://pracdis.com/Pracdis.Exchange.BO" />
+  <xs:simpleType name="EListe">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Civilite" />
+      <xs:enumeration value="TypePDS" />
+      <xs:enumeration value="Energie" />
+      <xs:enumeration value="TypeComptage" />
+      <xs:enumeration value="EtatPDS" />
+      <xs:enumeration value="StatutPDS" />
+      <xs:enumeration value="TypePracdis" />
+      <xs:enumeration value="Constructeur" />
+      <xs:enumeration value="EtatCompteur" />
+      <xs:enumeration value="Commande" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="EListe" nillable="true" type="tns:EListe" />
+  <xs:complexType name="CriteresRechercheDelegation">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:CriteresRecherche">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="CriteresRechercheDelegation" nillable="true" type="tns:CriteresRechercheDelegation" />
+  <xs:complexType name="CriteresRecherche">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:element name="CriteresRecherche" nillable="true" type="tns:CriteresRecherche" />
+  <xs:complexType name="DataObjectCIR">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/Pracdis.Exchange.BO" base="q1:DataObjectPlug">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DataObjectCIR" nillable="true" type="tns:DataObjectCIR" />
+  <xs:complexType name="CriteresRecherchePDS">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:CriteresRechercheDelegation">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="DepartBT" nillable="true" type="xs:string" />
+          <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Pracdis.Exchange.BO" minOccurs="0" name="DepartBTOption" type="q2:ESearchTextOption" />
+          <xs:element minOccurs="0" name="DepartBTSort" type="xs:int" />
+          <xs:element xmlns:q3="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="EtatPDS" nillable="true" type="q3:ArrayOfstring" />
+          <xs:element xmlns:q4="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="EtatReleve" nillable="true" type="q4:ArrayOfstring" />
+          <xs:element minOccurs="0" name="EtatReleveSort" type="xs:int" />
+          <xs:element minOccurs="0" name="EtatSort" type="xs:int" />
+          <xs:element minOccurs="0" name="Facturable" type="xs:boolean" />
+          <xs:element xmlns:q5="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="FrequenceReleve" nillable="true" type="q5:ArrayOfstring" />
+          <xs:element xmlns:q6="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="MediaReleve" nillable="true" type="q6:ArrayOfstring" />
+          <xs:element minOccurs="0" name="Nom" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="NomClientSort" type="xs:int" />
+          <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/Pracdis.Exchange.BO" minOccurs="0" name="NomOption" type="q7:ESearchTextOption" />
+          <xs:element minOccurs="0" name="NumeroSerie" nillable="true" type="xs:string" />
+          <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/Pracdis.Exchange.BO" minOccurs="0" name="NumeroSerieOption" type="q8:ESearchTextOption" />
+          <xs:element minOccurs="0" name="NumeroSerieSort" type="xs:int" />
+          <xs:element minOccurs="0" name="PosteHT" nillable="true" type="xs:string" />
+          <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/Pracdis.Exchange.BO" minOccurs="0" name="PosteHTOption" type="q9:ESearchTextOption" />
+          <xs:element minOccurs="0" name="PosteHTSort" type="xs:int" />
+          <xs:element minOccurs="0" name="ReferenceExterneClientSort" type="xs:int" />
+          <xs:element minOccurs="0" name="ReferenceExterneSort" type="xs:int" />
+          <xs:element minOccurs="0" name="ReferencePDS" nillable="true" type="xs:string" />
+          <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/Pracdis.Exchange.BO" minOccurs="0" name="ReferencePDSOption" type="q10:ESearchTextOption" />
+          <xs:element xmlns:q11="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Statut" nillable="true" type="q11:ArrayOfstring" />
+          <xs:element xmlns:q12="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="TypePDS" nillable="true" type="q12:ArrayOfstring" />
+          <xs:element minOccurs="0" name="TypeSort" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="CriteresRecherchePDS" nillable="true" type="tns:CriteresRecherchePDS" />
+  <xs:simpleType name="EStatutAssociation">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Associe" />
+      <xs:enumeration value="AAssocier" />
+      <xs:enumeration value="AReassocier" />
+      <xs:enumeration value="Depose" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="EStatutAssociation" nillable="true" type="tns:EStatutAssociation" />
+  <xs:complexType name="CriteresRechercheCompteur">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:CriteresRechercheDelegation">
+        <xs:sequence>
+          <xs:element xmlns:q13="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Constructeur" nillable="true" type="q13:ArrayOfstring" />
+          <xs:element minOccurs="0" name="ConstructeurSort" type="xs:int" />
+          <xs:element xmlns:q14="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Etat" nillable="true" type="q14:ArrayOfstring" />
+          <xs:element minOccurs="0" name="EtatSort" type="xs:int" />
+          <xs:element xmlns:q15="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="MediaReleve" nillable="true" type="q15:ArrayOfstring" />
+          <xs:element minOccurs="0" name="NumeroSerie" nillable="true" type="xs:string" />
+          <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/Pracdis.Exchange.BO" minOccurs="0" name="NumeroSerieOption" type="q16:ESearchTextOption" />
+          <xs:element minOccurs="0" name="NumeroSerieSort" type="xs:int" />
+          <xs:element minOccurs="0" name="ReferencePDS" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ReferencePDSExterneSort" type="xs:int" />
+          <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/Pracdis.Exchange.BO" minOccurs="0" name="ReferencePDSOption" type="q17:ESearchTextOption" />
+          <xs:element xmlns:q18="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="TypeCompteur" nillable="true" type="q18:ArrayOfstring" />
+          <xs:element minOccurs="0" name="TypeSort" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="CriteresRechercheCompteur" nillable="true" type="tns:CriteresRechercheCompteur" />
+  <xs:complexType name="CriteresRechercheEmetteur">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:CriteresRechercheDelegation">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Affectation" nillable="true" type="tns:ArrayOfEStatutAffectation" />
+          <xs:element minOccurs="0" name="Appairage" nillable="true" type="tns:CriteresRechercheEmetteur.OptionsAppairage" />
+          <xs:element minOccurs="0" name="Association" nillable="true" type="tns:ArrayOfEStatutAssociation" />
+          <xs:element minOccurs="0" name="NumeroSerie" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="NumeroSerieCompteur" nillable="true" type="xs:string" />
+          <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/Pracdis.Exchange.BO" minOccurs="0" name="NumeroSerieCompteurOption" type="q19:ESearchTextOption" />
+          <xs:element minOccurs="0" name="Reference" nillable="true" type="xs:string" />
+          <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/Pracdis.Exchange.BO" minOccurs="0" name="ReferenceOption" type="q20:ESearchTextOption" />
+          <xs:element minOccurs="0" name="ReferencePDS" nillable="true" type="xs:string" />
+          <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/Pracdis.Exchange.BO" minOccurs="0" name="ReferencePDSOption" type="q21:ESearchTextOption" />
+          <xs:element minOccurs="0" name="ReferenceRecepteurAppaire" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TrameAssociation" type="xs:boolean" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="CriteresRechercheEmetteur" nillable="true" type="tns:CriteresRechercheEmetteur" />
+  <xs:complexType name="ArrayOfEStatutAffectation">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="EStatutAffectation" type="tns:EStatutAffectation" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfEStatutAffectation" nillable="true" type="tns:ArrayOfEStatutAffectation" />
+  <xs:simpleType name="EStatutAffectation">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Affecte" />
+      <xs:enumeration value="AffectationKO" />
+      <xs:enumeration value="AAffecter" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="EStatutAffectation" nillable="true" type="tns:EStatutAffectation" />
+  <xs:complexType name="CriteresRechercheEmetteur.OptionsAppairage">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AAppairer" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Appaire" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CriteresRechercheEmetteur.OptionsAppairage" nillable="true" type="tns:CriteresRechercheEmetteur.OptionsAppairage" />
+  <xs:complexType name="ArrayOfEStatutAssociation">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="EStatutAssociation" type="tns:EStatutAssociation" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfEStatutAssociation" nillable="true" type="tns:ArrayOfEStatutAssociation" />
+  <xs:complexType name="ArrayOfGestionCIR.ChangementCompteur">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="GestionCIR.ChangementCompteur" nillable="true" type="tns:GestionCIR.ChangementCompteur" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfGestionCIR.ChangementCompteur" nillable="true" type="tns:ArrayOfGestionCIR.ChangementCompteur" />
+  <xs:complexType name="GestionCIR.ChangementCompteur">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DateDepose" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DatePose" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="IndexDepose" type="xs:int" />
+      <xs:element minOccurs="0" name="IndexPose" type="xs:int" />
+      <xs:element minOccurs="0" name="NumeroSerieDepose" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NumeroSeriePose" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ReferencePDS" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GestionCIR.ChangementCompteur" nillable="true" type="tns:GestionCIR.ChangementCompteur" />
+  <xs:simpleType name="EPasCourbe">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Mesure" />
+      <xs:enumeration value="Quotidien" />
+      <xs:enumeration value="Hebdomadaire" />
+      <xs:enumeration value="Mensuel" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="EPasCourbe" nillable="true" type="tns:EPasCourbe" />
+  <xs:complexType name="CourbeConsommation">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Pas" type="tns:EPasCourbe" />
+      <xs:element minOccurs="0" name="Points" nillable="true" type="tns:ArrayOfPointConsommation" />
+      <xs:element minOccurs="0" name="Unite" type="tns:EUniteCourbe" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CourbeConsommation" nillable="true" type="tns:CourbeConsommation" />
+  <xs:complexType name="ArrayOfPointConsommation">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PointConsommation" nillable="true" type="tns:PointConsommation" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPointConsommation" nillable="true" type="tns:ArrayOfPointConsommation" />
+  <xs:complexType name="PointConsommation">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Horaire" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="HoraireDebut" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="HoraireFin" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Periode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Valeur" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PointConsommation" nillable="true" type="tns:PointConsommation" />
+  <xs:simpleType name="EUniteCourbe">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="l" />
+      <xs:enumeration value="m3" />
+      <xs:enumeration value="kWh" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="EUniteCourbe" nillable="true" type="tns:EUniteCourbe" />
+  <xs:simpleType name="EAlarme">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Fuite" />
+      <xs:enumeration value="Surconsommation" />
+      <xs:enumeration value="RetourEau" />
+      <xs:enumeration value="DepassementConsommation" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="EAlarme" nillable="true" type="tns:EAlarme" />
+  <xs:complexType name="ConfigurationAlarme">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q22="http://pracdis.com/Pracdis.Exchange.BO" base="q22:BaseObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Active" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Libelle" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Parametres" nillable="true" type="tns:ArrayOfParametreAlarme" />
+          <xs:element minOccurs="0" name="Telephone" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TypeAlarme" type="tns:EAlarme" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ConfigurationAlarme" nillable="true" type="tns:ConfigurationAlarme" />
+  <xs:complexType name="ArrayOfParametreAlarme">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ParametreAlarme" nillable="true" type="tns:ParametreAlarme" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfParametreAlarme" nillable="true" type="tns:ArrayOfParametreAlarme" />
+  <xs:complexType name="ParametreAlarme">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Libelle" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Type" type="tns:EParametreAlarme" />
+      <xs:element minOccurs="0" name="Valeur" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ParametreAlarme" nillable="true" type="tns:ParametreAlarme" />
+  <xs:simpleType name="EParametreAlarme">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="SeuilConsommation" />
+      <xs:enumeration value="NombreJours" />
+      <xs:enumeration value="TypeDebit" />
+      <xs:enumeration value="ConsommationMoyenneJour" />
+      <xs:enumeration value="SeuilDepassement" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="EParametreAlarme" nillable="true" type="tns:EParametreAlarme" />
+  <xs:complexType name="ArrayOfAlarme">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Alarme" nillable="true" type="tns:Alarme" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAlarme" nillable="true" type="tns:ArrayOfAlarme" />
+  <xs:complexType name="Alarme">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:DataObjectCIR">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Horaire" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Libelle" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TypeAlarme" type="tns:EAlarme" />
+          <xs:element minOccurs="0" name="Valeur" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Alarme" nillable="true" type="tns:Alarme" />
+</xs:schema>

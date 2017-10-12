@@ -7,18 +7,19 @@
 
     Pour plus d'informations sur les fichiers manifeste, consultez http://go.microsoft.com/fwlink/?LinkID=241727
   -->
-  <Identity Name="3bcbb574-abf5-469d-b0ca-3ad82653e87c" Publisher="CN=gla" Version="1.0.0.0" ProcessorArchitecture="x86" />
-  <mp:PhoneIdentity PhoneProductId="3bcbb574-abf5-469d-b0ca-3ad82653e87c" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
+  <Identity Name="afa2f857-66e6-4d86-b489-7ec64ec869f6" Publisher="CN=vau" Version="1.0.0.0" ProcessorArchitecture="x86" />
+  <mp:PhoneIdentity PhoneProductId="afa2f857-66e6-4d86-b489-7ec64ec869f6" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
     <DisplayName>Egee.Proxy.Test</DisplayName>
-    <PublisherDisplayName>gla</PublisherDisplayName>
+    <PublisherDisplayName>vau</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
   <Dependencies>
-    <TargetDeviceFamily Name="Windows.Universal" MinVersion="10.0.10586.0" MaxVersionTested="10.0.14393.0" />
+    <TargetDeviceFamily Name="Windows.Universal" MinVersion="10.0.10586.0" MaxVersionTested="10.0.15063.0" />
   </Dependencies>
   <Resources>
     <Resource Language="FR-FR" />
+    <Resource Language="FR" />
   </Resources>
   <Applications>
     <Application Id="vstest.executionengine.universal.App" Executable="Egee.Proxy.Test.exe" EntryPoint="Egee.Proxy.Test.App">
@@ -29,7 +30,7 @@
     </Application>
   </Applications>
   <Capabilities>
-    <Capability Name="internetClient" />
+    <Capability Name="internetClientServer" />
   </Capabilities>
   <Extensions>
     <Extension Category="windows.activatableClass.inProcessServer">
@@ -50,15 +51,15 @@
   </Extensions>
   <build:Metadata>
     <build:Item Name="TargetFrameworkMoniker" Value=".NETCore,Version=v5.0" />
-    <build:Item Name="VisualStudio" Version="14.0" />
-    <build:Item Name="VisualStudioEdition" Value="Microsoft Visual Studio Professional 2015" />
-    <build:Item Name="OperatingSystem" Version="6.1.7601.17514 (win7sp1_rtm.101119-1850)" />
-    <build:Item Name="Microsoft.Build.AppxPackage.dll" Version="14.0.25431.1" />
-    <build:Item Name="ProjectGUID" Value="{47116E0B-5077-48FC-A7FB-2EDBB6F3A428}" />
+    <build:Item Name="VisualStudio" Version="15.0" />
+    <build:Item Name="VisualStudioEdition" Value="Microsoft Visual Studio Professional 2017" />
+    <build:Item Name="OperatingSystem" Version="10.0.15063.0 (WinBuild.160101.0800)" />
+    <build:Item Name="Microsoft.Build.AppxPackage.dll" Version="15.0.26720.2" />
+    <build:Item Name="ProjectGUID" Value="{4DD3B9E8-F545-4B01-97A8-796C0FEFD416}" />
     <build:Item Name="OptimizingToolset" Value="None" />
     <build:Item Name="TargetRuntime" Value="Managed" />
-    <build:Item Name="Microsoft.Windows.UI.Xaml.Build.Tasks.dll" Version="14.0.25527.1" />
-    <build:Item Name="TestPlatform.Universal" Version="14.0" />
-    <build:Item Name="MakePri.exe" Version="10.0.14393.795 (rs1_release_sec.170105-1850)" />
+    <build:Item Name="Microsoft.Windows.UI.Xaml.Build.Tasks.dll" Version="15.0.26720.2" />
+    <build:Item Name="TestPlatform.Universal" Version="15.0" />
+    <build:Item Name="MakePri.exe" Version="10.0.15063.468 (WinBuild.160101.0800)" />
   </build:Metadata>
 </Package>

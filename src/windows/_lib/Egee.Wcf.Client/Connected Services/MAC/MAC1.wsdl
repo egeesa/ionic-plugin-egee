@@ -1,0 +1,456 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://MAC" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://MAC" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://MAC/Imports">
+      <xsd:import schemaLocation="http://51.254.179.28/MAC_EAU_WS/MAC.svc?xsd=xsd0" namespace="http://MAC" />
+      <xsd:import schemaLocation="http://51.254.179.28/MAC_EAU_WS/MAC.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://51.254.179.28/MAC_EAU_WS/MAC.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Pracdis.CIR.BO" />
+      <xsd:import schemaLocation="http://51.254.179.28/MAC_EAU_WS/MAC.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Pracdis.Exchange.BO" />
+      <xsd:import schemaLocation="http://51.254.179.28/MAC_EAU_WS/MAC.svc?xsd=xsd4" namespace="http://pracdis.com/Pracdis.Exchange.BO" />
+      <xsd:import schemaLocation="http://51.254.179.28/MAC_EAU_WS/MAC.svc?xsd=xsd5" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://51.254.179.28/MAC_EAU_WS/MAC.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/Pracdis.SITR.BO" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IMAC_Liste_InputMessage">
+    <wsdl:part name="parameters" element="tns:Liste" />
+  </wsdl:message>
+  <wsdl:message name="IMAC_Liste_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMAC_RechercherClients_InputMessage">
+    <wsdl:part name="parameters" element="tns:RechercherClients" />
+  </wsdl:message>
+  <wsdl:message name="IMAC_RechercherClients_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RechercherClientsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMAC_RechercherPagesClients_InputMessage">
+    <wsdl:part name="parameters" element="tns:RechercherPagesClients" />
+  </wsdl:message>
+  <wsdl:message name="IMAC_RechercherPagesClients_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RechercherPagesClientsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMAC_RafraichirPagesClients_InputMessage">
+    <wsdl:part name="parameters" element="tns:RafraichirPagesClients" />
+  </wsdl:message>
+  <wsdl:message name="IMAC_RafraichirPagesClients_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RafraichirPagesClientsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMAC_RechercherPDS_InputMessage">
+    <wsdl:part name="parameters" element="tns:RechercherPDS" />
+  </wsdl:message>
+  <wsdl:message name="IMAC_RechercherPDS_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RechercherPDSResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMAC_RechercherPagesPDS_InputMessage">
+    <wsdl:part name="parameters" element="tns:RechercherPagesPDS" />
+  </wsdl:message>
+  <wsdl:message name="IMAC_RechercherPagesPDS_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RechercherPagesPDSResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMAC_RafraichirPagesPDS_InputMessage">
+    <wsdl:part name="parameters" element="tns:RafraichirPagesPDS" />
+  </wsdl:message>
+  <wsdl:message name="IMAC_RafraichirPagesPDS_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RafraichirPagesPDSResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMAC_ClientPDS_InputMessage">
+    <wsdl:part name="parameters" element="tns:ClientPDS" />
+  </wsdl:message>
+  <wsdl:message name="IMAC_ClientPDS_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ClientPDSResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMAC_ClientPagesPDS_InputMessage">
+    <wsdl:part name="parameters" element="tns:ClientPagesPDS" />
+  </wsdl:message>
+  <wsdl:message name="IMAC_ClientPagesPDS_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ClientPagesPDSResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMAC_RechercherCompteurs_InputMessage">
+    <wsdl:part name="parameters" element="tns:RechercherCompteurs" />
+  </wsdl:message>
+  <wsdl:message name="IMAC_RechercherCompteurs_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RechercherCompteursResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMAC_RechercherPagesCompteurs_InputMessage">
+    <wsdl:part name="parameters" element="tns:RechercherPagesCompteurs" />
+  </wsdl:message>
+  <wsdl:message name="IMAC_RechercherPagesCompteurs_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RechercherPagesCompteursResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMAC_RafraichirPagesCompteurs_InputMessage">
+    <wsdl:part name="parameters" element="tns:RafraichirPagesCompteurs" />
+  </wsdl:message>
+  <wsdl:message name="IMAC_RafraichirPagesCompteurs_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RafraichirPagesCompteursResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMAC_RechercherEmetteurs_InputMessage">
+    <wsdl:part name="parameters" element="tns:RechercherEmetteurs" />
+  </wsdl:message>
+  <wsdl:message name="IMAC_RechercherEmetteurs_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RechercherEmetteursResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMAC_RechercherPagesEmetteurs_InputMessage">
+    <wsdl:part name="parameters" element="tns:RechercherPagesEmetteurs" />
+  </wsdl:message>
+  <wsdl:message name="IMAC_RechercherPagesEmetteurs_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RechercherPagesEmetteursResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMAC_RafraichirPagesEmetteurs_InputMessage">
+    <wsdl:part name="parameters" element="tns:RafraichirPagesEmetteurs" />
+  </wsdl:message>
+  <wsdl:message name="IMAC_RafraichirPagesEmetteurs_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RafraichirPagesEmetteursResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMAC_RechercherContratsTelecollecte_InputMessage">
+    <wsdl:part name="parameters" element="tns:RechercherContratsTelecollecte" />
+  </wsdl:message>
+  <wsdl:message name="IMAC_RechercherContratsTelecollecte_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RechercherContratsTelecollecteResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMAC_RechercherPagesContratsTelecollecte_InputMessage">
+    <wsdl:part name="parameters" element="tns:RechercherPagesContratsTelecollecte" />
+  </wsdl:message>
+  <wsdl:message name="IMAC_RechercherPagesContratsTelecollecte_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RechercherPagesContratsTelecollecteResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMAC_RafraichirPagesContratsTelecollecte_InputMessage">
+    <wsdl:part name="parameters" element="tns:RafraichirPagesContratsTelecollecte" />
+  </wsdl:message>
+  <wsdl:message name="IMAC_RafraichirPagesContratsTelecollecte_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RafraichirPagesContratsTelecollecteResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMAC_RechercherRecepteurs_InputMessage">
+    <wsdl:part name="parameters" element="tns:RechercherRecepteurs" />
+  </wsdl:message>
+  <wsdl:message name="IMAC_RechercherRecepteurs_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RechercherRecepteursResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMAC_RechercherPagesRecepteurs_InputMessage">
+    <wsdl:part name="parameters" element="tns:RechercherPagesRecepteurs" />
+  </wsdl:message>
+  <wsdl:message name="IMAC_RechercherPagesRecepteurs_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RechercherPagesRecepteursResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMAC_RafraichirPagesRecepteurs_InputMessage">
+    <wsdl:part name="parameters" element="tns:RafraichirPagesRecepteurs" />
+  </wsdl:message>
+  <wsdl:message name="IMAC_RafraichirPagesRecepteurs_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RafraichirPagesRecepteursResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMAC_PDSReleves_InputMessage">
+    <wsdl:part name="parameters" element="tns:PDSReleves" />
+  </wsdl:message>
+  <wsdl:message name="IMAC_PDSReleves_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PDSRelevesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMAC_PDSPagesReleves_InputMessage">
+    <wsdl:part name="parameters" element="tns:PDSPagesReleves" />
+  </wsdl:message>
+  <wsdl:message name="IMAC_PDSPagesReleves_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PDSPagesRelevesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMAC_CompteurReleves_InputMessage">
+    <wsdl:part name="parameters" element="tns:CompteurReleves" />
+  </wsdl:message>
+  <wsdl:message name="IMAC_CompteurReleves_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CompteurRelevesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMAC_CompteurPagesReleves_InputMessage">
+    <wsdl:part name="parameters" element="tns:CompteurPagesReleves" />
+  </wsdl:message>
+  <wsdl:message name="IMAC_CompteurPagesReleves_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CompteurPagesRelevesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMAC_RafraichirPagesReleves_InputMessage">
+    <wsdl:part name="parameters" element="tns:RafraichirPagesReleves" />
+  </wsdl:message>
+  <wsdl:message name="IMAC_RafraichirPagesReleves_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RafraichirPagesRelevesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMAC_PDSReleve_InputMessage">
+    <wsdl:part name="parameters" element="tns:PDSReleve" />
+  </wsdl:message>
+  <wsdl:message name="IMAC_PDSReleve_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PDSReleveResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMAC_PDSReleveFacturation_InputMessage">
+    <wsdl:part name="parameters" element="tns:PDSReleveFacturation" />
+  </wsdl:message>
+  <wsdl:message name="IMAC_PDSReleveFacturation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PDSReleveFacturationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMAC_PDSIndexFacturation_InputMessage">
+    <wsdl:part name="parameters" element="tns:PDSIndexFacturation" />
+  </wsdl:message>
+  <wsdl:message name="IMAC_PDSIndexFacturation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PDSIndexFacturationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMAC_CompteurReleve_InputMessage">
+    <wsdl:part name="parameters" element="tns:CompteurReleve" />
+  </wsdl:message>
+  <wsdl:message name="IMAC_CompteurReleve_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CompteurReleveResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMAC_CompteurReleveFacturation_InputMessage">
+    <wsdl:part name="parameters" element="tns:CompteurReleveFacturation" />
+  </wsdl:message>
+  <wsdl:message name="IMAC_CompteurReleveFacturation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CompteurReleveFacturationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMAC_CompteurIndexFacturation_InputMessage">
+    <wsdl:part name="parameters" element="tns:CompteurIndexFacturation" />
+  </wsdl:message>
+  <wsdl:message name="IMAC_CompteurIndexFacturation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CompteurIndexFacturationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMAC_ChangementsCompteur_InputMessage">
+    <wsdl:part name="parameters" element="tns:ChangementsCompteur" />
+  </wsdl:message>
+  <wsdl:message name="IMAC_ChangementsCompteur_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ChangementsCompteurResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMAC_PDSConsommations_InputMessage">
+    <wsdl:part name="parameters" element="tns:PDSConsommations" />
+  </wsdl:message>
+  <wsdl:message name="IMAC_PDSConsommations_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PDSConsommationsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMAC_CompteurConsommations_InputMessage">
+    <wsdl:part name="parameters" element="tns:CompteurConsommations" />
+  </wsdl:message>
+  <wsdl:message name="IMAC_CompteurConsommations_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CompteurConsommationsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMAC_PDSConfigurationAlarme_InputMessage">
+    <wsdl:part name="parameters" element="tns:PDSConfigurationAlarme" />
+  </wsdl:message>
+  <wsdl:message name="IMAC_PDSConfigurationAlarme_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PDSConfigurationAlarmeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMAC_PDSConfigurerAlarme_InputMessage">
+    <wsdl:part name="parameters" element="tns:PDSConfigurerAlarme" />
+  </wsdl:message>
+  <wsdl:message name="IMAC_PDSConfigurerAlarme_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PDSConfigurerAlarmeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMAC_CompteurConfigurationAlarme_InputMessage">
+    <wsdl:part name="parameters" element="tns:CompteurConfigurationAlarme" />
+  </wsdl:message>
+  <wsdl:message name="IMAC_CompteurConfigurationAlarme_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CompteurConfigurationAlarmeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMAC_CompteurConfigurerAlarme_InputMessage">
+    <wsdl:part name="parameters" element="tns:CompteurConfigurerAlarme" />
+  </wsdl:message>
+  <wsdl:message name="IMAC_CompteurConfigurerAlarme_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CompteurConfigurerAlarmeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMAC_PDSAlarmes_InputMessage">
+    <wsdl:part name="parameters" element="tns:PDSAlarmes" />
+  </wsdl:message>
+  <wsdl:message name="IMAC_PDSAlarmes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PDSAlarmesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMAC_PDSPagesAlarmes_InputMessage">
+    <wsdl:part name="parameters" element="tns:PDSPagesAlarmes" />
+  </wsdl:message>
+  <wsdl:message name="IMAC_PDSPagesAlarmes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PDSPagesAlarmesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMAC_CompteurAlarmes_InputMessage">
+    <wsdl:part name="parameters" element="tns:CompteurAlarmes" />
+  </wsdl:message>
+  <wsdl:message name="IMAC_CompteurAlarmes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CompteurAlarmesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMAC_CompteurPagesAlarmes_InputMessage">
+    <wsdl:part name="parameters" element="tns:CompteurPagesAlarmes" />
+  </wsdl:message>
+  <wsdl:message name="IMAC_CompteurPagesAlarmes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CompteurPagesAlarmesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMAC_RafraichirPagesAlarmes_InputMessage">
+    <wsdl:part name="parameters" element="tns:RafraichirPagesAlarmes" />
+  </wsdl:message>
+  <wsdl:message name="IMAC_RafraichirPagesAlarmes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RafraichirPagesAlarmesResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IMAC">
+    <wsdl:operation name="Liste">
+      <wsdl:input wsaw:Action="http://MAC/IMAC/Liste" message="tns:IMAC_Liste_InputMessage" />
+      <wsdl:output wsaw:Action="http://MAC/IMAC/ListeResponse" message="tns:IMAC_Liste_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RechercherClients">
+      <wsdl:input wsaw:Action="http://MAC/IMAC/RechercherClients" message="tns:IMAC_RechercherClients_InputMessage" />
+      <wsdl:output wsaw:Action="http://MAC/IMAC/RechercherClientsResponse" message="tns:IMAC_RechercherClients_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RechercherPagesClients">
+      <wsdl:input wsaw:Action="http://MAC/IMAC/RechercherPagesClients" message="tns:IMAC_RechercherPagesClients_InputMessage" />
+      <wsdl:output wsaw:Action="http://MAC/IMAC/RechercherPagesClientsResponse" message="tns:IMAC_RechercherPagesClients_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RafraichirPagesClients">
+      <wsdl:input wsaw:Action="http://MAC/IMAC/RafraichirPagesClients" message="tns:IMAC_RafraichirPagesClients_InputMessage" />
+      <wsdl:output wsaw:Action="http://MAC/IMAC/RafraichirPagesClientsResponse" message="tns:IMAC_RafraichirPagesClients_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RechercherPDS">
+      <wsdl:input wsaw:Action="http://MAC/IMAC/RechercherPDS" message="tns:IMAC_RechercherPDS_InputMessage" />
+      <wsdl:output wsaw:Action="http://MAC/IMAC/RechercherPDSResponse" message="tns:IMAC_RechercherPDS_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RechercherPagesPDS">
+      <wsdl:input wsaw:Action="http://MAC/IMAC/RechercherPagesPDS" message="tns:IMAC_RechercherPagesPDS_InputMessage" />
+      <wsdl:output wsaw:Action="http://MAC/IMAC/RechercherPagesPDSResponse" message="tns:IMAC_RechercherPagesPDS_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RafraichirPagesPDS">
+      <wsdl:input wsaw:Action="http://MAC/IMAC/RafraichirPagesPDS" message="tns:IMAC_RafraichirPagesPDS_InputMessage" />
+      <wsdl:output wsaw:Action="http://MAC/IMAC/RafraichirPagesPDSResponse" message="tns:IMAC_RafraichirPagesPDS_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ClientPDS">
+      <wsdl:input wsaw:Action="http://MAC/IMAC/ClientPDS" message="tns:IMAC_ClientPDS_InputMessage" />
+      <wsdl:output wsaw:Action="http://MAC/IMAC/ClientPDSResponse" message="tns:IMAC_ClientPDS_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ClientPagesPDS">
+      <wsdl:input wsaw:Action="http://MAC/IMAC/ClientPagesPDS" message="tns:IMAC_ClientPagesPDS_InputMessage" />
+      <wsdl:output wsaw:Action="http://MAC/IMAC/ClientPagesPDSResponse" message="tns:IMAC_ClientPagesPDS_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RechercherCompteurs">
+      <wsdl:input wsaw:Action="http://MAC/IMAC/RechercherCompteurs" message="tns:IMAC_RechercherCompteurs_InputMessage" />
+      <wsdl:output wsaw:Action="http://MAC/IMAC/RechercherCompteursResponse" message="tns:IMAC_RechercherCompteurs_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RechercherPagesCompteurs">
+      <wsdl:input wsaw:Action="http://MAC/IMAC/RechercherPagesCompteurs" message="tns:IMAC_RechercherPagesCompteurs_InputMessage" />
+      <wsdl:output wsaw:Action="http://MAC/IMAC/RechercherPagesCompteursResponse" message="tns:IMAC_RechercherPagesCompteurs_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RafraichirPagesCompteurs">
+      <wsdl:input wsaw:Action="http://MAC/IMAC/RafraichirPagesCompteurs" message="tns:IMAC_RafraichirPagesCompteurs_InputMessage" />
+      <wsdl:output wsaw:Action="http://MAC/IMAC/RafraichirPagesCompteursResponse" message="tns:IMAC_RafraichirPagesCompteurs_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RechercherEmetteurs">
+      <wsdl:input wsaw:Action="http://MAC/IMAC/RechercherEmetteurs" message="tns:IMAC_RechercherEmetteurs_InputMessage" />
+      <wsdl:output wsaw:Action="http://MAC/IMAC/RechercherEmetteursResponse" message="tns:IMAC_RechercherEmetteurs_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RechercherPagesEmetteurs">
+      <wsdl:input wsaw:Action="http://MAC/IMAC/RechercherPagesEmetteurs" message="tns:IMAC_RechercherPagesEmetteurs_InputMessage" />
+      <wsdl:output wsaw:Action="http://MAC/IMAC/RechercherPagesEmetteursResponse" message="tns:IMAC_RechercherPagesEmetteurs_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RafraichirPagesEmetteurs">
+      <wsdl:input wsaw:Action="http://MAC/IMAC/RafraichirPagesEmetteurs" message="tns:IMAC_RafraichirPagesEmetteurs_InputMessage" />
+      <wsdl:output wsaw:Action="http://MAC/IMAC/RafraichirPagesEmetteursResponse" message="tns:IMAC_RafraichirPagesEmetteurs_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RechercherContratsTelecollecte">
+      <wsdl:input wsaw:Action="http://MAC/IMAC/RechercherContratsTelecollecte" message="tns:IMAC_RechercherContratsTelecollecte_InputMessage" />
+      <wsdl:output wsaw:Action="http://MAC/IMAC/RechercherContratsTelecollecteResponse" message="tns:IMAC_RechercherContratsTelecollecte_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RechercherPagesContratsTelecollecte">
+      <wsdl:input wsaw:Action="http://MAC/IMAC/RechercherPagesContratsTelecollecte" message="tns:IMAC_RechercherPagesContratsTelecollecte_InputMessage" />
+      <wsdl:output wsaw:Action="http://MAC/IMAC/RechercherPagesContratsTelecollecteResponse" message="tns:IMAC_RechercherPagesContratsTelecollecte_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RafraichirPagesContratsTelecollecte">
+      <wsdl:input wsaw:Action="http://MAC/IMAC/RafraichirPagesContratsTelecollecte" message="tns:IMAC_RafraichirPagesContratsTelecollecte_InputMessage" />
+      <wsdl:output wsaw:Action="http://MAC/IMAC/RafraichirPagesContratsTelecollecteResponse" message="tns:IMAC_RafraichirPagesContratsTelecollecte_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RechercherRecepteurs">
+      <wsdl:input wsaw:Action="http://MAC/IMAC/RechercherRecepteurs" message="tns:IMAC_RechercherRecepteurs_InputMessage" />
+      <wsdl:output wsaw:Action="http://MAC/IMAC/RechercherRecepteursResponse" message="tns:IMAC_RechercherRecepteurs_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RechercherPagesRecepteurs">
+      <wsdl:input wsaw:Action="http://MAC/IMAC/RechercherPagesRecepteurs" message="tns:IMAC_RechercherPagesRecepteurs_InputMessage" />
+      <wsdl:output wsaw:Action="http://MAC/IMAC/RechercherPagesRecepteursResponse" message="tns:IMAC_RechercherPagesRecepteurs_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RafraichirPagesRecepteurs">
+      <wsdl:input wsaw:Action="http://MAC/IMAC/RafraichirPagesRecepteurs" message="tns:IMAC_RafraichirPagesRecepteurs_InputMessage" />
+      <wsdl:output wsaw:Action="http://MAC/IMAC/RafraichirPagesRecepteursResponse" message="tns:IMAC_RafraichirPagesRecepteurs_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PDSReleves">
+      <wsdl:input wsaw:Action="http://MAC/IMAC/PDSReleves" message="tns:IMAC_PDSReleves_InputMessage" />
+      <wsdl:output wsaw:Action="http://MAC/IMAC/PDSRelevesResponse" message="tns:IMAC_PDSReleves_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PDSPagesReleves">
+      <wsdl:input wsaw:Action="http://MAC/IMAC/PDSPagesReleves" message="tns:IMAC_PDSPagesReleves_InputMessage" />
+      <wsdl:output wsaw:Action="http://MAC/IMAC/PDSPagesRelevesResponse" message="tns:IMAC_PDSPagesReleves_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CompteurReleves">
+      <wsdl:input wsaw:Action="http://MAC/IMAC/CompteurReleves" message="tns:IMAC_CompteurReleves_InputMessage" />
+      <wsdl:output wsaw:Action="http://MAC/IMAC/CompteurRelevesResponse" message="tns:IMAC_CompteurReleves_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CompteurPagesReleves">
+      <wsdl:input wsaw:Action="http://MAC/IMAC/CompteurPagesReleves" message="tns:IMAC_CompteurPagesReleves_InputMessage" />
+      <wsdl:output wsaw:Action="http://MAC/IMAC/CompteurPagesRelevesResponse" message="tns:IMAC_CompteurPagesReleves_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RafraichirPagesReleves">
+      <wsdl:input wsaw:Action="http://MAC/IMAC/RafraichirPagesReleves" message="tns:IMAC_RafraichirPagesReleves_InputMessage" />
+      <wsdl:output wsaw:Action="http://MAC/IMAC/RafraichirPagesRelevesResponse" message="tns:IMAC_RafraichirPagesReleves_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PDSReleve">
+      <wsdl:input wsaw:Action="http://MAC/IMAC/PDSReleve" message="tns:IMAC_PDSReleve_InputMessage" />
+      <wsdl:output wsaw:Action="http://MAC/IMAC/PDSReleveResponse" message="tns:IMAC_PDSReleve_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PDSReleveFacturation">
+      <wsdl:input wsaw:Action="http://MAC/IMAC/PDSReleveFacturation" message="tns:IMAC_PDSReleveFacturation_InputMessage" />
+      <wsdl:output wsaw:Action="http://MAC/IMAC/PDSReleveFacturationResponse" message="tns:IMAC_PDSReleveFacturation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PDSIndexFacturation">
+      <wsdl:input wsaw:Action="http://MAC/IMAC/PDSIndexFacturation" message="tns:IMAC_PDSIndexFacturation_InputMessage" />
+      <wsdl:output wsaw:Action="http://MAC/IMAC/PDSIndexFacturationResponse" message="tns:IMAC_PDSIndexFacturation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CompteurReleve">
+      <wsdl:input wsaw:Action="http://MAC/IMAC/CompteurReleve" message="tns:IMAC_CompteurReleve_InputMessage" />
+      <wsdl:output wsaw:Action="http://MAC/IMAC/CompteurReleveResponse" message="tns:IMAC_CompteurReleve_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CompteurReleveFacturation">
+      <wsdl:input wsaw:Action="http://MAC/IMAC/CompteurReleveFacturation" message="tns:IMAC_CompteurReleveFacturation_InputMessage" />
+      <wsdl:output wsaw:Action="http://MAC/IMAC/CompteurReleveFacturationResponse" message="tns:IMAC_CompteurReleveFacturation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CompteurIndexFacturation">
+      <wsdl:input wsaw:Action="http://MAC/IMAC/CompteurIndexFacturation" message="tns:IMAC_CompteurIndexFacturation_InputMessage" />
+      <wsdl:output wsaw:Action="http://MAC/IMAC/CompteurIndexFacturationResponse" message="tns:IMAC_CompteurIndexFacturation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ChangementsCompteur">
+      <wsdl:input wsaw:Action="http://MAC/IMAC/ChangementsCompteur" message="tns:IMAC_ChangementsCompteur_InputMessage" />
+      <wsdl:output wsaw:Action="http://MAC/IMAC/ChangementsCompteurResponse" message="tns:IMAC_ChangementsCompteur_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PDSConsommations">
+      <wsdl:input wsaw:Action="http://MAC/IMAC/PDSConsommations" message="tns:IMAC_PDSConsommations_InputMessage" />
+      <wsdl:output wsaw:Action="http://MAC/IMAC/PDSConsommationsResponse" message="tns:IMAC_PDSConsommations_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CompteurConsommations">
+      <wsdl:input wsaw:Action="http://MAC/IMAC/CompteurConsommations" message="tns:IMAC_CompteurConsommations_InputMessage" />
+      <wsdl:output wsaw:Action="http://MAC/IMAC/CompteurConsommationsResponse" message="tns:IMAC_CompteurConsommations_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PDSConfigurationAlarme">
+      <wsdl:input wsaw:Action="http://MAC/IMAC/PDSConfigurationAlarme" message="tns:IMAC_PDSConfigurationAlarme_InputMessage" />
+      <wsdl:output wsaw:Action="http://MAC/IMAC/PDSConfigurationAlarmeResponse" message="tns:IMAC_PDSConfigurationAlarme_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PDSConfigurerAlarme">
+      <wsdl:input wsaw:Action="http://MAC/IMAC/PDSConfigurerAlarme" message="tns:IMAC_PDSConfigurerAlarme_InputMessage" />
+      <wsdl:output wsaw:Action="http://MAC/IMAC/PDSConfigurerAlarmeResponse" message="tns:IMAC_PDSConfigurerAlarme_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CompteurConfigurationAlarme">
+      <wsdl:input wsaw:Action="http://MAC/IMAC/CompteurConfigurationAlarme" message="tns:IMAC_CompteurConfigurationAlarme_InputMessage" />
+      <wsdl:output wsaw:Action="http://MAC/IMAC/CompteurConfigurationAlarmeResponse" message="tns:IMAC_CompteurConfigurationAlarme_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CompteurConfigurerAlarme">
+      <wsdl:input wsaw:Action="http://MAC/IMAC/CompteurConfigurerAlarme" message="tns:IMAC_CompteurConfigurerAlarme_InputMessage" />
+      <wsdl:output wsaw:Action="http://MAC/IMAC/CompteurConfigurerAlarmeResponse" message="tns:IMAC_CompteurConfigurerAlarme_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PDSAlarmes">
+      <wsdl:input wsaw:Action="http://MAC/IMAC/PDSAlarmes" message="tns:IMAC_PDSAlarmes_InputMessage" />
+      <wsdl:output wsaw:Action="http://MAC/IMAC/PDSAlarmesResponse" message="tns:IMAC_PDSAlarmes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PDSPagesAlarmes">
+      <wsdl:input wsaw:Action="http://MAC/IMAC/PDSPagesAlarmes" message="tns:IMAC_PDSPagesAlarmes_InputMessage" />
+      <wsdl:output wsaw:Action="http://MAC/IMAC/PDSPagesAlarmesResponse" message="tns:IMAC_PDSPagesAlarmes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CompteurAlarmes">
+      <wsdl:input wsaw:Action="http://MAC/IMAC/CompteurAlarmes" message="tns:IMAC_CompteurAlarmes_InputMessage" />
+      <wsdl:output wsaw:Action="http://MAC/IMAC/CompteurAlarmesResponse" message="tns:IMAC_CompteurAlarmes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CompteurPagesAlarmes">
+      <wsdl:input wsaw:Action="http://MAC/IMAC/CompteurPagesAlarmes" message="tns:IMAC_CompteurPagesAlarmes_InputMessage" />
+      <wsdl:output wsaw:Action="http://MAC/IMAC/CompteurPagesAlarmesResponse" message="tns:IMAC_CompteurPagesAlarmes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RafraichirPagesAlarmes">
+      <wsdl:input wsaw:Action="http://MAC/IMAC/RafraichirPagesAlarmes" message="tns:IMAC_RafraichirPagesAlarmes_InputMessage" />
+      <wsdl:output wsaw:Action="http://MAC/IMAC/RafraichirPagesAlarmesResponse" message="tns:IMAC_RafraichirPagesAlarmes_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

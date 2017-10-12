@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Pracdis.Exchange.BO" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Pracdis.Exchange.BO" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://51.254.179.28/MAC_EAU_WS/MAC.svc?xsd=xsd4" namespace="http://pracdis.com/Pracdis.Exchange.BO" />
+  <xs:import schemaLocation="http://51.254.179.28/MAC_EAU_WS/MAC.svc?xsd=xsd0" namespace="http://MAC" />
+  <xs:import schemaLocation="http://51.254.179.28/MAC_EAU_WS/MAC.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Pracdis.CIR.BO" />
+  <xs:complexType name="ArrayOfCodeLibelle">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CodeLibelle" nillable="true" type="tns:CodeLibelle" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCodeLibelle" nillable="true" type="tns:ArrayOfCodeLibelle" />
+  <xs:complexType name="CodeLibelle">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Code" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Libelle" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CodeLibelle" nillable="true" type="tns:CodeLibelle" />
+  <xs:simpleType name="ESearchTextOption">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="StartsWith" />
+      <xs:enumeration value="Contains" />
+      <xs:enumeration value="EndsWith" />
+      <xs:enumeration value="Exact" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ESearchTextOption" nillable="true" type="tns:ESearchTextOption" />
+  <xs:complexType name="DataObjectPlug">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:DataObject">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DataObjectPlug" nillable="true" type="tns:DataObjectPlug" />
+  <xs:complexType name="DataObject">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:GenericObject">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DataObject" nillable="true" type="tns:DataObject" />
+  <xs:complexType name="GenericObject">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://pracdis.com/Pracdis.Exchange.BO" base="q1:BaseObject">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GenericObject" nillable="true" type="tns:GenericObject" />
+  <xs:complexType name="PagingCollectionOfClientn3JMDHw_P">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="PagingCollectionOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/Pracdis.Exchange.BO" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="Client" Namespace="http://MAC" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element xmlns:q2="http://MAC" minOccurs="0" name="DefaultPage" nillable="true" type="q2:ArrayOfClient" />
+      <xs:element minOccurs="0" name="GlobalCount" type="xs:int" />
+      <xs:element minOccurs="0" name="PageSize" type="xs:int" />
+      <xs:element minOccurs="0" name="PagingId" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PagingCollectionOfClientn3JMDHw_P" nillable="true" type="tns:PagingCollectionOfClientn3JMDHw_P" />
+  <xs:complexType name="PagingCollectionOfPDSn3JMDHw_P">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="PagingCollectionOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/Pracdis.Exchange.BO" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="PDS" Namespace="http://MAC" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element xmlns:q3="http://MAC" minOccurs="0" name="DefaultPage" nillable="true" type="q3:ArrayOfPDS" />
+      <xs:element minOccurs="0" name="GlobalCount" type="xs:int" />
+      <xs:element minOccurs="0" name="PageSize" type="xs:int" />
+      <xs:element minOccurs="0" name="PagingId" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PagingCollectionOfPDSn3JMDHw_P" nillable="true" type="tns:PagingCollectionOfPDSn3JMDHw_P" />
+  <xs:complexType name="PagingCollectionOfCompteurn3JMDHw_P">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="PagingCollectionOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/Pracdis.Exchange.BO" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="Compteur" Namespace="http://MAC" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element xmlns:q4="http://MAC" minOccurs="0" name="DefaultPage" nillable="true" type="q4:ArrayOfCompteur" />
+      <xs:element minOccurs="0" name="GlobalCount" type="xs:int" />
+      <xs:element minOccurs="0" name="PageSize" type="xs:int" />
+      <xs:element minOccurs="0" name="PagingId" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PagingCollectionOfCompteurn3JMDHw_P" nillable="true" type="tns:PagingCollectionOfCompteurn3JMDHw_P" />
+  <xs:complexType name="PagingCollectionOfEmetteurn3JMDHw_P">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="PagingCollectionOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/Pracdis.Exchange.BO" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="Emetteur" Namespace="http://MAC" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element xmlns:q5="http://MAC" minOccurs="0" name="DefaultPage" nillable="true" type="q5:ArrayOfEmetteur" />
+      <xs:element minOccurs="0" name="GlobalCount" type="xs:int" />
+      <xs:element minOccurs="0" name="PageSize" type="xs:int" />
+      <xs:element minOccurs="0" name="PagingId" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PagingCollectionOfEmetteurn3JMDHw_P" nillable="true" type="tns:PagingCollectionOfEmetteurn3JMDHw_P" />
+  <xs:complexType name="PagingCollectionOfContratTelecollecten3JMDHw_P">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="PagingCollectionOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/Pracdis.Exchange.BO" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="ContratTelecollecte" Namespace="http://MAC" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element xmlns:q6="http://MAC" minOccurs="0" name="DefaultPage" nillable="true" type="q6:ArrayOfContratTelecollecte" />
+      <xs:element minOccurs="0" name="GlobalCount" type="xs:int" />
+      <xs:element minOccurs="0" name="PageSize" type="xs:int" />
+      <xs:element minOccurs="0" name="PagingId" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PagingCollectionOfContratTelecollecten3JMDHw_P" nillable="true" type="tns:PagingCollectionOfContratTelecollecten3JMDHw_P" />
+  <xs:complexType name="PagingCollectionOfRecepteurn3JMDHw_P">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="PagingCollectionOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/Pracdis.Exchange.BO" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="Recepteur" Namespace="http://MAC" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element xmlns:q7="http://MAC" minOccurs="0" name="DefaultPage" nillable="true" type="q7:ArrayOfRecepteur" />
+      <xs:element minOccurs="0" name="GlobalCount" type="xs:int" />
+      <xs:element minOccurs="0" name="PageSize" type="xs:int" />
+      <xs:element minOccurs="0" name="PagingId" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PagingCollectionOfRecepteurn3JMDHw_P" nillable="true" type="tns:PagingCollectionOfRecepteurn3JMDHw_P" />
+  <xs:complexType name="PagingCollectionOfReleven3JMDHw_P">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="PagingCollectionOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/Pracdis.Exchange.BO" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="Releve" Namespace="http://MAC" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element xmlns:q8="http://MAC" minOccurs="0" name="DefaultPage" nillable="true" type="q8:ArrayOfReleve" />
+      <xs:element minOccurs="0" name="GlobalCount" type="xs:int" />
+      <xs:element minOccurs="0" name="PageSize" type="xs:int" />
+      <xs:element minOccurs="0" name="PagingId" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PagingCollectionOfReleven3JMDHw_P" nillable="true" type="tns:PagingCollectionOfReleven3JMDHw_P" />
+  <xs:complexType name="PagingCollectionOfAlarme332Y6MAk">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="PagingCollectionOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/Pracdis.Exchange.BO" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="Alarme" Namespace="http://schemas.datacontract.org/2004/07/Pracdis.CIR.BO" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/Pracdis.CIR.BO" minOccurs="0" name="DefaultPage" nillable="true" type="q9:ArrayOfAlarme" />
+      <xs:element minOccurs="0" name="GlobalCount" type="xs:int" />
+      <xs:element minOccurs="0" name="PageSize" type="xs:int" />
+      <xs:element minOccurs="0" name="PagingId" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PagingCollectionOfAlarme332Y6MAk" nillable="true" type="tns:PagingCollectionOfAlarme332Y6MAk" />
+</xs:schema>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Pracdis.SITR.BO" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Pracdis.SITR.BO" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://51.254.179.28/MAC_EAU_WS/MAC.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Pracdis.Exchange.BO" />
+  <xs:complexType name="CriteresRechercheContrat">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:CriteresRecherche">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Nom" nillable="true" type="xs:string" />
+          <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Pracdis.Exchange.BO" minOccurs="0" name="NomOption" type="q1:ESearchTextOption" />
+          <xs:element minOccurs="0" name="Reference" nillable="true" type="xs:string" />
+          <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Pracdis.Exchange.BO" minOccurs="0" name="ReferenceOption" type="q2:ESearchTextOption" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="CriteresRechercheContrat" nillable="true" type="tns:CriteresRechercheContrat" />
+  <xs:complexType name="CriteresRecherche">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:element name="CriteresRecherche" nillable="true" type="tns:CriteresRecherche" />
+  <xs:complexType name="CriteresRechercheRecepteur">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:CriteresRecherche">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Adresse" nillable="true" type="xs:string" />
+          <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/Pracdis.Exchange.BO" minOccurs="0" name="AdresseOption" type="q3:ESearchTextOption" />
+          <xs:element minOccurs="0" name="NumeroSerie" nillable="true" type="xs:string" />
+          <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/Pracdis.Exchange.BO" minOccurs="0" name="NumeroSerieOption" type="q4:ESearchTextOption" />
+          <xs:element minOccurs="0" name="Reference" nillable="true" type="xs:string" />
+          <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/Pracdis.Exchange.BO" minOccurs="0" name="ReferenceOption" type="q5:ESearchTextOption" />
+          <xs:element minOccurs="0" name="Zone" nillable="true" type="xs:string" />
+          <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/Pracdis.Exchange.BO" minOccurs="0" name="ZoneOption" type="q6:ESearchTextOption" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="CriteresRechercheRecepteur" nillable="true" type="tns:CriteresRechercheRecepteur" />
+</xs:schema>

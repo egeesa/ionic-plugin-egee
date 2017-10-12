@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="062f17bf-dc89-41ad-b1ab-f30510464de9" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>true</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.ObjectModel.ObservableCollection`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>false</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="https://51.254.179.28/MAC_EAU_WS/Mac.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="MAC.wsdl" MetadataType="Wsdl" ID="5af2ccc3-2248-41f0-bf66-df76ae9b3d94" SourceId="1" SourceUrl="http://51.254.179.28/MAC_EAU_WS/MAC.svc?wsdl" />
+    <MetadataFile FileName="MAC.xsd" MetadataType="Schema" ID="41b6bdf2-191c-4939-8f42-b03b8bedd953" SourceId="1" SourceUrl="http://51.254.179.28/MAC_EAU_WS/MAC.svc?xsd=xsd1" />
+    <MetadataFile FileName="MAC1.xsd" MetadataType="Schema" ID="a5c079c7-68c8-4c6c-839c-5c97bdcb6ea4" SourceId="1" SourceUrl="http://51.254.179.28/MAC_EAU_WS/MAC.svc?xsd=xsd3" />
+    <MetadataFile FileName="MAC2.xsd" MetadataType="Schema" ID="cfca8993-bb81-4feb-88e6-001e36b5d9e4" SourceId="1" SourceUrl="http://51.254.179.28/MAC_EAU_WS/MAC.svc?xsd=xsd6" />
+    <MetadataFile FileName="MAC3.xsd" MetadataType="Schema" ID="c77a8987-7700-4f5e-99ac-571d441f9946" SourceId="1" SourceUrl="http://51.254.179.28/MAC_EAU_WS/MAC.svc?xsd=xsd4" />
+    <MetadataFile FileName="MAC.disco" MetadataType="Disco" ID="a45bb84b-852b-45ac-8d7a-fadacca0cb9e" SourceId="1" SourceUrl="http://51.254.179.28/MAC_EAU_WS/MAC.svc?disco" />
+    <MetadataFile FileName="MAC4.xsd" MetadataType="Schema" ID="d173f68a-56b2-4a68-871f-617b11bae63d" SourceId="1" SourceUrl="http://51.254.179.28/MAC_EAU_WS/MAC.svc?xsd=xsd0" />
+    <MetadataFile FileName="MAC5.xsd" MetadataType="Schema" ID="480c64c1-b532-4526-aa34-60106c897f02" SourceId="1" SourceUrl="http://51.254.179.28/MAC_EAU_WS/MAC.svc?xsd=xsd2" />
+    <MetadataFile FileName="MAC6.xsd" MetadataType="Schema" ID="4b2eebff-7118-446b-bfa8-fc80d935db6f" SourceId="1" SourceUrl="http://51.254.179.28/MAC_EAU_WS/MAC.svc?xsd=xsd5" />
+    <MetadataFile FileName="MAC1.wsdl" MetadataType="Wsdl" ID="7b7b3544-6876-4e58-89af-0181b786f393" SourceId="1" SourceUrl="http://51.254.179.28/MAC_EAU_WS/MAC.svc?wsdl=wsdl0" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

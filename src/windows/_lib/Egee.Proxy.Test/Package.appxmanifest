@@ -5,18 +5,18 @@
   xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10"
   IgnorableNamespaces="uap mp">
 
-  <Identity Name="3bcbb574-abf5-469d-b0ca-3ad82653e87c"
-            Publisher="CN=gla"
+  <Identity Name="afa2f857-66e6-4d86-b489-7ec64ec869f6"
+            Publisher="CN=vau"
             Version="1.0.0.0" />
 
-  <mp:PhoneIdentity PhoneProductId="3bcbb574-abf5-469d-b0ca-3ad82653e87c" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
+  <mp:PhoneIdentity PhoneProductId="afa2f857-66e6-4d86-b489-7ec64ec869f6" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
   <Properties>
     <DisplayName>Egee.Proxy.Test</DisplayName>
-    <PublisherDisplayName>gla</PublisherDisplayName>
+    <PublisherDisplayName>vau</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
-  
+
   <Dependencies>
     <TargetDeviceFamily Name="Windows.Universal" MinVersion="10.0.0.0" MaxVersionTested="10.0.0.0" />
   </Dependencies>
@@ -25,7 +25,7 @@
     <Resource Language="x-generate" />
   </Resources>
   <Applications>
-    <Application Id="vstest.executionengine.universal.App" 
+    <Application Id="vstest.executionengine.universal.App"
         Executable="$targetnametoken$.exe"
         EntryPoint="Egee.Proxy.Test.App">
       <uap:VisualElements
@@ -40,6 +40,6 @@
     </Application>
   </Applications>
   <Capabilities>
-    <Capability Name="internetClient" />
-  </Capabilities> 
+    <Capability Name="internetClientServer" />
+  </Capabilities>
 </Package>

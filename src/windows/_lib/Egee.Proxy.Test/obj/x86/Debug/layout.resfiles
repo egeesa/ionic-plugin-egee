@@ -8,5 +8,9 @@ Assets\StoreLogo.png
 Assets\Wide310x150Logo.scale-200.png
 Egee.Proxy.Test.xr.xml
 Properties\UnitTestApp.rd.xml
-xunit.runner.utility.net35.dll
-xunit.runner.visualstudio.testadapter.dll
+fr\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.resources.dll
+fr\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.resources.dll
+fr\Microsoft.VisualStudio.TestPlatform.TestFramework.resources.dll
+Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
