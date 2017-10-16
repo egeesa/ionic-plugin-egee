@@ -9,7 +9,8 @@
     <RemoteDebugEnabled>true</RemoteDebugEnabled>
   </PropertyGroup>
   <PropertyGroup>
-    <ReferencePath>D:\temp\SappelStaticLibrary\</ReferencePath>
+    <ReferencePath>
+    </ReferencePath>
     <ProjectView>ProjectFiles</ProjectView>
   </PropertyGroup>
 </Project>

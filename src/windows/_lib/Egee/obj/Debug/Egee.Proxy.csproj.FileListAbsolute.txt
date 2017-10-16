@@ -1,7 +1,4 @@
 C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee\bin\Debug\IZAR_CSIX.dll
-C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee\bin\Debug\izar-module-simpletext-readout-1.2.3-SNAPSHOT-android.jar
-C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee\bin\Debug\SappelWindowsRuntimeComponent.winmd
-C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee\bin\Debug\IzarLibraryWrapper.dll
 C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee\bin\Debug\Egee.Proxy.winmd
 C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee\bin\Debug\Egee.Proxy.pdb
 C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee\bin\Debug\Egee.Proxy.pri
@@ -9,8 +6,6 @@ C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee\bin\Debug\Egee.Proxy.Sappe
 C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee\bin\Debug\Egee.Proxy.Sappel.pdb
 C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee\bin\Debug\Egee.Proxy.Sappel.pri
 C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee\obj\Debug\Egee.Proxy.csprojResolveAssemblyReference.cache
-C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee\obj\Debug\Interop.IZAR_CSIXLib.dll
-C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee\obj\Debug\Egee.Proxy.csproj.ResolveComReference.cache
 C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee\obj\Debug\Egee.Proxy.winmd
 C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee\obj\Debug\Egee.Proxy.pdb
 C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee\obj\Debug\Egee.Proxy.winmdobj
@@ -26,3 +21,4 @@ C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee\obj\Debug\pri.resfiles.int
 C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee\obj\Debug\qualifiers.txt
 C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee\obj\Debug\qualifiers.txt.intermediate
 C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee\obj\Debug\MultipleQualifiersPerDimensionFound.txt
+C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee\obj\Debug\Egee.Proxy.csproj.CoreCompileInputs.cache

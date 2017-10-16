@@ -1,7 +1,8 @@
 C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee.Wcf.Service\bin\Debug\Egee.Wcf.Service.dll
 C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee.Wcf.Service\bin\Debug\Egee.Wcf.Service.pdb
-C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee.Wcf.Service\obj\Debug\Egee.Wcf.Service.csprojResolveAssemblyReference.cache
 C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee.Wcf.Service\obj\Debug\Interop.IZAR_CSIXLib.dll
 C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee.Wcf.Service\obj\Debug\Egee.Wcf.Service.csproj.ResolveComReference.cache
 C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee.Wcf.Service\obj\Debug\Egee.Wcf.Service.dll
 C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee.Wcf.Service\obj\Debug\Egee.Wcf.Service.pdb
+C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee.Wcf.Service\obj\Debug\Egee.Wcf.Service.csproj.CoreCompileInputs.cache
+C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee.Wcf.Service\obj\Debug\Egee.Wcf.Service.csprojResolveAssemblyReference.cache

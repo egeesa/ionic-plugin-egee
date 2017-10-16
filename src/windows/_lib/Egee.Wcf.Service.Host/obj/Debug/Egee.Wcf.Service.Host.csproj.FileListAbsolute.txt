@@ -8,3 +8,8 @@ C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee.Wcf.Service.Host\obj\Debug
 C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee.Wcf.Service.Host\obj\Debug\Egee.Wcf.Service.Host.application
 C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee.Wcf.Service.Host\obj\Debug\Egee.Wcf.Service.Host.exe
 C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee.Wcf.Service.Host\obj\Debug\Egee.Wcf.Service.Host.pdb
+C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee.Wcf.Service.Host\bin\Debug\Egee.Wcf.Service.Host.exe.config
+C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee.Wcf.Service.Host\bin\Debug\Egee.Wcf.Service.Host.exe.manifest
+C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee.Wcf.Service.Host\bin\Debug\Egee.Wcf.Service.Host.application
+C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee.Wcf.Service.Host\bin\Debug\Egee.Wcf.Service.Host.pdb
+C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee.Wcf.Service.Host\obj\Debug\Egee.Wcf.Service.Host.csproj.CoreCompileInputs.cache

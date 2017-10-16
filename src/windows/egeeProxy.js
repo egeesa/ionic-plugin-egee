@@ -7,15 +7,15 @@ module.exports = {
         try {
             success(Egee.Proxy.EgeeProxy.getversion());
         } catch (e) {
-            error("Erreur getVersion " + e.message);
+            error("Erreur getversion " + e.message);
         }
     },
     
-    testWCF: function (success, error, message) {
+    testwcf: function (success, error, message) {
         try {
-            success(Egee.Proxy.EgeeProxy.testWCF());
+            success(Egee.Proxy.EgeeProxy.testwcf());
         } catch (e) {
-            error("Erreur testWCF " + e.message);
+            error("Erreur testwcf " + e.message);
         }
     },
     

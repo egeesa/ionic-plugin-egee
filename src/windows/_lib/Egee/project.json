@@ -1,7 +1,8 @@
 ﻿{
   "dependencies": {
-    "Microsoft.NETCore.UniversalWindowsPlatform": "5.1.0",
-    "System.ServiceModel.Http": "4.4.0"
+    "Microsoft.AspNet.WebApi.Client": "5.2.3",
+    "Microsoft.Net.Http": "2.2.29",
+    "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
   },
   "frameworks": {
     "uap10.0.10586": {}

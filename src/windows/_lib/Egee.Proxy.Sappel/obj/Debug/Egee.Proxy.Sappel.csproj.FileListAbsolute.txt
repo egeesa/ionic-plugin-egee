@@ -17,4 +17,4 @@ C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee.Proxy.Sappel\obj\Debug\pri
 C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee.Proxy.Sappel\obj\Debug\qualifiers.txt
 C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee.Proxy.Sappel\obj\Debug\qualifiers.txt.intermediate
 C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee.Proxy.Sappel\obj\Debug\MultipleQualifiersPerDimensionFound.txt
-C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee.Proxy.Sappel\obj\Debug\Egee.Proxy.Sappel.csprojResolveAssemblyReference.cache
+C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee.Proxy.Sappel\obj\Debug\Egee.Proxy.Sappel.csproj.CoreCompileInputs.cache

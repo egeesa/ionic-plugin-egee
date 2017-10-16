@@ -1,0 +1,6 @@
+C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee.Wcf.Service.Host.Console.Test\bin\Debug\Egee.Wcf.Service.Host.Console.Test.exe.config
+C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee.Wcf.Service.Host.Console.Test\bin\Debug\Egee.Wcf.Service.Host.Console.Test.exe
+C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee.Wcf.Service.Host.Console.Test\bin\Debug\Egee.Wcf.Service.Host.Console.Test.pdb
+C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee.Wcf.Service.Host.Console.Test\obj\Debug\Egee.Wcf.Service.Host.Console.Test.csproj.CoreCompileInputs.cache
+C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee.Wcf.Service.Host.Console.Test\obj\Debug\Egee.Wcf.Service.Host.Console.Test.exe
+C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee.Wcf.Service.Host.Console.Test\obj\Debug\Egee.Wcf.Service.Host.Console.Test.pdb
