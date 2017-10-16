@@ -10,7 +10,15 @@ module.exports = {
             error("Erreur getVersion " + e.message);
         }
     },
-
+    
+    testWCF: function (success, error, message) {
+        try {
+            success(Egee.Proxy.EgeeProxy.testWCF());
+        } catch (e) {
+            error("Erreur testWCF " + e.message);
+        }
+    },
+    
     helloworld: function (success, error, message) {
         try {
             if (!message || !message.length) {

@@ -1,6 +1,7 @@
 ﻿
 using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Egee.Proxy.Test.Sappel;
 
 namespace Egee.Proxy.Test
 {
@@ -17,8 +18,11 @@ namespace Egee.Proxy.Test
         [TestMethod]
         public void WcfConsume()
         {
-            string result = EgeeProxy.testWcf();
-            Assert.IsNotNull(result);
+            //string result = EgeeProxy.testWcf();
+            SappelServiceClient sappelServiceClient = new SappelServiceClient(SappelServiceClient.EndpointConfiguration.BasicHttpBinding_ISappelService);
+            InitResponse initResponse = sappelServiceClient.InitAsync(new InitRequest()).Result;
+            GetVersionResponse getVersionResponse = sappelServiceClient.GetVersionAsync(new GetVersionRequest()).Result;
+            Assert.IsNotNull(getVersionResponse.GetVersionResult);
         }
     }
 }

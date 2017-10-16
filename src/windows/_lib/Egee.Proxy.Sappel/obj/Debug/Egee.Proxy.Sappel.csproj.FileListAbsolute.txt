@@ -1,12 +1,11 @@
-C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee.Proxy.Sappel\obj\Debug\Egee.Proxy.Sappel.csproj.CoreCompileInputs.cache
-C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee.Proxy.Sappel\obj\Debug\Egee.Proxy.Sappel.winmd
-C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee.Proxy.Sappel\obj\Debug\Egee.Proxy.Sappel.winmdobj
-C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee.Proxy.Sappel\obj\Debug\Egee.Proxy.Sappel.compile.pdb
 C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee.Proxy.Sappel\bin\Debug\IZAR_CSIX.dll
 C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee.Proxy.Sappel\bin\Debug\Egee.Proxy.Sappel.winmd
 C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee.Proxy.Sappel\bin\Debug\Egee.Proxy.Sappel.pdb
 C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee.Proxy.Sappel\bin\Debug\Egee.Proxy.Sappel.pri
+C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee.Proxy.Sappel\obj\Debug\Egee.Proxy.Sappel.winmd
 C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee.Proxy.Sappel\obj\Debug\Egee.Proxy.Sappel.pdb
+C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee.Proxy.Sappel\obj\Debug\Egee.Proxy.Sappel.winmdobj
+C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee.Proxy.Sappel\obj\Debug\Egee.Proxy.Sappel.compile.pdb
 C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee.Proxy.Sappel\obj\Debug\priconfig.xml
 C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee.Proxy.Sappel\obj\Debug\priconfig.xml.intermediate
 C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee.Proxy.Sappel\obj\Debug\layout.resfiles
@@ -18,3 +17,4 @@ C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee.Proxy.Sappel\obj\Debug\pri
 C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee.Proxy.Sappel\obj\Debug\qualifiers.txt
 C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee.Proxy.Sappel\obj\Debug\qualifiers.txt.intermediate
 C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee.Proxy.Sappel\obj\Debug\MultipleQualifiersPerDimensionFound.txt
+C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee.Proxy.Sappel\obj\Debug\Egee.Proxy.Sappel.csprojResolveAssemblyReference.cache

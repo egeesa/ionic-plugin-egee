@@ -105,17 +105,23 @@
   </PropertyGroup>
   <ItemGroup>
     <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
-    <None Include="Connected Services\Egee.Proxy.Sappel\service.wsdl" />
-    <None Include="Connected Services\Egee.Proxy.Sappel\service.xsd">
+    <None Include="Connected Services\Sappel\Egee.Proxy.Sappel.GetVersionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Sappel\Egee.Proxy.Sappel.InitResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Sappel\service.wsdl" />
+    <None Include="Connected Services\Sappel\service.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\Egee.Proxy.Sappel\service1.xsd">
+    <None Include="Connected Services\Sappel\service1.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="project.json" />
-    <None Include="Connected Services\Egee.Proxy.Sappel\configuration91.svcinfo" />
-    <None Include="Connected Services\Egee.Proxy.Sappel\configuration.svcinfo" />
-    <None Include="Connected Services\Egee.Proxy.Sappel\Reference.svcmap">
+    <None Include="Connected Services\Sappel\configuration91.svcinfo" />
+    <None Include="Connected Services\Sappel\configuration.svcinfo" />
+    <None Include="Connected Services\Sappel\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
@@ -131,7 +137,7 @@
     <None Include="Properties\ServiceReferences.Designer.ClientConfig" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Connected Services\Egee.Proxy.Sappel\Reference.cs">
+    <Compile Include="Connected Services\Sappel\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -172,7 +178,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadataStorage Include="Connected Services\Egee.Proxy.Sappel\" />
+    <WCFMetadataStorage Include="Connected Services\Sappel\" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>

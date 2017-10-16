@@ -1,2 +1,3 @@
+C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee.Proxy.Sappel\Egee.Proxy.Sappel.csproj;neutral
 C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee.Proxy.Test\Egee.Proxy.Test.csproj;x86
 C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee\Egee.Proxy.csproj;neutral

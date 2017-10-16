@@ -145,7 +145,6 @@ C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee.Proxy.Test\obj\x86\Debug\X
 C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee.Proxy.Test\obj\x86\Debug\UnitTestApp.xaml
 C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee.Proxy.Test\obj\x86\Debug\UnitTestApp.xbf
 C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee.Proxy.Test\obj\x86\Debug\XamlSaveStateFile.xml
-C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee.Proxy.Test\obj\x86\Debug\Egee.Proxy.Test.csproj.CoreCompileInputs.cache
 C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee.Proxy.Test\obj\x86\Debug\Egee.Proxy.Test.exe
 C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee.Proxy.Test\obj\x86\Debug\Egee.Proxy.Test.pdb
 C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee.Proxy.Test\obj\x86\Debug\ResourceHandlingTask.state
@@ -240,3 +239,4 @@ C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee.Proxy.Test\obj\x86\Debug\r
 C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee.Proxy.Test\obj\x86\Debug\resources.en-us.resfiles.intermediate
 C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee.Proxy.Test\obj\x86\Debug\resources.en.resfiles.intermediate
 C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee.Proxy.Test\obj\x86\Debug\ProjectArchitectures.txt
+C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee.Proxy.Test\bin\x86\Debug\IZAR_CSIX.dll

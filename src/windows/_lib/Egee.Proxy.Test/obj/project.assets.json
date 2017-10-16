@@ -1,5 +1,5 @@
 {
-  "version": 3,
+  "version": 2,
   "targets": {
     "UAP,Version=v10.0.10586": {
       "Microsoft.CSharp/4.0.1": {
@@ -2382,12 +2382,6 @@
           "Egee.Proxy.Sappel": "1.0.0",
           "Microsoft.NETCore.UniversalWindowsPlatform": "5.1.0",
           "System.ServiceModel.Http": "4.4.0"
-        },
-        "compile": {
-          "bin/placeholder/Egee.Proxy.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/Egee.Proxy.dll": {}
         }
       },
       "Egee.Proxy.Sappel/1.0.0": {
@@ -2395,12 +2389,6 @@
         "framework": "UAP,Version=v10.0.10586",
         "dependencies": {
           "Microsoft.NETCore.UniversalWindowsPlatform": "5.4.0"
-        },
-        "compile": {
-          "bin/placeholder/Egee.Proxy.Sappel.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/Egee.Proxy.Sappel.dll": {}
         }
       }
     },
@@ -4815,12 +4803,6 @@
           "Egee.Proxy.Sappel": "1.0.0",
           "Microsoft.NETCore.UniversalWindowsPlatform": "5.1.0",
           "System.ServiceModel.Http": "4.4.0"
-        },
-        "compile": {
-          "bin/placeholder/Egee.Proxy.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/Egee.Proxy.dll": {}
         }
       },
       "Egee.Proxy.Sappel/1.0.0": {
@@ -4828,12 +4810,6 @@
         "framework": "UAP,Version=v10.0.10586",
         "dependencies": {
           "Microsoft.NETCore.UniversalWindowsPlatform": "5.4.0"
-        },
-        "compile": {
-          "bin/placeholder/Egee.Proxy.Sappel.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/Egee.Proxy.Sappel.dll": {}
         }
       }
     },
@@ -5574,6 +5550,9 @@
       },
       "runtime.win10-arm-aot.runtime.native.System.IO.Compression/4.0.1": {
         "type": "package",
+        "compile": {
+          "runtimes/win10-arm-aot/lib/netcore50/_._": {}
+        },
         "runtime": {
           "runtimes/win10-arm-aot/lib/netcore50/clrcompression.dll": {}
         }
@@ -7284,12 +7263,6 @@
           "Egee.Proxy.Sappel": "1.0.0",
           "Microsoft.NETCore.UniversalWindowsPlatform": "5.1.0",
           "System.ServiceModel.Http": "4.4.0"
-        },
-        "compile": {
-          "bin/placeholder/Egee.Proxy.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/Egee.Proxy.dll": {}
         }
       },
       "Egee.Proxy.Sappel/1.0.0": {
@@ -7297,12 +7270,6 @@
         "framework": "UAP,Version=v10.0.10586",
         "dependencies": {
           "Microsoft.NETCore.UniversalWindowsPlatform": "5.4.0"
-        },
-        "compile": {
-          "bin/placeholder/Egee.Proxy.Sappel.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/Egee.Proxy.Sappel.dll": {}
         }
       }
     },
@@ -9726,12 +9693,6 @@
           "Egee.Proxy.Sappel": "1.0.0",
           "Microsoft.NETCore.UniversalWindowsPlatform": "5.1.0",
           "System.ServiceModel.Http": "4.4.0"
-        },
-        "compile": {
-          "bin/placeholder/Egee.Proxy.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/Egee.Proxy.dll": {}
         }
       },
       "Egee.Proxy.Sappel/1.0.0": {
@@ -9739,12 +9700,6 @@
         "framework": "UAP,Version=v10.0.10586",
         "dependencies": {
           "Microsoft.NETCore.UniversalWindowsPlatform": "5.4.0"
-        },
-        "compile": {
-          "bin/placeholder/Egee.Proxy.Sappel.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/Egee.Proxy.Sappel.dll": {}
         }
       }
     },
@@ -10488,6 +10443,9 @@
       },
       "runtime.win10-x64-aot.runtime.native.System.IO.Compression/4.0.1": {
         "type": "package",
+        "compile": {
+          "runtimes/win10-x64-aot/lib/netcore50/_._": {}
+        },
         "runtime": {
           "runtimes/win10-x64-aot/lib/netcore50/clrcompression.dll": {}
         }
@@ -12204,12 +12162,6 @@
           "Egee.Proxy.Sappel": "1.0.0",
           "Microsoft.NETCore.UniversalWindowsPlatform": "5.1.0",
           "System.ServiceModel.Http": "4.4.0"
-        },
-        "compile": {
-          "bin/placeholder/Egee.Proxy.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/Egee.Proxy.dll": {}
         }
       },
       "Egee.Proxy.Sappel/1.0.0": {
@@ -12217,12 +12169,6 @@
         "framework": "UAP,Version=v10.0.10586",
         "dependencies": {
           "Microsoft.NETCore.UniversalWindowsPlatform": "5.4.0"
-        },
-        "compile": {
-          "bin/placeholder/Egee.Proxy.Sappel.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/Egee.Proxy.Sappel.dll": {}
         }
       }
     },
@@ -14646,12 +14592,6 @@
           "Egee.Proxy.Sappel": "1.0.0",
           "Microsoft.NETCore.UniversalWindowsPlatform": "5.1.0",
           "System.ServiceModel.Http": "4.4.0"
-        },
-        "compile": {
-          "bin/placeholder/Egee.Proxy.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/Egee.Proxy.dll": {}
         }
       },
       "Egee.Proxy.Sappel/1.0.0": {
@@ -14659,12 +14599,6 @@
         "framework": "UAP,Version=v10.0.10586",
         "dependencies": {
           "Microsoft.NETCore.UniversalWindowsPlatform": "5.4.0"
-        },
-        "compile": {
-          "bin/placeholder/Egee.Proxy.Sappel.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/Egee.Proxy.Sappel.dll": {}
         }
       }
     },
@@ -15408,6 +15342,9 @@
       },
       "runtime.win10-x86-aot.runtime.native.System.IO.Compression/4.0.1": {
         "type": "package",
+        "compile": {
+          "runtimes/win10-x86-aot/lib/netcore50/_._": {}
+        },
         "runtime": {
           "runtimes/win10-x86-aot/lib/netcore50/clrcompression.dll": {}
         }
@@ -17124,12 +17061,6 @@
           "Egee.Proxy.Sappel": "1.0.0",
           "Microsoft.NETCore.UniversalWindowsPlatform": "5.1.0",
           "System.ServiceModel.Http": "4.4.0"
-        },
-        "compile": {
-          "bin/placeholder/Egee.Proxy.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/Egee.Proxy.dll": {}
         }
       },
       "Egee.Proxy.Sappel/1.0.0": {
@@ -17137,12 +17068,6 @@
         "framework": "UAP,Version=v10.0.10586",
         "dependencies": {
           "Microsoft.NETCore.UniversalWindowsPlatform": "5.4.0"
-        },
-        "compile": {
-          "bin/placeholder/Egee.Proxy.Sappel.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/Egee.Proxy.Sappel.dll": {}
         }
       }
     }
@@ -25858,7 +25783,7 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\vau\\.nuget\\packages\\": {}
+    "C:\\Users\\gla\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
@@ -25866,21 +25791,11 @@
       "projectUniqueName": "C:\\ProjetsGIT\\ionic-plugin-egee\\src\\windows\\_lib\\Egee.Proxy.Test\\Egee.Proxy.Test.csproj",
       "projectName": "Egee.Proxy.Test",
       "projectPath": "C:\\ProjetsGIT\\ionic-plugin-egee\\src\\windows\\_lib\\Egee.Proxy.Test\\Egee.Proxy.Test.csproj",
-      "packagesPath": "C:\\Users\\vau\\.nuget\\packages\\",
       "outputPath": "C:\\ProjetsGIT\\ionic-plugin-egee\\src\\windows\\_lib\\Egee.Proxy.Test\\obj\\",
       "projectStyle": "PackageReference",
-      "skipContentFileWrite": true,
-      "configFilePaths": [
-        "C:\\Users\\vau\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
-      ],
       "originalTargetFrameworks": [
         "uap10.0.10586"
       ],
-      "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "https://api.nuget.org/v3/index.json": {}
-      },
       "frameworks": {
         "uap10.0.10586": {
           "projectReferences": {

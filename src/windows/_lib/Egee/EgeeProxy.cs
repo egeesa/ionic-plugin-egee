@@ -10,7 +10,6 @@ using Windows.Web.Http.Filters;
 using Windows.ApplicationModel.AppService;
 using IZAR_CSIXLib;
 using Egee.Proxy.Sappel;
-using static Egee.Proxy.Sappel.SappelServiceClient;
 
 namespace Egee.Proxy
 {
@@ -32,15 +31,16 @@ namespace Egee.Proxy
             //return wrapper.Test();
         }
 
-        public async static string testWcf()
+        public static string testWcf()
         {
             //ServiceReference1.Service1Client client = new ServiceReference1.Service1Client();
             //Task<string> response = client.GetDataAsync(3);
             //string result = response.Result;
-            SappelServiceClient sappelServiceClient = new SappelServiceClient(EndpointConfiguration.BasicHttpBinding_ISappelService);
-            InitResponse initResponse = await sappelServiceClient.InitAsync(new InitRequest());
+            SappelServiceClient sappelServiceClient = new SappelServiceClient(SappelServiceClient.EndpointConfiguration.BasicHttpBinding_ISappelService);
+            InitResponse initResponse = sappelServiceClient.InitAsync(new InitRequest()).Result;
+            GetVersionResponse getVersionResponse = sappelServiceClient.GetVersionAsync(new GetVersionRequest()).Result;
 
-            return "TODO";
+            return getVersionResponse.GetVersionResult;
         }
     }
 }

@@ -14,6 +14,10 @@ EgeePlugin.prototype.getversion = function (success, error, message) {
     exec(success, error, "EgeePlugin", "getversion", [message]);
 };
 
+EgeePlugin.prototype.testWCF = function (success, error, message) {
+    exec(success, error, "EgeePlugin", "testWCF", [message]);
+};
+
 EgeePlugin.prototype.sappelLicense = function (success, error, message) {
     exec(success, error, "EgeePlugin", "sappelLicense", [message]);
 };
