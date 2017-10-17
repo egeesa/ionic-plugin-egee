@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26730.16
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Egee.Proxy", "Egee\Egee.Proxy.csproj", "{BD5EA2A9-6471-4FC7-AC2F-88AEADD8A82F}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Egee.Proxy.Test", "Egee.Proxy.Test\Egee.Proxy.Test.csproj", "{4DD3B9E8-F545-4B01-97A8-796C0FEFD416}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Egee.Proxy.Sappel", "Egee.Proxy.Sappel\Egee.Proxy.Sappel.csproj", "{3B2BE26F-3AB8-4D5F-AB16-7B8FDDE83856}"
@@ -14,6 +12,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Egee.Wcf.Service.Host", "Egee.Wcf.Service.Host\Egee.Wcf.Service.Host.csproj", "{DF848AB6-DF86-4852-9C94-1DCD158B4402}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Egee.Wcf.Service.Host.Console.Test", "Egee.Wcf.Service.Host.Console.Test\Egee.Wcf.Service.Host.Console.Test.csproj", "{D0B9FB96-487F-4596-B478-DA70596582EC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Egee.Proxy", "Egee.Proxy\Egee.Proxy.csproj", "{5FFD00C5-1466-4993-B0FC-7D6A1FA0EBB7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,22 +27,6 @@ Global
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{BD5EA2A9-6471-4FC7-AC2F-88AEADD8A82F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BD5EA2A9-6471-4FC7-AC2F-88AEADD8A82F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BD5EA2A9-6471-4FC7-AC2F-88AEADD8A82F}.Debug|ARM.ActiveCfg = Debug|ARM
-		{BD5EA2A9-6471-4FC7-AC2F-88AEADD8A82F}.Debug|ARM.Build.0 = Debug|ARM
-		{BD5EA2A9-6471-4FC7-AC2F-88AEADD8A82F}.Debug|x64.ActiveCfg = Debug|x64
-		{BD5EA2A9-6471-4FC7-AC2F-88AEADD8A82F}.Debug|x64.Build.0 = Debug|x64
-		{BD5EA2A9-6471-4FC7-AC2F-88AEADD8A82F}.Debug|x86.ActiveCfg = Debug|x86
-		{BD5EA2A9-6471-4FC7-AC2F-88AEADD8A82F}.Debug|x86.Build.0 = Debug|x86
-		{BD5EA2A9-6471-4FC7-AC2F-88AEADD8A82F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BD5EA2A9-6471-4FC7-AC2F-88AEADD8A82F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{BD5EA2A9-6471-4FC7-AC2F-88AEADD8A82F}.Release|ARM.ActiveCfg = Release|ARM
-		{BD5EA2A9-6471-4FC7-AC2F-88AEADD8A82F}.Release|ARM.Build.0 = Release|ARM
-		{BD5EA2A9-6471-4FC7-AC2F-88AEADD8A82F}.Release|x64.ActiveCfg = Release|x64
-		{BD5EA2A9-6471-4FC7-AC2F-88AEADD8A82F}.Release|x64.Build.0 = Release|x64
-		{BD5EA2A9-6471-4FC7-AC2F-88AEADD8A82F}.Release|x86.ActiveCfg = Release|x86
-		{BD5EA2A9-6471-4FC7-AC2F-88AEADD8A82F}.Release|x86.Build.0 = Release|x86
 		{4DD3B9E8-F545-4B01-97A8-796C0FEFD416}.Debug|Any CPU.ActiveCfg = Debug|x86
 		{4DD3B9E8-F545-4B01-97A8-796C0FEFD416}.Debug|ARM.ActiveCfg = Debug|ARM
 		{4DD3B9E8-F545-4B01-97A8-796C0FEFD416}.Debug|ARM.Build.0 = Debug|ARM
@@ -127,6 +111,22 @@ Global
 		{D0B9FB96-487F-4596-B478-DA70596582EC}.Release|x64.Build.0 = Release|Any CPU
 		{D0B9FB96-487F-4596-B478-DA70596582EC}.Release|x86.ActiveCfg = Release|Any CPU
 		{D0B9FB96-487F-4596-B478-DA70596582EC}.Release|x86.Build.0 = Release|Any CPU
+		{5FFD00C5-1466-4993-B0FC-7D6A1FA0EBB7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5FFD00C5-1466-4993-B0FC-7D6A1FA0EBB7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5FFD00C5-1466-4993-B0FC-7D6A1FA0EBB7}.Debug|ARM.ActiveCfg = Debug|ARM
+		{5FFD00C5-1466-4993-B0FC-7D6A1FA0EBB7}.Debug|ARM.Build.0 = Debug|ARM
+		{5FFD00C5-1466-4993-B0FC-7D6A1FA0EBB7}.Debug|x64.ActiveCfg = Debug|x64
+		{5FFD00C5-1466-4993-B0FC-7D6A1FA0EBB7}.Debug|x64.Build.0 = Debug|x64
+		{5FFD00C5-1466-4993-B0FC-7D6A1FA0EBB7}.Debug|x86.ActiveCfg = Debug|x86
+		{5FFD00C5-1466-4993-B0FC-7D6A1FA0EBB7}.Debug|x86.Build.0 = Debug|x86
+		{5FFD00C5-1466-4993-B0FC-7D6A1FA0EBB7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5FFD00C5-1466-4993-B0FC-7D6A1FA0EBB7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5FFD00C5-1466-4993-B0FC-7D6A1FA0EBB7}.Release|ARM.ActiveCfg = Release|ARM
+		{5FFD00C5-1466-4993-B0FC-7D6A1FA0EBB7}.Release|ARM.Build.0 = Release|ARM
+		{5FFD00C5-1466-4993-B0FC-7D6A1FA0EBB7}.Release|x64.ActiveCfg = Release|x64
+		{5FFD00C5-1466-4993-B0FC-7D6A1FA0EBB7}.Release|x64.Build.0 = Release|x64
+		{5FFD00C5-1466-4993-B0FC-7D6A1FA0EBB7}.Release|x86.ActiveCfg = Release|x86
+		{5FFD00C5-1466-4993-B0FC-7D6A1FA0EBB7}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

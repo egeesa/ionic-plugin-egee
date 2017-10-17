@@ -33,9 +33,52 @@
     <!-- windows -->
     <platform name="windows">
         <js-module src="src/windows/egeeProxy.js" name="EgeeProxy">
+			<merges target="" />
             <runs />
         </js-module>
-        <framework src="src/windows/_lib/Egee/Egee.Proxy.csproj" custom="true" type="projectReference"/>
-        <!--<framework src="src/windows/_lib/Egee.Proxy.winmd" custom="true"/>-->
+        <framework src="src/windows/_lib/Egee/Egee.Proxy.csproj" custom="true" type="projectReference" />
+		 <!--<resource-file src="src/windows/_lib/packages/MetroLog.1.0.1/lib/dotnet/MetroLog.dll" target="MetroLog.dll"/>-->
+		<resource-file src="src/windows/_lib/dll/System.Collections.Concurrent.dll" target="System.Collections.Concurrent.dll"/>
+		<resource-file src="src/windows/_lib/dll/System.Collections.dll" target="System.Collections.dll"/>
+		<resource-file src="src/windows/_lib/dll/System.ComponentModel.EventBasedAsync.dll" target="System.ComponentModel.EventBasedAsync.dll"/>
+		<resource-file src="src/windows/_lib/dll/System.Diagnostics.Debug.dll" target="System.Diagnostics.Debug.dll"/>
+		<resource-file src="src/windows/_lib/dll/System.Diagnostics.DiagnosticSource.dll" target="System.Diagnostics.DiagnosticSource.dll"/>
+		<resource-file src="src/windows/_lib/dll/System.Globalization.dll" target="System.Globalization.dll"/>
+		<resource-file src="src/windows/_lib/dll/System.IO.dll" target="System.IO.dll"/>
+		<resource-file src="src/windows/_lib/dll/System.Linq.dll" target="System.Linq.dll"/>
+		<resource-file src="src/windows/_lib/dll/System.Private.DataContractSerialization.dll" target="System.Private.DataContractSerialization.dll"/>
+		<resource-file src="src/windows/_lib/dll/System.Private.ServiceModel.dll" target="System.Private.ServiceModel.dll"/>
+		<resource-file src="src/windows/_lib/dll/System.Reflection.dll" target="System.Reflection.dll"/>
+		<resource-file src="src/windows/_lib/dll/System.Reflection.Extensions.dll" target="System.Reflection.Extensions.dll"/>
+		<resource-file src="src/windows/_lib/dll/System.Reflection.Primitives.dll" target="System.Reflection.Primitives.dll"/>
+		<resource-file src="src/windows/_lib/dll/System.Reflection.TypeExtensions.dll" target="System.Reflection.TypeExtensions.dll"/>
+		<resource-file src="src/windows/_lib/dll/System.Resources.ResourceManager.dll" target="System.Resources.ResourceManager.dll"/>
+		<resource-file src="src/windows/_lib/dll/System.Runtime.dll" target="System.Runtime.dll"/>
+		<resource-file src="src/windows/_lib/dll/System.Runtime.Extensions.dll" target="System.Runtime.Extensions.dll"/>
+		<resource-file src="src/windows/_lib/dll/System.Runtime.Serialization.Primitives.dll" target="System.Runtime.Serialization.Primitives.dll"/>
+		<resource-file src="src/windows/_lib/dll/System.Runtime.Serialization.Xml.dll" target="System.Runtime.Serialization.Xml.dll"/>
+		<resource-file src="src/windows/_lib/dll/System.Security.Principal.dll" target="System.Security.Principal.dll"/>
+		<resource-file src="src/windows/_lib/dll/System.ServiceModel.NetTcp.dll" target="System.ServiceModel.NetTcp.dll"/>
+		<resource-file src="src/windows/_lib/dll/System.ServiceModel.Primitives.dll" target="System.ServiceModel.Primitives.dll"/>
+		<resource-file src="src/windows/_lib/dll/System.Text.Encoding.dll" target="System.Text.Encoding.dll"/>
+		<resource-file src="src/windows/_lib/dll/System.Text.Encoding.Extensions.dll" target="System.Text.Encoding.Extensions.dll"/>
+		<resource-file src="src/windows/_lib/dll/System.Text.RegularExpressions.dll" target="System.Text.RegularExpressions.dll"/>
+		<resource-file src="src/windows/_lib/dll/System.Threading.dll" target="System.Threading.dll"/>
+		<resource-file src="src/windows/_lib/dll/System.Threading.Tasks.dll" target="System.Threading.Tasks.dll"/>
+		<resource-file src="src/windows/_lib/dll/System.Xml.ReaderWriter.dll" target="System.Xml.ReaderWriter.dll"/>
+		<resource-file src="src/windows/_lib/dll/System.Xml.XDocument.dll" target="System.Xml.XDocument.dll"/>
+		<resource-file src="src/windows/_lib/dll/System.Xml.XmlDocument.dll" target="System.Xml.XmlDocument.dll"/>
+		<resource-file src="src/windows/_lib/dll/System.Xml.XmlSerializer.dll" target="System.Xml.XmlSerializer.dll"/>
+		<resource-file src="src/windows/_lib/dll/System.ServiceModel.Http.dll" target="System.ServiceModel.Http.dll"/>
+		<resource-file src="src/windows/_lib/dll/System.Net.WebHeaderCollection.dll" target="System.Net.WebHeaderCollection.dll"/>
+		<resource-file src="src/windows/_lib/dll/System.Reflection.DispatchProxy.dll" target="System.Reflection.DispatchProxy.dll"/>
+		<resource-file src="src/windows/_lib/dll/System.Net.Http.dll" target="System.Net.Http.dll"/>	
+		<resource-file src="src/windows/_lib/dll/System.Net.Primitives.dll" target="System.Net.Primitives.dll"/>		
+		<resource-file src="src/windows/_lib/dll/System.Runtime.InteropServices.dll" target="System.Runtime.InteropServices.dll"/>	
+		<resource-file src="src/windows/_lib/dll/System.Security.Cryptography.X509Certificates.dll" target="System.Security.Cryptography.X509Certificates.dll"/>		
+		<resource-file src="src/windows/_lib/dll/System.Runtime.WindowsRuntime.dll" target="System.Runtime.WindowsRuntime.dll"/>			
+		<resource-file src="src/windows/_lib/dll/System.Diagnostics.Tracing.dll" target="System.Diagnostics.Tracing.dll"/>	
+			
+			
     </platform>
 </plugin>

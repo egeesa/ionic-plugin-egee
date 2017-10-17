@@ -1,4 +1,6 @@
 ﻿using Egee.Wcf.Service.Host.Console.Test.Sappel;
+using MetroLog;
+using MetroLog.Targets;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +13,11 @@ namespace Egee.Wcf.Service.Host.Console.Test
     {
         static void Main(string[] args)
         {
+            LogManagerFactory.DefaultConfiguration.AddTarget(LogLevel.Trace, LogLevel.Fatal, new StreamingFileTarget());
+            ILogger log = LogManagerFactory.DefaultLogManager.GetLogger<Program>();
+
+            log.Trace("1 - Création client WCF");
+
             SappelServiceClient sappelServiceClient = new SappelServiceClient("BasicHttpBinding_ISappelService");
 
             InitResponse initResponse = sappelServiceClient.InitAsync(new InitRequest()).Result;

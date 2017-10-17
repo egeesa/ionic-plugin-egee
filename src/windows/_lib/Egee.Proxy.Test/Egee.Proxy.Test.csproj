@@ -160,12 +160,6 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Egee\Egee.Proxy.csproj">
-      <Project>{bd5ea2a9-6471-4fc7-ac2f-88aeadd8a82f}</Project>
-      <Name>Egee.Proxy</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
   </ItemGroup>
   <ItemGroup>

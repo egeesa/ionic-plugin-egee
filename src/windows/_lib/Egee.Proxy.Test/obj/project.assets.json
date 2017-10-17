@@ -2,34 +2,6 @@
   "version": 3,
   "targets": {
     "UAP,Version=v10.0.10586": {
-      "Microsoft.AspNet.WebApi.Client/5.2.3": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.Net.Http": "2.2.22",
-          "Newtonsoft.Json": "6.0.4"
-        },
-        "compile": {
-          "lib/portable-wp8+netcore45+net45+wp81+wpa81/System.Net.Http.Formatting.dll": {}
-        },
-        "runtime": {
-          "lib/portable-wp8+netcore45+net45+wp81+wpa81/System.Net.Http.Formatting.dll": {}
-        }
-      },
-      "Microsoft.Bcl/1.1.10": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.Bcl.Build": "1.0.14"
-        },
-        "compile": {
-          "lib/win8/_._": {}
-        },
-        "runtime": {
-          "lib/win8/_._": {}
-        }
-      },
-      "Microsoft.Bcl.Build/1.0.14": {
-        "type": "package"
-      },
       "Microsoft.CSharp/4.0.1": {
         "type": "package",
         "dependencies": {
@@ -55,21 +27,6 @@
         },
         "runtime": {
           "lib/netcore50/Microsoft.CSharp.dll": {}
-        }
-      },
-      "Microsoft.Net.Http/2.2.29": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.Bcl": "1.1.10",
-          "Microsoft.Bcl.Build": "1.0.14"
-        },
-        "compile": {
-          "lib/win8/System.Net.Http.Extensions.dll": {},
-          "lib/win8/System.Net.Http.Primitives.dll": {}
-        },
-        "runtime": {
-          "lib/win8/System.Net.Http.Extensions.dll": {},
-          "lib/win8/System.Net.Http.Primitives.dll": {}
         }
       },
       "Microsoft.Net.Native.Compiler/1.7.1": {
@@ -384,15 +341,6 @@
         "runtime": {
           "lib/uap10.0/Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll": {},
           "lib/uap10.0/Microsoft.VisualStudio.TestPlatform.TestFramework.dll": {}
-        }
-      },
-      "Newtonsoft.Json/6.0.4": {
-        "type": "package",
-        "compile": {
-          "lib/netcore45/Newtonsoft.Json.dll": {}
-        },
-        "runtime": {
-          "lib/netcore45/Newtonsoft.Json.dll": {}
         }
       },
       "runtime.native.System.IO.Compression/4.1.0": {
@@ -2275,66 +2223,9 @@
             "rid": "aot"
           }
         }
-      },
-      "Egee.Proxy/1.0.0": {
-        "type": "project",
-        "framework": "UAP,Version=v10.0.10586",
-        "dependencies": {
-          "Egee.Proxy.Sappel": "1.0.0",
-          "Microsoft.AspNet.WebApi.Client": "5.2.3",
-          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1",
-          "Microsoft.Net.Http": "2.2.29"
-        },
-        "compile": {
-          "bin/placeholder/Egee.Proxy.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/Egee.Proxy.dll": {}
-        }
-      },
-      "Egee.Proxy.Sappel/1.0.0": {
-        "type": "project",
-        "framework": "UAP,Version=v10.0.10586",
-        "dependencies": {
-          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
-        },
-        "compile": {
-          "bin/placeholder/Egee.Proxy.Sappel.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/Egee.Proxy.Sappel.dll": {}
-        }
       }
     },
     "UAP,Version=v10.0.10586/win10-arm": {
-      "Microsoft.AspNet.WebApi.Client/5.2.3": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.Net.Http": "2.2.22",
-          "Newtonsoft.Json": "6.0.4"
-        },
-        "compile": {
-          "lib/portable-wp8+netcore45+net45+wp81+wpa81/System.Net.Http.Formatting.dll": {}
-        },
-        "runtime": {
-          "lib/portable-wp8+netcore45+net45+wp81+wpa81/System.Net.Http.Formatting.dll": {}
-        }
-      },
-      "Microsoft.Bcl/1.1.10": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.Bcl.Build": "1.0.14"
-        },
-        "compile": {
-          "lib/win8/_._": {}
-        },
-        "runtime": {
-          "lib/win8/_._": {}
-        }
-      },
-      "Microsoft.Bcl.Build/1.0.14": {
-        "type": "package"
-      },
       "Microsoft.CSharp/4.0.1": {
         "type": "package",
         "dependencies": {
@@ -2360,21 +2251,6 @@
         },
         "runtime": {
           "lib/netcore50/Microsoft.CSharp.dll": {}
-        }
-      },
-      "Microsoft.Net.Http/2.2.29": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.Bcl": "1.1.10",
-          "Microsoft.Bcl.Build": "1.0.14"
-        },
-        "compile": {
-          "lib/win8/System.Net.Http.Extensions.dll": {},
-          "lib/win8/System.Net.Http.Primitives.dll": {}
-        },
-        "runtime": {
-          "lib/win8/System.Net.Http.Extensions.dll": {},
-          "lib/win8/System.Net.Http.Primitives.dll": {}
         }
       },
       "Microsoft.Net.Native.Compiler/1.7.1": {
@@ -2638,15 +2514,6 @@
         "runtime": {
           "lib/uap10.0/Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll": {},
           "lib/uap10.0/Microsoft.VisualStudio.TestPlatform.TestFramework.dll": {}
-        }
-      },
-      "Newtonsoft.Json/6.0.4": {
-        "type": "package",
-        "compile": {
-          "lib/netcore45/Newtonsoft.Json.dll": {}
-        },
-        "runtime": {
-          "lib/netcore45/Newtonsoft.Json.dll": {}
         }
       },
       "runtime.any.System.Collections/4.0.11": {
@@ -4670,66 +4537,9 @@
         "runtime": {
           "lib/netcore50/System.Xml.XmlSerializer.dll": {}
         }
-      },
-      "Egee.Proxy/1.0.0": {
-        "type": "project",
-        "framework": "UAP,Version=v10.0.10586",
-        "dependencies": {
-          "Egee.Proxy.Sappel": "1.0.0",
-          "Microsoft.AspNet.WebApi.Client": "5.2.3",
-          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1",
-          "Microsoft.Net.Http": "2.2.29"
-        },
-        "compile": {
-          "bin/placeholder/Egee.Proxy.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/Egee.Proxy.dll": {}
-        }
-      },
-      "Egee.Proxy.Sappel/1.0.0": {
-        "type": "project",
-        "framework": "UAP,Version=v10.0.10586",
-        "dependencies": {
-          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
-        },
-        "compile": {
-          "bin/placeholder/Egee.Proxy.Sappel.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/Egee.Proxy.Sappel.dll": {}
-        }
       }
     },
     "UAP,Version=v10.0.10586/win10-arm-aot": {
-      "Microsoft.AspNet.WebApi.Client/5.2.3": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.Net.Http": "2.2.22",
-          "Newtonsoft.Json": "6.0.4"
-        },
-        "compile": {
-          "lib/portable-wp8+netcore45+net45+wp81+wpa81/System.Net.Http.Formatting.dll": {}
-        },
-        "runtime": {
-          "lib/portable-wp8+netcore45+net45+wp81+wpa81/System.Net.Http.Formatting.dll": {}
-        }
-      },
-      "Microsoft.Bcl/1.1.10": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.Bcl.Build": "1.0.14"
-        },
-        "compile": {
-          "lib/win8/_._": {}
-        },
-        "runtime": {
-          "lib/win8/_._": {}
-        }
-      },
-      "Microsoft.Bcl.Build/1.0.14": {
-        "type": "package"
-      },
       "Microsoft.CSharp/4.0.1": {
         "type": "package",
         "dependencies": {
@@ -4755,21 +4565,6 @@
         },
         "runtime": {
           "lib/netcore50/Microsoft.CSharp.dll": {}
-        }
-      },
-      "Microsoft.Net.Http/2.2.29": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.Bcl": "1.1.10",
-          "Microsoft.Bcl.Build": "1.0.14"
-        },
-        "compile": {
-          "lib/win8/System.Net.Http.Extensions.dll": {},
-          "lib/win8/System.Net.Http.Primitives.dll": {}
-        },
-        "runtime": {
-          "lib/win8/System.Net.Http.Extensions.dll": {},
-          "lib/win8/System.Net.Http.Primitives.dll": {}
         }
       },
       "Microsoft.Net.Native.Compiler/1.7.1": {
@@ -5034,15 +4829,6 @@
         "runtime": {
           "lib/uap10.0/Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll": {},
           "lib/uap10.0/Microsoft.VisualStudio.TestPlatform.TestFramework.dll": {}
-        }
-      },
-      "Newtonsoft.Json/6.0.4": {
-        "type": "package",
-        "compile": {
-          "lib/netcore45/Newtonsoft.Json.dll": {}
-        },
-        "runtime": {
-          "lib/netcore45/Newtonsoft.Json.dll": {}
         }
       },
       "runtime.aot.System.Collections/4.0.10": {
@@ -7101,66 +6887,9 @@
         "runtime": {
           "runtimes/aot/lib/netcore50/System.Xml.XmlSerializer.dll": {}
         }
-      },
-      "Egee.Proxy/1.0.0": {
-        "type": "project",
-        "framework": "UAP,Version=v10.0.10586",
-        "dependencies": {
-          "Egee.Proxy.Sappel": "1.0.0",
-          "Microsoft.AspNet.WebApi.Client": "5.2.3",
-          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1",
-          "Microsoft.Net.Http": "2.2.29"
-        },
-        "compile": {
-          "bin/placeholder/Egee.Proxy.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/Egee.Proxy.dll": {}
-        }
-      },
-      "Egee.Proxy.Sappel/1.0.0": {
-        "type": "project",
-        "framework": "UAP,Version=v10.0.10586",
-        "dependencies": {
-          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
-        },
-        "compile": {
-          "bin/placeholder/Egee.Proxy.Sappel.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/Egee.Proxy.Sappel.dll": {}
-        }
       }
     },
     "UAP,Version=v10.0.10586/win10-x64": {
-      "Microsoft.AspNet.WebApi.Client/5.2.3": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.Net.Http": "2.2.22",
-          "Newtonsoft.Json": "6.0.4"
-        },
-        "compile": {
-          "lib/portable-wp8+netcore45+net45+wp81+wpa81/System.Net.Http.Formatting.dll": {}
-        },
-        "runtime": {
-          "lib/portable-wp8+netcore45+net45+wp81+wpa81/System.Net.Http.Formatting.dll": {}
-        }
-      },
-      "Microsoft.Bcl/1.1.10": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.Bcl.Build": "1.0.14"
-        },
-        "compile": {
-          "lib/win8/_._": {}
-        },
-        "runtime": {
-          "lib/win8/_._": {}
-        }
-      },
-      "Microsoft.Bcl.Build/1.0.14": {
-        "type": "package"
-      },
       "Microsoft.CSharp/4.0.1": {
         "type": "package",
         "dependencies": {
@@ -7186,21 +6915,6 @@
         },
         "runtime": {
           "lib/netcore50/Microsoft.CSharp.dll": {}
-        }
-      },
-      "Microsoft.Net.Http/2.2.29": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.Bcl": "1.1.10",
-          "Microsoft.Bcl.Build": "1.0.14"
-        },
-        "compile": {
-          "lib/win8/System.Net.Http.Extensions.dll": {},
-          "lib/win8/System.Net.Http.Primitives.dll": {}
-        },
-        "runtime": {
-          "lib/win8/System.Net.Http.Extensions.dll": {},
-          "lib/win8/System.Net.Http.Primitives.dll": {}
         }
       },
       "Microsoft.Net.Native.Compiler/1.7.1": {
@@ -7467,15 +7181,6 @@
         "runtime": {
           "lib/uap10.0/Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll": {},
           "lib/uap10.0/Microsoft.VisualStudio.TestPlatform.TestFramework.dll": {}
-        }
-      },
-      "Newtonsoft.Json/6.0.4": {
-        "type": "package",
-        "compile": {
-          "lib/netcore45/Newtonsoft.Json.dll": {}
-        },
-        "runtime": {
-          "lib/netcore45/Newtonsoft.Json.dll": {}
         }
       },
       "runtime.any.System.Collections/4.0.11": {
@@ -9505,66 +9210,9 @@
         "runtime": {
           "lib/netcore50/System.Xml.XmlSerializer.dll": {}
         }
-      },
-      "Egee.Proxy/1.0.0": {
-        "type": "project",
-        "framework": "UAP,Version=v10.0.10586",
-        "dependencies": {
-          "Egee.Proxy.Sappel": "1.0.0",
-          "Microsoft.AspNet.WebApi.Client": "5.2.3",
-          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1",
-          "Microsoft.Net.Http": "2.2.29"
-        },
-        "compile": {
-          "bin/placeholder/Egee.Proxy.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/Egee.Proxy.dll": {}
-        }
-      },
-      "Egee.Proxy.Sappel/1.0.0": {
-        "type": "project",
-        "framework": "UAP,Version=v10.0.10586",
-        "dependencies": {
-          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
-        },
-        "compile": {
-          "bin/placeholder/Egee.Proxy.Sappel.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/Egee.Proxy.Sappel.dll": {}
-        }
       }
     },
     "UAP,Version=v10.0.10586/win10-x64-aot": {
-      "Microsoft.AspNet.WebApi.Client/5.2.3": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.Net.Http": "2.2.22",
-          "Newtonsoft.Json": "6.0.4"
-        },
-        "compile": {
-          "lib/portable-wp8+netcore45+net45+wp81+wpa81/System.Net.Http.Formatting.dll": {}
-        },
-        "runtime": {
-          "lib/portable-wp8+netcore45+net45+wp81+wpa81/System.Net.Http.Formatting.dll": {}
-        }
-      },
-      "Microsoft.Bcl/1.1.10": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.Bcl.Build": "1.0.14"
-        },
-        "compile": {
-          "lib/win8/_._": {}
-        },
-        "runtime": {
-          "lib/win8/_._": {}
-        }
-      },
-      "Microsoft.Bcl.Build/1.0.14": {
-        "type": "package"
-      },
       "Microsoft.CSharp/4.0.1": {
         "type": "package",
         "dependencies": {
@@ -9590,21 +9238,6 @@
         },
         "runtime": {
           "lib/netcore50/Microsoft.CSharp.dll": {}
-        }
-      },
-      "Microsoft.Net.Http/2.2.29": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.Bcl": "1.1.10",
-          "Microsoft.Bcl.Build": "1.0.14"
-        },
-        "compile": {
-          "lib/win8/System.Net.Http.Extensions.dll": {},
-          "lib/win8/System.Net.Http.Primitives.dll": {}
-        },
-        "runtime": {
-          "lib/win8/System.Net.Http.Extensions.dll": {},
-          "lib/win8/System.Net.Http.Primitives.dll": {}
         }
       },
       "Microsoft.Net.Native.Compiler/1.7.1": {
@@ -9872,15 +9505,6 @@
         "runtime": {
           "lib/uap10.0/Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll": {},
           "lib/uap10.0/Microsoft.VisualStudio.TestPlatform.TestFramework.dll": {}
-        }
-      },
-      "Newtonsoft.Json/6.0.4": {
-        "type": "package",
-        "compile": {
-          "lib/netcore45/Newtonsoft.Json.dll": {}
-        },
-        "runtime": {
-          "lib/netcore45/Newtonsoft.Json.dll": {}
         }
       },
       "runtime.aot.System.Collections/4.0.10": {
@@ -11945,66 +11569,9 @@
         "runtime": {
           "runtimes/aot/lib/netcore50/System.Xml.XmlSerializer.dll": {}
         }
-      },
-      "Egee.Proxy/1.0.0": {
-        "type": "project",
-        "framework": "UAP,Version=v10.0.10586",
-        "dependencies": {
-          "Egee.Proxy.Sappel": "1.0.0",
-          "Microsoft.AspNet.WebApi.Client": "5.2.3",
-          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1",
-          "Microsoft.Net.Http": "2.2.29"
-        },
-        "compile": {
-          "bin/placeholder/Egee.Proxy.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/Egee.Proxy.dll": {}
-        }
-      },
-      "Egee.Proxy.Sappel/1.0.0": {
-        "type": "project",
-        "framework": "UAP,Version=v10.0.10586",
-        "dependencies": {
-          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
-        },
-        "compile": {
-          "bin/placeholder/Egee.Proxy.Sappel.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/Egee.Proxy.Sappel.dll": {}
-        }
       }
     },
     "UAP,Version=v10.0.10586/win10-x86": {
-      "Microsoft.AspNet.WebApi.Client/5.2.3": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.Net.Http": "2.2.22",
-          "Newtonsoft.Json": "6.0.4"
-        },
-        "compile": {
-          "lib/portable-wp8+netcore45+net45+wp81+wpa81/System.Net.Http.Formatting.dll": {}
-        },
-        "runtime": {
-          "lib/portable-wp8+netcore45+net45+wp81+wpa81/System.Net.Http.Formatting.dll": {}
-        }
-      },
-      "Microsoft.Bcl/1.1.10": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.Bcl.Build": "1.0.14"
-        },
-        "compile": {
-          "lib/win8/_._": {}
-        },
-        "runtime": {
-          "lib/win8/_._": {}
-        }
-      },
-      "Microsoft.Bcl.Build/1.0.14": {
-        "type": "package"
-      },
       "Microsoft.CSharp/4.0.1": {
         "type": "package",
         "dependencies": {
@@ -12030,21 +11597,6 @@
         },
         "runtime": {
           "lib/netcore50/Microsoft.CSharp.dll": {}
-        }
-      },
-      "Microsoft.Net.Http/2.2.29": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.Bcl": "1.1.10",
-          "Microsoft.Bcl.Build": "1.0.14"
-        },
-        "compile": {
-          "lib/win8/System.Net.Http.Extensions.dll": {},
-          "lib/win8/System.Net.Http.Primitives.dll": {}
-        },
-        "runtime": {
-          "lib/win8/System.Net.Http.Extensions.dll": {},
-          "lib/win8/System.Net.Http.Primitives.dll": {}
         }
       },
       "Microsoft.Net.Native.Compiler/1.7.1": {
@@ -12311,15 +11863,6 @@
         "runtime": {
           "lib/uap10.0/Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll": {},
           "lib/uap10.0/Microsoft.VisualStudio.TestPlatform.TestFramework.dll": {}
-        }
-      },
-      "Newtonsoft.Json/6.0.4": {
-        "type": "package",
-        "compile": {
-          "lib/netcore45/Newtonsoft.Json.dll": {}
-        },
-        "runtime": {
-          "lib/netcore45/Newtonsoft.Json.dll": {}
         }
       },
       "runtime.any.System.Collections/4.0.11": {
@@ -14349,66 +13892,9 @@
         "runtime": {
           "lib/netcore50/System.Xml.XmlSerializer.dll": {}
         }
-      },
-      "Egee.Proxy/1.0.0": {
-        "type": "project",
-        "framework": "UAP,Version=v10.0.10586",
-        "dependencies": {
-          "Egee.Proxy.Sappel": "1.0.0",
-          "Microsoft.AspNet.WebApi.Client": "5.2.3",
-          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1",
-          "Microsoft.Net.Http": "2.2.29"
-        },
-        "compile": {
-          "bin/placeholder/Egee.Proxy.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/Egee.Proxy.dll": {}
-        }
-      },
-      "Egee.Proxy.Sappel/1.0.0": {
-        "type": "project",
-        "framework": "UAP,Version=v10.0.10586",
-        "dependencies": {
-          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
-        },
-        "compile": {
-          "bin/placeholder/Egee.Proxy.Sappel.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/Egee.Proxy.Sappel.dll": {}
-        }
       }
     },
     "UAP,Version=v10.0.10586/win10-x86-aot": {
-      "Microsoft.AspNet.WebApi.Client/5.2.3": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.Net.Http": "2.2.22",
-          "Newtonsoft.Json": "6.0.4"
-        },
-        "compile": {
-          "lib/portable-wp8+netcore45+net45+wp81+wpa81/System.Net.Http.Formatting.dll": {}
-        },
-        "runtime": {
-          "lib/portable-wp8+netcore45+net45+wp81+wpa81/System.Net.Http.Formatting.dll": {}
-        }
-      },
-      "Microsoft.Bcl/1.1.10": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.Bcl.Build": "1.0.14"
-        },
-        "compile": {
-          "lib/win8/_._": {}
-        },
-        "runtime": {
-          "lib/win8/_._": {}
-        }
-      },
-      "Microsoft.Bcl.Build/1.0.14": {
-        "type": "package"
-      },
       "Microsoft.CSharp/4.0.1": {
         "type": "package",
         "dependencies": {
@@ -14434,21 +13920,6 @@
         },
         "runtime": {
           "lib/netcore50/Microsoft.CSharp.dll": {}
-        }
-      },
-      "Microsoft.Net.Http/2.2.29": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.Bcl": "1.1.10",
-          "Microsoft.Bcl.Build": "1.0.14"
-        },
-        "compile": {
-          "lib/win8/System.Net.Http.Extensions.dll": {},
-          "lib/win8/System.Net.Http.Primitives.dll": {}
-        },
-        "runtime": {
-          "lib/win8/System.Net.Http.Extensions.dll": {},
-          "lib/win8/System.Net.Http.Primitives.dll": {}
         }
       },
       "Microsoft.Net.Native.Compiler/1.7.1": {
@@ -14716,15 +14187,6 @@
         "runtime": {
           "lib/uap10.0/Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll": {},
           "lib/uap10.0/Microsoft.VisualStudio.TestPlatform.TestFramework.dll": {}
-        }
-      },
-      "Newtonsoft.Json/6.0.4": {
-        "type": "package",
-        "compile": {
-          "lib/netcore45/Newtonsoft.Json.dll": {}
-        },
-        "runtime": {
-          "lib/netcore45/Newtonsoft.Json.dll": {}
         }
       },
       "runtime.aot.System.Collections/4.0.10": {
@@ -16789,161 +16251,10 @@
         "runtime": {
           "runtimes/aot/lib/netcore50/System.Xml.XmlSerializer.dll": {}
         }
-      },
-      "Egee.Proxy/1.0.0": {
-        "type": "project",
-        "framework": "UAP,Version=v10.0.10586",
-        "dependencies": {
-          "Egee.Proxy.Sappel": "1.0.0",
-          "Microsoft.AspNet.WebApi.Client": "5.2.3",
-          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1",
-          "Microsoft.Net.Http": "2.2.29"
-        },
-        "compile": {
-          "bin/placeholder/Egee.Proxy.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/Egee.Proxy.dll": {}
-        }
-      },
-      "Egee.Proxy.Sappel/1.0.0": {
-        "type": "project",
-        "framework": "UAP,Version=v10.0.10586",
-        "dependencies": {
-          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
-        },
-        "compile": {
-          "bin/placeholder/Egee.Proxy.Sappel.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/Egee.Proxy.Sappel.dll": {}
-        }
       }
     }
   },
   "libraries": {
-    "Microsoft.AspNet.WebApi.Client/5.2.3": {
-      "sha512": "3kiI8peSXbXHDDrRuo+QaX0iCEVRe0nvn2dBDRw656uPX32UalbBlSIDUDlJxu05eau4tnuhsikiUuugvvoUoQ==",
-      "type": "package",
-      "path": "microsoft.aspnet.webapi.client/5.2.3",
-      "files": [
-        "lib/net45/System.Net.Http.Formatting.dll",
-        "lib/net45/System.Net.Http.Formatting.xml",
-        "lib/portable-wp8+netcore45+net45+wp81+wpa81/System.Net.Http.Formatting.dll",
-        "lib/portable-wp8+netcore45+net45+wp81+wpa81/System.Net.Http.Formatting.xml",
-        "microsoft.aspnet.webapi.client.5.2.3.nupkg.sha512",
-        "microsoft.aspnet.webapi.client.nuspec"
-      ]
-    },
-    "Microsoft.Bcl/1.1.10": {
-      "sha512": "+tTqoh/M1pyL8El3qLy30EcwnAtyvFoDZJtdG9Cbg/WdFbh4N8kyrq198XHuEL7lnJbeD0DRO8jcX5IIOh05cQ==",
-      "type": "package",
-      "path": "microsoft.bcl/1.1.10",
-      "files": [
-        "License-Stable.rtf",
-        "lib/Xamarin.iOS10/_._",
-        "lib/monoandroid/_._",
-        "lib/monotouch/_._",
-        "lib/net40/System.IO.dll",
-        "lib/net40/System.IO.xml",
-        "lib/net40/System.Runtime.dll",
-        "lib/net40/System.Runtime.xml",
-        "lib/net40/System.Threading.Tasks.dll",
-        "lib/net40/System.Threading.Tasks.xml",
-        "lib/net40/ensureRedirect.xml",
-        "lib/net45/_._",
-        "lib/portable-net40+sl4+win8+wp71+wpa81/System.IO.dll",
-        "lib/portable-net40+sl4+win8+wp71+wpa81/System.IO.xml",
-        "lib/portable-net40+sl4+win8+wp71+wpa81/System.Runtime.dll",
-        "lib/portable-net40+sl4+win8+wp71+wpa81/System.Runtime.xml",
-        "lib/portable-net40+sl4+win8+wp71+wpa81/System.Threading.Tasks.dll",
-        "lib/portable-net40+sl4+win8+wp71+wpa81/System.Threading.Tasks.xml",
-        "lib/portable-net40+sl4+win8+wp71+wpa81/ensureRedirect.xml",
-        "lib/portable-net40+sl4+win8+wp8+wpa81/System.IO.dll",
-        "lib/portable-net40+sl4+win8+wp8+wpa81/System.IO.xml",
-        "lib/portable-net40+sl4+win8+wp8+wpa81/System.Runtime.dll",
-        "lib/portable-net40+sl4+win8+wp8+wpa81/System.Runtime.xml",
-        "lib/portable-net40+sl4+win8+wp8+wpa81/System.Threading.Tasks.dll",
-        "lib/portable-net40+sl4+win8+wp8+wpa81/System.Threading.Tasks.xml",
-        "lib/portable-net40+sl4+win8+wp8+wpa81/ensureRedirect.xml",
-        "lib/portable-net40+sl4+win8/System.IO.dll",
-        "lib/portable-net40+sl4+win8/System.IO.xml",
-        "lib/portable-net40+sl4+win8/System.Runtime.dll",
-        "lib/portable-net40+sl4+win8/System.Runtime.xml",
-        "lib/portable-net40+sl4+win8/System.Threading.Tasks.dll",
-        "lib/portable-net40+sl4+win8/System.Threading.Tasks.xml",
-        "lib/portable-net40+sl4+win8/ensureRedirect.xml",
-        "lib/portable-net40+sl5+win8+wp8+wpa81/System.IO.dll",
-        "lib/portable-net40+sl5+win8+wp8+wpa81/System.IO.xml",
-        "lib/portable-net40+sl5+win8+wp8+wpa81/System.Runtime.dll",
-        "lib/portable-net40+sl5+win8+wp8+wpa81/System.Runtime.xml",
-        "lib/portable-net40+sl5+win8+wp8+wpa81/System.Threading.Tasks.dll",
-        "lib/portable-net40+sl5+win8+wp8+wpa81/System.Threading.Tasks.xml",
-        "lib/portable-net40+sl5+win8+wp8+wpa81/ensureRedirect.xml",
-        "lib/portable-net40+win8+wp8+wpa81/System.IO.dll",
-        "lib/portable-net40+win8+wp8+wpa81/System.IO.xml",
-        "lib/portable-net40+win8+wp8+wpa81/System.Runtime.dll",
-        "lib/portable-net40+win8+wp8+wpa81/System.Runtime.xml",
-        "lib/portable-net40+win8+wp8+wpa81/System.Threading.Tasks.dll",
-        "lib/portable-net40+win8+wp8+wpa81/System.Threading.Tasks.xml",
-        "lib/portable-net40+win8+wp8+wpa81/ensureRedirect.xml",
-        "lib/portable-net40+win8/System.IO.dll",
-        "lib/portable-net40+win8/System.IO.xml",
-        "lib/portable-net40+win8/System.Runtime.dll",
-        "lib/portable-net40+win8/System.Runtime.xml",
-        "lib/portable-net40+win8/System.Threading.Tasks.dll",
-        "lib/portable-net40+win8/System.Threading.Tasks.xml",
-        "lib/portable-net40+win8/ensureRedirect.xml",
-        "lib/portable-net45+win8+wp8+wpa81/_._",
-        "lib/portable-net45+win8+wpa81/_._",
-        "lib/portable-net451+win81+wpa81/_._",
-        "lib/portable-net451+win81/_._",
-        "lib/portable-win81+wp81+wpa81/_._",
-        "lib/sl4-windowsphone71/System.IO.dll",
-        "lib/sl4-windowsphone71/System.IO.xml",
-        "lib/sl4-windowsphone71/System.Runtime.dll",
-        "lib/sl4-windowsphone71/System.Runtime.xml",
-        "lib/sl4-windowsphone71/System.Threading.Tasks.dll",
-        "lib/sl4-windowsphone71/System.Threading.Tasks.xml",
-        "lib/sl4-windowsphone71/ensureRedirect.xml",
-        "lib/sl4/System.IO.dll",
-        "lib/sl4/System.IO.xml",
-        "lib/sl4/System.Runtime.dll",
-        "lib/sl4/System.Runtime.xml",
-        "lib/sl4/System.Threading.Tasks.dll",
-        "lib/sl4/System.Threading.Tasks.xml",
-        "lib/sl5/System.IO.dll",
-        "lib/sl5/System.IO.xml",
-        "lib/sl5/System.Runtime.dll",
-        "lib/sl5/System.Runtime.xml",
-        "lib/sl5/System.Threading.Tasks.dll",
-        "lib/sl5/System.Threading.Tasks.xml",
-        "lib/win8/_._",
-        "lib/wp8/_._",
-        "lib/wpa81/_._",
-        "microsoft.bcl.1.1.10.nupkg.sha512",
-        "microsoft.bcl.nuspec"
-      ]
-    },
-    "Microsoft.Bcl.Build/1.0.14": {
-      "sha512": "cDLKSvNvRa519hplsbSoYqO69TjdDIhfjtKUM0g20/nVROoWsGav9KCI9HtnGjLmdV1+TcUUDhbotcllibjPEA==",
-      "type": "package",
-      "path": "microsoft.bcl.build/1.0.14",
-      "files": [
-        "License-Stable.rtf",
-        "content/net40/_._",
-        "content/netcore45/_._",
-        "content/portable-net40+win8+sl4+wp71+wpa81/_._",
-        "content/sl4-windowsphone71/_._",
-        "content/sl4/_._",
-        "microsoft.bcl.build.1.0.14.nupkg.sha512",
-        "microsoft.bcl.build.nuspec",
-        "tools/Install.ps1",
-        "tools/Microsoft.Bcl.Build.Tasks.dll",
-        "tools/Microsoft.Bcl.Build.targets",
-        "tools/Uninstall.ps1"
-      ]
-    },
     "Microsoft.CSharp/4.0.1": {
       "sha512": "17h8b5mXa87XYKrrVqdgZ38JefSUqLChUQpXgSnpzsM0nDOhE40FTeNWOJ/YmySGV6tG6T8+hjz6vxbknHJr6A==",
       "type": "package",
@@ -16999,73 +16310,6 @@
         "ref/xamarinmac20/_._",
         "ref/xamarintvos10/_._",
         "ref/xamarinwatchos10/_._"
-      ]
-    },
-    "Microsoft.Net.Http/2.2.29": {
-      "sha512": "fc4CPEewJ30Xgal+fSq1lYIBt582A7eKlAL7O4HXiYAiTp2VTnA4osSvk7T2n8aS4xTCPVJusQk3yKLT0XSpkg==",
-      "type": "package",
-      "path": "microsoft.net.http/2.2.29",
-      "files": [
-        "License-Stable.rtf",
-        "lib/Xamarin.iOS10/System.Net.Http.Extensions.XML",
-        "lib/Xamarin.iOS10/System.Net.Http.Extensions.dll",
-        "lib/Xamarin.iOS10/System.Net.Http.Primitives.dll",
-        "lib/Xamarin.iOS10/System.Net.Http.Primitives.xml",
-        "lib/monoandroid/System.Net.Http.Extensions.XML",
-        "lib/monoandroid/System.Net.Http.Extensions.dll",
-        "lib/monoandroid/System.Net.Http.Primitives.dll",
-        "lib/monoandroid/System.Net.Http.Primitives.xml",
-        "lib/monotouch/System.Net.Http.Extensions.XML",
-        "lib/monotouch/System.Net.Http.Extensions.dll",
-        "lib/monotouch/System.Net.Http.Primitives.dll",
-        "lib/monotouch/System.Net.Http.Primitives.xml",
-        "lib/net40/System.Net.Http.Extensions.XML",
-        "lib/net40/System.Net.Http.Extensions.dll",
-        "lib/net40/System.Net.Http.Primitives.dll",
-        "lib/net40/System.Net.Http.Primitives.xml",
-        "lib/net40/System.Net.Http.WebRequest.dll",
-        "lib/net40/System.Net.Http.WebRequest.xml",
-        "lib/net40/System.Net.Http.dll",
-        "lib/net40/System.Net.Http.xml",
-        "lib/net40/ensureRedirect.xml",
-        "lib/net45/System.Net.Http.Extensions.XML",
-        "lib/net45/System.Net.Http.Extensions.dll",
-        "lib/net45/System.Net.Http.Primitives.dll",
-        "lib/net45/System.Net.Http.Primitives.xml",
-        "lib/net45/ensureRedirect.xml",
-        "lib/portable-net40+sl4+win8+wp71+wpa81/System.Net.Http.Extensions.XML",
-        "lib/portable-net40+sl4+win8+wp71+wpa81/System.Net.Http.Extensions.dll",
-        "lib/portable-net40+sl4+win8+wp71+wpa81/System.Net.Http.Primitives.XML",
-        "lib/portable-net40+sl4+win8+wp71+wpa81/System.Net.Http.Primitives.dll",
-        "lib/portable-net40+sl4+win8+wp71+wpa81/System.Net.Http.dll",
-        "lib/portable-net40+sl4+win8+wp71+wpa81/System.Net.Http.xml",
-        "lib/portable-net40+sl4+win8+wp71+wpa81/ensureRedirect.xml",
-        "lib/portable-net45+win8+wpa81/System.Net.Http.Extensions.XML",
-        "lib/portable-net45+win8+wpa81/System.Net.Http.Extensions.dll",
-        "lib/portable-net45+win8+wpa81/System.Net.Http.Primitives.dll",
-        "lib/portable-net45+win8+wpa81/System.Net.Http.Primitives.xml",
-        "lib/portable-net45+win8+wpa81/ensureRedirect.xml",
-        "lib/portable-net45+win8/System.Net.Http.Extensions.XML",
-        "lib/portable-net45+win8/System.Net.Http.Extensions.dll",
-        "lib/portable-net45+win8/System.Net.Http.Primitives.dll",
-        "lib/portable-net45+win8/System.Net.Http.Primitives.xml",
-        "lib/portable-net45+win8/ensureRedirect.xml",
-        "lib/sl4-windowsphone71/System.Net.Http.Extensions.XML",
-        "lib/sl4-windowsphone71/System.Net.Http.Extensions.dll",
-        "lib/sl4-windowsphone71/System.Net.Http.Primitives.XML",
-        "lib/sl4-windowsphone71/System.Net.Http.Primitives.dll",
-        "lib/sl4-windowsphone71/System.Net.Http.dll",
-        "lib/sl4-windowsphone71/System.Net.Http.xml",
-        "lib/win8/System.Net.Http.Extensions.XML",
-        "lib/win8/System.Net.Http.Extensions.dll",
-        "lib/win8/System.Net.Http.Primitives.dll",
-        "lib/win8/System.Net.Http.Primitives.xml",
-        "lib/wpa81/System.Net.Http.Extensions.XML",
-        "lib/wpa81/System.Net.Http.Extensions.dll",
-        "lib/wpa81/System.Net.Http.Primitives.dll",
-        "lib/wpa81/System.Net.Http.Primitives.xml",
-        "microsoft.net.http.2.2.29.nupkg.sha512",
-        "microsoft.net.http.nuspec"
       ]
     },
     "Microsoft.Net.Native.Compiler/1.7.1": {
@@ -19837,30 +19081,6 @@
         "lib/uap10.0/zh-Hant/Microsoft.VisualStudio.TestPlatform.TestFramework.xml",
         "mstest.testframework.1.2.0.nupkg.sha512",
         "mstest.testframework.nuspec"
-      ]
-    },
-    "Newtonsoft.Json/6.0.4": {
-      "sha512": "FyQLmEpjsCrEP+znauLDGAi+h6i9YnaMkITlfIoiM4RYyX3nki306bTHsr/0okiIvIc7BJhQTbOAIZVocccFUw==",
-      "type": "package",
-      "path": "newtonsoft.json/6.0.4",
-      "files": [
-        "lib/net20/Newtonsoft.Json.dll",
-        "lib/net20/Newtonsoft.Json.xml",
-        "lib/net35/Newtonsoft.Json.dll",
-        "lib/net35/Newtonsoft.Json.xml",
-        "lib/net40/Newtonsoft.Json.dll",
-        "lib/net40/Newtonsoft.Json.xml",
-        "lib/net45/Newtonsoft.Json.dll",
-        "lib/net45/Newtonsoft.Json.xml",
-        "lib/netcore45/Newtonsoft.Json.dll",
-        "lib/netcore45/Newtonsoft.Json.xml",
-        "lib/portable-net40+sl5+wp80+win8+wpa81/Newtonsoft.Json.dll",
-        "lib/portable-net40+sl5+wp80+win8+wpa81/Newtonsoft.Json.xml",
-        "lib/portable-net45+wp80+win8+wpa81/Newtonsoft.Json.dll",
-        "lib/portable-net45+wp80+win8+wpa81/Newtonsoft.Json.xml",
-        "newtonsoft.json.6.0.4.nupkg.sha512",
-        "newtonsoft.json.nuspec",
-        "tools/install.ps1"
       ]
     },
     "runtime.any.System.Collections/4.0.11": {
@@ -26785,21 +26005,10 @@
         "ref/xamarinwatchos10/_._",
         "runtimes/aot/lib/netcore50/System.Xml.XmlSerializer.dll"
       ]
-    },
-    "Egee.Proxy/1.0.0": {
-      "type": "project",
-      "path": "../Egee/project.json",
-      "msbuildProject": "../Egee/Egee.Proxy.csproj"
-    },
-    "Egee.Proxy.Sappel/1.0.0": {
-      "type": "project",
-      "path": "../Egee.Proxy.Sappel/Egee.Proxy.Sappel.csproj",
-      "msbuildProject": "../Egee.Proxy.Sappel/Egee.Proxy.Sappel.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "UAP,Version=v10.0.10586": [
-      "Egee.Proxy >= 1.0.0",
       "MSTest.TestAdapter >= 1.2.0",
       "MSTest.TestFramework >= 1.2.0",
       "Microsoft.NETCore.UniversalWindowsPlatform >= 6.0.1"
@@ -26831,11 +26040,7 @@
       },
       "frameworks": {
         "uap10.0.10586": {
-          "projectReferences": {
-            "C:\\ProjetsGIT\\ionic-plugin-egee\\src\\windows\\_lib\\Egee\\Egee.Proxy.csproj": {
-              "projectPath": "C:\\ProjetsGIT\\ionic-plugin-egee\\src\\windows\\_lib\\Egee\\Egee.Proxy.csproj"
-            }
-          }
+          "projectReferences": {}
         }
       }
     },

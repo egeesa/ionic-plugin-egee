@@ -1,8 +1,0 @@
-C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee.Wcf.Service\bin\Release\Egee.Wcf.Service.dll
-C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee.Wcf.Service\bin\Release\Egee.Wcf.Service.pdb
-C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee.Wcf.Service\obj\Release\Egee.Wcf.Service.csprojResolveAssemblyReference.cache
-C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee.Wcf.Service\obj\Release\Interop.IZAR_CSIXLib.dll
-C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee.Wcf.Service\obj\Release\Egee.Wcf.Service.csproj.ResolveComReference.cache
-C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee.Wcf.Service\obj\Release\Egee.Wcf.Service.csproj.CoreCompileInputs.cache
-C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee.Wcf.Service\obj\Release\Egee.Wcf.Service.dll
-C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee.Wcf.Service\obj\Release\Egee.Wcf.Service.pdb
