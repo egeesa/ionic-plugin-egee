@@ -24327,7 +24327,8 @@
   },
   "projectFileDependencyGroups": {
     "UAP,Version=v10.0.10586": [
-      "Microsoft.NETCore.UniversalWindowsPlatform >= 5.4.0"
+      "Microsoft.NETCore.UniversalWindowsPlatform >= 5.4.0",
+      "System.Net.Http >= 4.1.0"
     ]
   },
   "packageFolders": {
@@ -24364,6 +24365,10 @@
       "Microsoft.NETCore.UniversalWindowsPlatform": {
         "target": "Package",
         "version": "5.4.0"
+      },
+      "System.Net.Http": {
+        "target": "Package",
+        "version": "4.1.0"
       }
     },
     "frameworks": {
@@ -24372,6 +24377,10 @@
           "Microsoft.NETCore.UniversalWindowsPlatform": {
             "target": "Package",
             "version": "5.4.0"
+          },
+          "System.Net.Http": {
+            "target": "Package",
+            "version": "4.1.0"
           }
         }
       }

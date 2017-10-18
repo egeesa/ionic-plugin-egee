@@ -36,8 +36,8 @@
 			<merges target="" />
             <runs />
         </js-module>
-        <framework src="src/windows/_lib/Egee/Egee.Proxy.csproj" custom="true" type="projectReference" />
-		 <!--<resource-file src="src/windows/_lib/packages/MetroLog.1.0.1/lib/dotnet/MetroLog.dll" target="MetroLog.dll"/>-->
+        <framework src="src/windows/_lib/Egee/Egee.csproj" custom="true" type="projectReference" />
+		 <!--
 		<resource-file src="src/windows/_lib/dll/System.Collections.Concurrent.dll" target="System.Collections.Concurrent.dll"/>
 		<resource-file src="src/windows/_lib/dll/System.Collections.dll" target="System.Collections.dll"/>
 		<resource-file src="src/windows/_lib/dll/System.ComponentModel.EventBasedAsync.dll" target="System.ComponentModel.EventBasedAsync.dll"/>
@@ -77,7 +77,7 @@
 		<resource-file src="src/windows/_lib/dll/System.Runtime.InteropServices.dll" target="System.Runtime.InteropServices.dll"/>	
 		<resource-file src="src/windows/_lib/dll/System.Security.Cryptography.X509Certificates.dll" target="System.Security.Cryptography.X509Certificates.dll"/>		
 		<resource-file src="src/windows/_lib/dll/System.Runtime.WindowsRuntime.dll" target="System.Runtime.WindowsRuntime.dll"/>			
-		<resource-file src="src/windows/_lib/dll/System.Diagnostics.Tracing.dll" target="System.Diagnostics.Tracing.dll"/>	
+		<resource-file src="src/windows/_lib/dll/System.Diagnostics.Tracing.dll" target="System.Diagnostics.Tracing.dll"/>	-->
 			
 			
     </platform>
