@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Egee.Proxy", "Egee.Proxy\Eg
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Egee", "Egee\Egee.csproj", "{9C13F23A-E9EE-420C-AD4E-47DA0BF154A2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Egee.API.Service.Host", "Egee.API.Service.Host\Egee.API.Service.Host.csproj", "{E98D54A9-1A98-4DE8-9624-CA0F1F860E95}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -149,6 +151,22 @@ Global
 		{9C13F23A-E9EE-420C-AD4E-47DA0BF154A2}.Release|x86.ActiveCfg = Release|x86
 		{9C13F23A-E9EE-420C-AD4E-47DA0BF154A2}.Release|x86.Build.0 = Release|x86
 		{9C13F23A-E9EE-420C-AD4E-47DA0BF154A2}.Release|x86.Deploy.0 = Release|x86
+		{E98D54A9-1A98-4DE8-9624-CA0F1F860E95}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E98D54A9-1A98-4DE8-9624-CA0F1F860E95}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E98D54A9-1A98-4DE8-9624-CA0F1F860E95}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{E98D54A9-1A98-4DE8-9624-CA0F1F860E95}.Debug|ARM.Build.0 = Debug|Any CPU
+		{E98D54A9-1A98-4DE8-9624-CA0F1F860E95}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{E98D54A9-1A98-4DE8-9624-CA0F1F860E95}.Debug|x64.Build.0 = Debug|Any CPU
+		{E98D54A9-1A98-4DE8-9624-CA0F1F860E95}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{E98D54A9-1A98-4DE8-9624-CA0F1F860E95}.Debug|x86.Build.0 = Debug|Any CPU
+		{E98D54A9-1A98-4DE8-9624-CA0F1F860E95}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E98D54A9-1A98-4DE8-9624-CA0F1F860E95}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E98D54A9-1A98-4DE8-9624-CA0F1F860E95}.Release|ARM.ActiveCfg = Release|Any CPU
+		{E98D54A9-1A98-4DE8-9624-CA0F1F860E95}.Release|ARM.Build.0 = Release|Any CPU
+		{E98D54A9-1A98-4DE8-9624-CA0F1F860E95}.Release|x64.ActiveCfg = Release|Any CPU
+		{E98D54A9-1A98-4DE8-9624-CA0F1F860E95}.Release|x64.Build.0 = Release|Any CPU
+		{E98D54A9-1A98-4DE8-9624-CA0F1F860E95}.Release|x86.ActiveCfg = Release|Any CPU
+		{E98D54A9-1A98-4DE8-9624-CA0F1F860E95}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
