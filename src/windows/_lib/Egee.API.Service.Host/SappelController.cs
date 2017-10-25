@@ -93,11 +93,6 @@ namespace Egee.API.Service.Host
                         _logger.Info("commande5 :dc:getDeviceList()");
                         dataJSON = hyScript.call("return dc:getDeviceList():__tostring(dc:getDeviceList():getBeginDeviceDescriptionIterator(true))");
                         _logger.Info("resultat commande5 : " + dataJSON);
-
-                        SappelResponseContract sappelResponseContract = JsonConvert.DeserializeObject<SappelResponseContract>(dataJSON);
-
-                       
-
                     }
               
                     hyScript.call("dc:getDeviceList():clear()");
