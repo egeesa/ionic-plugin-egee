@@ -104,6 +104,44 @@ namespace Egee.API.Service.Host
             return dataJSON;
         }
 
+        private string Interpreter(string rawData)
+        {
+            HyScript hyScript = new HyScript();
+            string response = "false";
+            string telegram = "";
+
+            response = hyScript.call("return License.check('EGEEEGEE','I1ARCQI0')");
+           
+            if (response == "true")
+            {
+               
+                if (rawData != "")
+                {
+                    string cmd = "interpreterMbi= MBusInterpreter.new();" +
+                       " interpreterRi  = RadioInterpreter.new();" +
+                       " interpreter:setProcessLevel(PROCLEV_HEAD);" +
+                       " devList = DeviceList.new();" +
+                       " interpreterMbi:setDeviceList(ref(devList));" +
+                       " interpreterRi:setDeviceList(ref(devList));" +
+                       " interpreterMbi:setRadioInterpreter(RadioInterpreter.new());" +
+                       " interpreterRi:setMBusInterpreter(MBusInterpreter.new());" +
+                       " interpreter:addManuSpec2TelegramConverter(HydrometerSpec2TelegramConverter.new());" +
+                       " interpreter:setMergeEmbeddedData(true);" +
+                       " h1 = HexString.new(" + rawData + ");" +
+                       " telegramMbt = interpreterMbi:interpret(h1);" +
+                       " telegramRt  = interpreterRi:interpret(h1)" +
+                       " if (telegramMbt:getInterpretationError() == INTPRET_NO_ERROR) then return telegramMbt else return telegramRt end ";
+
+
+                    telegram = hyScript.call(cmd);
+
+                }
+
+            }
+
+            return telegram;
+        }
+
         [HttpGet]
         public string GetTelegram(string adresseMACPRT, int numeroPORT, string numeroCompteurHexa)
         {
@@ -219,6 +257,46 @@ namespace Egee.API.Service.Host
             }
 
             return data;
+        }
+
+
+        [HttpGet]
+        public string GetDeviceConfiguration(int numeroPORT)
+        {
+            HyScript hyScript = new HyScript();
+            string response = "false";
+            string dataJSON = "";
+            string parameterList = "";
+
+
+            _logger.Info("commande1 : Check Licence");
+            response = hyScript.call("return License.check('EGEEEGEE','I1ARCQI0')");
+            _logger.Info("resultat cmd1 : " + response);
+            if (response == "true")
+            {
+                string cmd = " if (dc == nil) then "+
+                            " dc = DeviceConfigurator.new();" +
+                            " p = IPhysicalLayer.new(" + "'com://" + numeroPORT + "');" +
+                            " cl = ICommunicationLayer.new('hybtoh://', ref(p));" +
+                            " dc:setCommunicationLayer(ref(c));" +
+                            " dc:config('stopOnDeviceDetect', 1);" +
+                            " else dc:close() end " +
+                            " ds:config('timeoutAfterTelegram', 10) return (dc:open(1))";
+
+
+                response = hyScript.call(cmd);
+
+                if(response == "true")
+                {
+                    //Retourne la liste des paramètres du module en cours de traitement
+                    parameterList = hyScript.call("return dc:getParamNameList()");
+
+                    //Parse parameter list to get the value of parameters
+
+                }
+            }
+
+            return dataJSON;
         }
 
         [HttpGet]
