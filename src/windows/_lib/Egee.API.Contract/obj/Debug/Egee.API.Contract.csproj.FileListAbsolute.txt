@@ -1,0 +1,5 @@
+C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee.API.Contract\bin\Debug\Egee.API.Contract.dll
+C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee.API.Contract\bin\Debug\Egee.API.Contract.pdb
+C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee.API.Contract\obj\Debug\Egee.API.Contract.csproj.CoreCompileInputs.cache
+C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee.API.Contract\obj\Debug\Egee.API.Contract.dll
+C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee.API.Contract\obj\Debug\Egee.API.Contract.pdb

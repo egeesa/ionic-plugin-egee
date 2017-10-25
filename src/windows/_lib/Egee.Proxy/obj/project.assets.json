@@ -24332,7 +24332,7 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\vau\\.nuget\\packages\\": {}
+    "C:\\Users\\gla\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
@@ -24340,12 +24340,12 @@
       "projectUniqueName": "C:\\ProjetsGIT\\ionic-plugin-egee\\src\\windows\\_lib\\Egee.Proxy\\Egee.Proxy.csproj",
       "projectName": "Egee.Proxy",
       "projectPath": "C:\\ProjetsGIT\\ionic-plugin-egee\\src\\windows\\_lib\\Egee.Proxy\\Egee.Proxy.csproj",
-      "packagesPath": "C:\\Users\\vau\\.nuget\\packages\\",
+      "packagesPath": "C:\\Users\\gla\\.nuget\\packages\\",
       "outputPath": "C:\\ProjetsGIT\\ionic-plugin-egee\\src\\windows\\_lib\\Egee.Proxy\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "configFilePaths": [
-        "C:\\Users\\vau\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\gla\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -24359,16 +24359,6 @@
         "uap10.0.10586": {
           "projectReferences": {}
         }
-      }
-    },
-    "dependencies": {
-      "Microsoft.NETCore.UniversalWindowsPlatform": {
-        "target": "Package",
-        "version": "5.4.0"
-      },
-      "System.Net.Http": {
-        "target": "Package",
-        "version": "4.1.0"
       }
     },
     "frameworks": {
