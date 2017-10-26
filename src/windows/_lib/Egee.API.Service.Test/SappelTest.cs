@@ -30,8 +30,8 @@ namespace Egee.API.Service.Test
         public void Test1()
         {
             string data = "";
-            string json = SappelController.Read();
-            //string json = File.ReadAllText(@"C:\temp\json.txt");
+            //string json = SappelController.Read();
+            string json = SappelController.GetTelegram("0012f18e03e", 6, "30 4C F6 4F C1 03 00 00");
             SappelResponseContract sappelResponseContract = JsonConvert.DeserializeObject<SappelResponseContract>(json);
 
             //string numeroCompteurHexa = "30 4C F6 4F C1 03 00 00".Replace(" ", "");

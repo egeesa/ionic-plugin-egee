@@ -165,8 +165,7 @@ namespace Egee.API.Service.Host
                             " ds:config('readTotalTimeoutMultiplier', -1)" +
                             " ds:config('writeTotalTimeoutConstant', 0)" +
                             " ds:config('writeTotalTimeoutMultiplier', 0)" +
-                            " ds:setDeviceID(MBusDeviceID.new('RSAP000003C14FF6000'))" +
-                            " ds:setSourceId(" + adresseMACPRT + ");" +
+                            " ds:setSourceId('" + adresseMACPRT + "');" +
                             " ds:config('timeoutNoAnswer', 150);" +
                             " ds:config('timeoutNoDataFollows', 2);" +
                             " ds:config('timeoutAfterTelegram', 10) return true";
@@ -182,6 +181,8 @@ namespace Egee.API.Service.Host
 
 
                     Thread.Sleep(2000);
+
+                    hyScript.call("ds:stopASync()");
 
 
                     string telegramProcessed = hyScript.call("return dc:getNumberOfProcessedTelegrams()");
@@ -202,13 +203,8 @@ namespace Egee.API.Service.Host
                     //device founded
                     if (Convert.ToInt32(foundedDevice) > 0)
                     {
-                        hyScript.call("ds:stopASync()");
-
-                     
                         response = hyScript.call("return dc:getDeviceList():__tostring(dc:getDeviceList():getBeginDeviceDescriptionIterator(true))");
                         _logger.Info("response : " + response);
-
-
 
                         SappelResponseContract sappelResponseContract = JsonConvert.DeserializeObject<SappelResponseContract>(response);
 
@@ -217,39 +213,20 @@ namespace Egee.API.Service.Host
 
                         Telegram telegram = entryCompteur.value.meteringPoint.telegrams.FirstOrDefault();
 
-                        if (telegram.telegramTypeSpecifica.qualityIndicator.rssi == 100)
-                        {
-                            //On récupére la rawData
-                            string rawData = telegram.mBusData.rawData.data;
+                        //Telegramm type
+                        int telepramType = telegram.type;
 
-                            //On récupére les alarmes
-                            string alarmes = telegram.mBusData.alarmField.data;
+                        //On récupére la rawData
+                        string rawData = telegram.mBusData.rawData.data;
 
-                            data = "rawData: " + rawData + " alarmes: " + alarmes;
-                            _logger.Info("resultat : " + data);
+                        //On récupére les alarmes
+                        string alarmes = telegram.mBusData.alarmField.data;
 
-                        }
-                        else
-                        {
-                            string rssi = telegram.telegramTypeSpecifica.qualityIndicator.rssi.ToString();
-                            
-                            string rawData = telegram.mBusData.rawData.data;
+                        data = "Type: "+telepramType+" rawData: " + rawData + " alarmes: " + alarmes;
 
-                            string alarmes = telegram.mBusData.alarmField.data;
-
-                            data = "rssi: "+ rssi +" rawData: " + rawData + " alarmes: " + alarmes;
-                            _logger.Info("resultat : " + data);
-                        }
-
-                        hyScript.call("ds:stopASync()");
+                        _logger.Info("resultat : " + data);
 
                     }
-                    else
-                    {
-                        _logger.Info("resultat dc:getDeviceList() : " + response);
-                        hyScript.call("ds:stopASync()");
-                    }
-
                     hyScript.call("dc:getDeviceList():clear()");
 
                 }

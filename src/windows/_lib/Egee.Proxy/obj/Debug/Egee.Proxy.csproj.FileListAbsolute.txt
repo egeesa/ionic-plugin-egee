@@ -1,6 +1,7 @@
 C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee.Proxy\bin\Debug\Egee.Proxy.winmd
 C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee.Proxy\bin\Debug\Egee.Proxy.pdb
 C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee.Proxy\bin\Debug\Egee.Proxy.pri
+C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee.Proxy\obj\Debug\Egee.Proxy.csprojResolveAssemblyReference.cache
 C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee.Proxy\obj\Debug\Egee.Proxy.csproj.CoreCompileInputs.cache
 C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee.Proxy\obj\Debug\Egee.Proxy.winmd
 C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee.Proxy\obj\Debug\Egee.Proxy.pdb
