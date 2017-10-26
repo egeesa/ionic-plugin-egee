@@ -27,11 +27,11 @@ namespace Egee.API.Service.Test
 
         [Test]
         [Category("SappelTest")]
-        public void Test1()
+        public void ReadTelegram()
         {
             string data = "";
-            //string json = SappelController.Read();
-            string json = SappelController.GetTelegram("0012f18e03e", 6, "30 4C F6 4F C1 03 00 00");
+            string json = SappelController.Read();
+            
             SappelResponseContract sappelResponseContract = JsonConvert.DeserializeObject<SappelResponseContract>(json);
 
             //string numeroCompteurHexa = "30 4C F6 4F C1 03 00 00".Replace(" ", "");
@@ -64,5 +64,13 @@ namespace Egee.API.Service.Test
 
             
         }
+
+        [Test]
+        [Category("SappelTest")]
+        public void GetTelegram()
+        {
+            string json = SappelController.GetTelegram("0012f18e03e", 6, "30 4C F6 4F C1 03 00 00");
+        }
+
     }
 }

@@ -37,13 +37,15 @@ namespace Egee.API.Service.Host
             HyScript hyScript = new HyScript();
             string response = "false";
             string dataJSON = "";
-
+            string cmdClear = "if(dc~=nil) then dc:close(); cl=nil; pl=nil; dc=nil";
 
             _logger.Info("commande1 : Check Licence");
             response = hyScript.call("return License.check('EGEEEGEE','I1ARCQI0')");
             _logger.Info("resultat cmd1 : " + response);
             if (response == "true")
             {
+                hyScript.call(cmdClear);
+
                 string cmd = "dc = DataConcentrator.new();" +
                             " ds = BtReceiverDataSource.new();" +
                             " ds:setDataConcentrator(ref(dc));" +
@@ -127,7 +129,7 @@ namespace Egee.API.Service.Host
                        " interpreterRi:setMBusInterpreter(MBusInterpreter.new());" +
                        " interpreter:addManuSpec2TelegramConverter(HydrometerSpec2TelegramConverter.new());" +
                        " interpreter:setMergeEmbeddedData(true);" +
-                       " h1 = HexString.new(" + rawData + ");" +
+                       " h1 = HexString.new('" + rawData + "');" +
                        " telegramMbt = interpreterMbi:interpret(h1);" +
                        " telegramRt  = interpreterRi:interpret(h1)" +
                        " if (telegramMbt:getInterpretationError() == INTPRET_NO_ERROR) then return telegramMbt else return telegramRt end ";
