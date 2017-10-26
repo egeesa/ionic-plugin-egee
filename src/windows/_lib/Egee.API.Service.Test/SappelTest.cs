@@ -27,15 +27,15 @@ namespace Egee.API.Service.Test
         [Category("SappelTest")]
         public void Test1()
         {
-            HttpClient client = new HttpClient();
+            //HttpClient client = new HttpClient();
 
-            HttpResponseMessage response = client.GetAsync(http://172.21.1.112/sappel/read);
-            if (response.IsSuccessStatusCode)
-            {
-                string json =  response.Content.ReadAsStringAsync().ToString();
-            }
+            //HttpResponseMessage response = client.GetAsync(http://172.21.1.112/sappel/read);
+            //if (response.IsSuccessStatusCode)
+            //{
+            //    string json =  response.Content.ReadAsStringAsync().ToString();
+            //}
 
-            //string json = File.ReadAllText(@"C:\temp\json.txt");
+            string json = File.ReadAllText(@"C:\temp\json.txt");
             SappelResponseContract sappelResponseContract = JsonConvert.DeserializeObject<SappelResponseContract>(json);
 
             string numeroCompteurHexa = "30 4C F6 4F C1 03 00 00".Replace(" ", "");
