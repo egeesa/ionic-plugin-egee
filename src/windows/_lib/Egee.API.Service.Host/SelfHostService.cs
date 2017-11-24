@@ -27,8 +27,9 @@ namespace Egee.API.Service.Host
             var config = new HttpSelfHostConfiguration("http://172.21.1.94");
 
             var cors = new EnableCorsAttribute("*", "*", "*");
-
+            
             config.EnableCors(cors);
+            config.MapHttpAttributeRoutes();
             config.Routes.MapHttpRoute(
                name: "API",
                routeTemplate: "{controller}/{action}/{id}",

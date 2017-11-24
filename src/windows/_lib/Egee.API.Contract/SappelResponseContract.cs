@@ -101,6 +101,54 @@ namespace Egee.API.Contract
         public string data { get; set; }
     }
 
+    public class UncryptedData
+    {
+        public string data { get; set; }
+    }
+
+    public class Dib
+    {
+        public string data { get; set; }
+    }
+
+    public class Vib
+    {
+        public string data { get; set; }
+    }
+
+    public class Dimension
+    {
+        public string stringId { get; set; }
+    }
+
+    public class Unit
+    {
+        public string stringId { get; set; }
+    }
+
+    public class MBusValue
+    {
+        public Dib dib { get; set; }
+        public Vib vib { get; set; }
+        public Value value { get; set; }
+        public int dataField { get; set; }
+        public int functionField { get; set; }
+        public int storageNumber { get; set; }
+        public int tariffNumber { get; set; }
+        public int subUnitNumber { get; set; }
+        public int dataTypeRaw { get; set; }
+        public int dataIsDate { get; set; }
+        public int dataType { get; set; }
+        public Dimension dimension { get; set; }
+        public List<object> dimensionExtension { get; set; }
+        public Unit unit { get; set; }
+        public List<object> unitExtension { get; set; }
+        public int exponent { get; set; }
+        public bool isManuSpec { get; set; }
+        public bool valid { get; set; }
+        public object formated { get; set; }
+    }
+
     public class MBusData
     {
         public int type { get; set; }
@@ -126,6 +174,10 @@ namespace Egee.API.Contract
         public int checkSumCalc { get; set; }
         public int lengthOrg { get; set; }
         public int lengthCalc { get; set; }
+        public int decryptionState { get; set; }
+        public UncryptedData uncryptedData { get; set; }
+        public bool moreDataInFollowingTelegram { get; set; }
+        public List<MBusValue> mBusValues { get; set; }
     }
 
     public class Telegram

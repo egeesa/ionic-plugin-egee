@@ -67,9 +67,10 @@ namespace Egee.API.Service.Test
 
         [Test]
         [Category("SappelTest")]
-        public void GetTelegram()
+        public void ReadAllTelegram()
         {
-            string json = SappelController.GetTelegram("0012f18e03e", 6, "30 4C F6 4F C1 03 00 00");
+            List<FrameResponse> data = new List<FrameResponse>();
+            data = SappelController.ReadAllTelegram("6", "0012f18e03e");
         }
 
     }

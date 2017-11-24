@@ -1,0 +1,6 @@
+"/t:System.ServiceModel.ExceptionDetail,System.ServiceModel.Primitives,dcs"
+"/t:System.Object,System.Runtime,dcs"
+"/t:Egee.Proxy.Sappel.InitResponse,Egee.Proxy,dcs"
+"/t:Egee.Proxy.Sappel.InitRequest,Egee.Proxy,dcs"
+"/t:Egee.Proxy.Sappel.GetVersionResponse,Egee.Proxy,dcs"
+"/t:Egee.Proxy.Sappel.GetVersionRequest,Egee.Proxy,dcs"
