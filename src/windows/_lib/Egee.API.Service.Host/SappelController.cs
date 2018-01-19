@@ -61,6 +61,10 @@ namespace Egee.API.Service.Host
                             " local ri = RadioInterpreter.new();"+
                             " ri:setProcessLevel();"+
                             " dc:setRadioInterpreter(ri);"+
+                            " ri:enableDecryption(false);" +
+                            " tsf=ToStringFormater.new();" +
+                            " tsf:setAddSPDEAddress(true);" +
+                            " setFormater(tsf);" +
                             " ds:setSourceId('0012f318e03e');" +
                             " ds:config('timeoutNoAnswer', 150);" +
                             " ds:config('timeoutNoDataFollows', 2);" +
@@ -134,9 +138,9 @@ namespace Egee.API.Service.Host
             string rawDataInterpretJSON = "";
             string cmdClear = "if(dc~=nil) then dc:close(); cl=nil; pl=nil; dc=nil";
 
-            _logger.Info("commande1 : Check Licence");
+            _logger.Info("Check Licence");
             response = hyScript.call("setLogLevel(-1); setLogFileName('IzarCSI.log'); return License.check('EGEEEGEE','I1ARCQI0')");
-            _logger.Info("resultat cmd1 : " + response);
+            _logger.Info("resultat Check Licence : " + response);
             if (response == "true")
             {
                 hyScript.call(cmdClear);
@@ -157,148 +161,154 @@ namespace Egee.API.Service.Host
                             " ds:setSourceId('" + macadresseprt + "');" +
                             " ds:config('timeoutNoAnswer', 150);" +
                             " ds:config('timeoutNoDataFollows', 2);" +
-                            " ds:config('timeoutAfterTelegram', 10); ds:startASync() return true";
+                            " ds:config('timeoutAfterTelegram', 10); return true";
 
 
-                _logger.Info("commande2: " + cmd);
+                _logger.Info("Init: " + cmd);
                 response = hyScript.call(cmd);
 
-                _logger.Info("resultat cmd2 : " + response);
+                _logger.Info("resultat Init : " + response);
+
                 if (response == "true")
                 {
-                 
+                    //startASync
+                    _logger.Info("ds:startASync()");
+                    hyScript.call("ds:startASync()");
+
                     Thread.Sleep(2000);
 
                     //stopASync
-                    _logger.Info("commande 4 : ds:stopASync()");
+                    _logger.Info("ds:stopASync()");
                     hyScript.call("ds:stopASync()");
 
                     string telegramProcessed = hyScript.call("return dc:getNumberOfProcessedTelegrams()");
-                    _logger.Info("resultat number of telegram Processed: " + telegramProcessed);
+                    _logger.Info("Nombre de télégrammes traités: " + telegramProcessed);
 
 
                     string telegramCollected = hyScript.call("return dc:getNumberOfCollectedTelegrams()");
-                    _logger.Info("resultat number of telegram collected: " + telegramCollected);
+                    _logger.Info("Nombre de télégrammes collectés: " + telegramCollected);
 
 
                     string falseTelegram = hyScript.call("return dc:getNumberOfFalseTelegrams()");
-                    _logger.Info("resultat number of false telegram : " + falseTelegram);
+                    _logger.Info("Nombre de faux télégrammes : " + falseTelegram);
 
 
                     string foundedDevice = hyScript.call("return dc:getNumberOfFoundedDevices()");
-                    _logger.Info("resultat number of devices found : " + foundedDevice);
+                    _logger.Info("Nombre de modules trouvés : " + foundedDevice);
 
                     //device founded
                     if (Convert.ToInt32(foundedDevice) > 0)
                     {
-                        _logger.Info("commande5 :dc:getDeviceList()");
+                        _logger.Info("dc:getDeviceList()");
                         dataJSON = hyScript.call("return dc:getDeviceList():__tostring(dc:getDeviceList():getBeginDeviceDescriptionIterator(true))");
-                        _logger.Info("resultat commande5 : " + dataJSON);
+                        _logger.Info("resultat getDeviceList : " + dataJSON);
 
-                        FrameResponse dataFrame;
-                        SappelResponseContract sappelResponseContract = JsonConvert.DeserializeObject<SappelResponseContract>(dataJSON);
-
-                        List<Entry> entries = sappelResponseContract.entries.ToList();
-
-
-                        foreach (var entry in entries)
+                        try
                         {
-                            List<Telegram> telegrams = entry.value.meteringPoint.telegrams.ToList();
+                            FrameResponse dataFrame;
+                            SappelResponseContract sappelResponseContract = JsonConvert.DeserializeObject<SappelResponseContract>(dataJSON);
 
-                            foreach (var telegram in telegrams)
+                            List<Entry> entries = sappelResponseContract.entries.ToList();
+
+
+                            foreach (var entry in entries)
                             {
-                                dataFrame = new FrameResponse();
+                                List<Telegram> telegrams = entry.value.meteringPoint.telegrams.ToList();
 
-                                if (telegram.telegramTypeSpecifica.qualityIndicator.rssi > 50)
+                                foreach (var telegram in telegrams)
                                 {
-                                    //Formatage idAsString
-                                    string deviceData = "";
-                                    
-                                    if(telegram.mBusData.deviceId.idAsString.Length < 20)
-                                        deviceData = telegram.mBusData.deviceId.idAsString.Substring(4, 12);
-                                    else
-                                        deviceData = telegram.mBusData.deviceId.idAsString.Substring(5, 12);
+                                    dataFrame = new FrameResponse();
 
-                                    deviceData = ConvertHexStringToStringWithSpace(deviceData);
-                                    dataFrame.deviceId = ExtractSerial_SPDE(deviceData);
-
-
-                                    //dataFrame.deviceId = telegram.mBusData.deviceId.idAsString;
-
-
-                                    dataFrame.manuString = telegram.mBusData.deviceId.manuString;
-                                    dataFrame.ciField = telegram.mBusData.ciField;
-
-                                    string rawData = telegramFormat(telegram.mBusData.rawData.data);
-                                    //On récupére la raw data
-                                    rawDataInterpretJSON = Interpreter(rawData);
-                                    Telegram telegramResponse = JsonConvert.DeserializeObject<Telegram>(rawDataInterpretJSON);
-                                    List<MBusValue> mBusValues = telegramResponse.mBusData.mBusValues.ToList();
-                                    foreach (var mBusValue in mBusValues)
+                                    if (telegram.telegramTypeSpecifica.qualityIndicator.rssi > 25)
                                     {
-                                        if ( (mBusValue.valid == true))
+                                        
+                                        dataFrame.deviceId = telegram.mBusData.deviceId.spdeid.spde;
+                                        dataFrame.manuString = telegram.mBusData.deviceId.manuString;
+                                        dataFrame.ciField = telegram.mBusData.ciField;
+                                        dataFrame.structure = telegram.mBusData.deviceId.spdeid.format;
+
+                                        //Récupération des alarmes
+                                        if (telegram.mBusData.alarmField.data != "00" && telegram.mBusData.alarmField.data != "00 00")
                                         {
-                                            if (mBusValue.dimension.stringId == "VOLUME")
+                                            dataFrame.alarmeCode = telegramAlarmFormat(telegram.mBusData.alarmField.data);
+
+                                        }
+
+
+                                        string rawData = telegramFormat(telegram.mBusData.rawData.data);
+
+                                        //On récupére la raw data
+                                        rawDataInterpretJSON = Interpreter(rawData);
+                                        Telegram telegramResponse = JsonConvert.DeserializeObject<Telegram>(rawDataInterpretJSON);
+                                        List<MBusValue> mBusValues = telegramResponse.mBusData.mBusValues.ToList();
+                                        foreach (var mBusValue in mBusValues)
+                                        {
+                                            if ((mBusValue.valid == true))
                                             {
-                                                //volume
-                                                if(mBusValue.storageNumber == 0 && mBusValue.tariffNumber == 0 && mBusValue.subUnitNumber == 0)
+                                                if (mBusValue.dimension.stringId == "VOLUME")
                                                 {
-                                                    dataFrame.volumeValue = Convert.ToInt32(mBusValue.formated);
-                                                    dataFrame.volumeIndex = calculIndex(Convert.ToInt32(mBusValue.formated), Convert.ToInt32(mBusValue.exponent));
-                                                    dataFrame.volumeCode = mBusValue.dimension.stringId;
-                                                    dataFrame.volumeUnite = mBusValue.unit.stringId;
-                                                    dataFrame.volumeExponent = Convert.ToInt32(mBusValue.exponent);
-                                                    dataFrame.volumeFormat = dataFrame.volumeCode + "  " + dataFrame.volumeIndex + "  m3";
-                                                }                                                
-                                            }
-                                            if ( mBusValue.dimension.stringId == "ENERGY")
-                                            {
-                                                //Energy
-                                                if (mBusValue.storageNumber == 0 && mBusValue.tariffNumber == 0 && mBusValue.subUnitNumber == 0)
+                                                    //volume
+                                                    if (mBusValue.storageNumber == 0 && mBusValue.tariffNumber == 0 && mBusValue.subUnitNumber == 0)
+                                                    {
+                                                        dataFrame.volumeValue = Convert.ToInt32(mBusValue.formated);
+                                                        dataFrame.volumeIndex = calculIndex(Convert.ToInt32(mBusValue.formated), Convert.ToInt32(mBusValue.exponent));
+                                                        dataFrame.volumeCode = mBusValue.dimension.stringId;
+                                                        dataFrame.volumeUnite = mBusValue.unit.stringId;
+                                                        dataFrame.volumeExponent = Convert.ToInt32(mBusValue.exponent);
+                                                        dataFrame.volumeFormat = dataFrame.volumeCode + "  " + dataFrame.volumeIndex + "  m3";
+                                                    }
+                                                }
+                                                if (mBusValue.dimension.stringId == "ENERGY")
                                                 {
-                                                    dataFrame.energyValue = Convert.ToInt32(mBusValue.formated);
-                                                    dataFrame.energyIndex = calculIndex(Convert.ToInt32(mBusValue.formated), Convert.ToInt32(mBusValue.exponent));
-                                                    dataFrame.energyCode = mBusValue.dimension.stringId;
-                                                    dataFrame.energyUnite = mBusValue.unit.stringId;
-                                                    dataFrame.energyExponent = Convert.ToInt32(mBusValue.exponent);
-                                                    dataFrame.energyFormat = dataFrame.energyCode + "  " + dataFrame.energyIndex + "  " + dataFrame.energyUnite;
+                                                    //Energy
+                                                    if (mBusValue.storageNumber == 0 && mBusValue.tariffNumber == 0 && mBusValue.subUnitNumber == 0)
+                                                    {
+                                                        dataFrame.energyValue = Convert.ToInt32(mBusValue.formated);
+                                                        dataFrame.energyIndex = calculIndex(Convert.ToInt32(mBusValue.formated), Convert.ToInt32(mBusValue.exponent));
+                                                        dataFrame.energyCode = mBusValue.dimension.stringId;
+                                                        dataFrame.energyUnite = mBusValue.unit.stringId;
+                                                        dataFrame.energyExponent = Convert.ToInt32(mBusValue.exponent);
+                                                        dataFrame.energyFormat = dataFrame.energyCode + "  " + dataFrame.energyIndex + "  " + dataFrame.energyUnite;
+                                                    }
+                                                }
+
+                                                if (mBusValue.dimension.stringId == "OPERATIONTIMEBATTERY")
+                                                {
+                                                    dataFrame.batteryCode = mBusValue.dimension.stringId;
+                                                    dataFrame.batteryFormated = Convert.ToInt32(mBusValue.formated);
+                                                    dataFrame.batteryUnite = mBusValue.unit.stringId;
+                                                }
+                                                if (mBusValue.dimension.stringId == "TIMEPOINT")
+                                                {
+                                                    dataFrame.date = mBusValue.formated.ToString();
                                                 }
                                             }
 
-                                            if (mBusValue.dimension.stringId == "ERRORFLAG")
-                                            {
-                                                //Alarmes
-                                                dataFrame.alarmeCode = mBusValue.dimension.stringId;
-                                                dataFrame.alarmeFormated = Convert.ToInt32(mBusValue.formated);
-
-                                            }
-                                            if (mBusValue.dimension.stringId == "OPERATIONTIMEBATTERY")
-                                            {
-                                                dataFrame.batteryCode = mBusValue.dimension.stringId;
-                                                dataFrame.batteryFormated = Convert.ToInt32(mBusValue.formated);
-                                                dataFrame.batteryUnite = mBusValue.unit.stringId;
-                                            }
-                                            if (mBusValue.dimension.stringId == "TIMEPOINT")
-                                            {
-                                                dataFrame.date = mBusValue.formated.ToString();
-                                            }
                                         }
-                                       
+
+                                        if (!myFrameList.Where(x => x.deviceId == dataFrame.deviceId).Any())
+                                        {
+                                            if ((dataFrame.volumeCode != null || dataFrame.energyCode != null) && dataFrame.ciField != 0)
+                                                myFrameList.Add(dataFrame);
+                                        }
                                     }
 
-                                    if(!myFrameList.Where(x => x.deviceId == dataFrame.deviceId).Any())
-                                    {
-                                        if((dataFrame.volumeCode != null|| dataFrame.energyCode != null) && dataFrame.ciField != 0)
-                                            myFrameList.Add(dataFrame);
-                                    }
                                 }
-                                
                             }
                         }
-                       
+                        catch (Exception ex)
+                        {
+                            _logger.Info("ERREUR : " + ex.Message);
+                        }
                     }
 
                     hyScript.call("dc:getDeviceList():clear()");
+
+                }
+                else
+                {
+                    dataJSON = hyScript.call("dc:clearLastException() val=dc:getValue(valueIdent) ret = {val, dc:getLastException()} return ret");
+                    _logger.Info("Erreur Init and StartASync: " + dataJSON);
 
                 }
 
@@ -306,10 +316,10 @@ namespace Egee.API.Service.Host
             else
             {
                 dataJSON = hyScript.call("dc:clearLastException() val=dc:getValue(valueIdent) ret = {val, dc:getLastException()} return ret");
-                _logger.Info("resultat : " + dataJSON);
+                _logger.Info("Erreur check licence: " + dataJSON);
 
             }
-            _logger.Info("resultat : " + myFrameList.ToString());
+            _logger.Info("ResultMyFrameList : " + myFrameList.ToString());
             return myFrameList;
         }
 
@@ -330,6 +340,78 @@ namespace Egee.API.Service.Host
             }
             return rawData;
         }
+
+        private string telegramAlarmFormat(string data)
+        {
+            string rawAlarme = "";
+            string[] myData = data.Split(' ');
+            rawAlarme = String.Join(String.Empty,
+                  myData[0].Select(
+                    c => Convert.ToString(Convert.ToInt32(c.ToString(), 16), 2).PadLeft(4, '0')
+                  )
+                );
+            rawAlarme += " "+ String.Join(String.Empty,
+                 myData[1].Select(
+                   c => Convert.ToString(Convert.ToInt32(c.ToString(), 16), 2).PadLeft(4, '0')
+                 )
+               );
+            return rawAlarme;
+        }
+
+        private  string AlarmString(string data)
+        {
+            string alarms = "";
+            string[] alarmToken = data.Split(' ');
+            string byte1 = String.Join(String.Empty,
+                  alarmToken[0].Select(
+                    c => Convert.ToString(Convert.ToInt32(c.ToString(), 16), 2).PadLeft(4, '0')
+                  )
+                );
+            string byte2 = String.Join(String.Empty,
+                 alarmToken[1].Select(
+                   c => Convert.ToString(Convert.ToInt32(c.ToString(), 16), 2).PadLeft(4, '0')
+                 )
+               );
+
+            //if(byte1.Length == 8 && byte2.Length == 8)
+            //{
+                if (byte1[0] == '1')
+                    alarms += "| Leak current ";
+
+                if (byte1[1] == '1')
+                    alarms += "| Leak previously ";
+
+                if (byte1[2] == '1')
+                    alarms += "| Blocked ";
+
+                if (byte2[0] == '1')
+                    alarms += "| Backflow ";
+
+                if (byte2[1] == '1')
+                    alarms += "| Underflow ";
+
+                if (byte2[2] == '1')
+                    alarms += "| Overflow ";
+
+                if (byte2[3] == '1')
+                    alarms += "| Submarine ";
+
+                if (byte2[4] == '1')
+                    alarms += "| Magnetic electric current ";
+
+                if (byte2[5] == '1')
+                    alarms += "| Magnetic electric previously ";
+
+                if (byte2[6] == '1')
+                    alarms += "| Mechanic current ";
+
+                if (byte2[7] == '1')
+                    alarms += "| Mechanic previously";
+            //}
+            return alarms;
+
+        }
+
 
         private string ExtractSerial_SPDE(string data)
         {
@@ -534,43 +616,182 @@ namespace Egee.API.Service.Host
         }
 
         [HttpGet]
-        [Route("getDeviceConfiguration/{portcom}")]
-        public string GetDeviceConfiguration(int portcom)
+        [Route("configuration/{portcom}")]
+        public List<ConfigParam> GetDeviceConfiguration(string portcom)
         {
             HyScript hyScript = new HyScript();
+            //string errorMessage = "";
+            //string cmd = "";
+            int port = Convert.ToInt32(portcom);
+            string comPort = "com://" + port;
+            string sBTHead = "hybtoh://";//"btspp://00802543739B";
             string response = "false";
-            string dataJSON = "";
-            string parameterList = "";
+            string sScript = "";
+            //string sScriptModule = "";
+            string sRep = "";
+            string sList = "";
+            string sS1 = "";
+            string sS2 = "";
+            string sS3 = "";
+            //string paramsList = "";
+            //string deviceModulePath = "C:\\Temp\\IZAR@CSI\\DeviceModules";
+            List<ConfigParam> configParamList = new List<ConfigParam>();
+            ConfigParam configParam = new ConfigParam();
+            string luaScriptPath = "C:\\Temp\\IZAR@CSI\\Script\\CSILib_OPTO.lua";
 
+            _logger.Info("----------------------------------------------");
+            _logger.Info("--------CONFIGURATION MODULE------------------");
+            _logger.Info("----------------------------------------------");
 
-            _logger.Info("commande1 : Check Licence");
-            response = hyScript.call("return License.check('EGEEEGEE','I1ARCQI0')");
-            _logger.Info("resultat cmd1 : " + response);
+            _logger.Info("--- Check licence");
+            response = hyScript.call("setLogLevel(-1); setLogFileName('IzarCSI.log'); return License.check('EGEEEGEE','I1ARCQI0')");
+            _logger.Info("--- Resultat : " + response);
+
             if (response == "true")
             {
-                string cmd = " if (dc == nil) then "+
-                            " dc = DeviceConfigurator.new();" +
-                            " p = IPhysicalLayer.new(" + "'com://" + portcom + "');" +
-                            " cl = ICommunicationLayer.new('hybtoh://', ref(p));" +
-                            " dc:setCommunicationLayer(ref(c));" +
-                            " dc:config('stopOnDeviceDetect', 1);" +
-                            " else dc:close() end " +
-                            " ds:config('timeoutAfterTelegram', 10) return (dc:open(1))";
+                
+                sScript = luaScriptPath.Replace(@"\", @"\\");
+                //Chargement du script de configuration
+                sRep = hyScript.call("return exec('" + sScript + "')");
 
 
-                response = hyScript.call(cmd);
-
-                if(response == "true")
+                if (sRep == luaScriptPath)
                 {
-                    //Retourne la liste des paramètres du module en cours de traitement
-                    parameterList = hyScript.call("return dc:getParamNameList()");
+                    // Start identification of a product 
+                    sRep = hyScript.call("return indentifyProduct('" + comPort + "', '" + sBTHead + "', '" + sS1 + "', '" + sS2 + "', '" + sS3 + "')");
 
-                    //Parse parameter list to get the value of parameters
+                    if (sRep == "true")
+                    {
+                        //Description: Nom du produit
+                        string getDescription = hyScript.call("return getDescription()");
+                        _logger.Info("--- Nom du produit: " + getDescription);
+
+                        //Nom du script de config en cours d'emploi
+                        string getDMName = hyScript.call("return getDMName()");
+                        _logger.Info("--- Nom du produit: " + getDMName);
+
+                        //Version du script de config en cours d'emploi
+                        string getDMVersion = hyScript.call("return getDMVersion()");
+                        _logger.Info("--- Nom du produit: " + getDMVersion);
+
+                        //----- Get Paramater list                 
+                        sRep = hyScript.call("return getParamNameList()");
+                        sList = sRep;
+                        while (sRep != "")
+                        {
+                            sRep = hyScript.call("return retMobile(0)");
+                            sList = sList + sRep;
+                        }
+
+                        //Parse parameter list to get the value of parameters ---char(9)=Tab=\t
+                        string[] tabNames = sList.Split((char)9);
+
+                        if (tabNames != null)
+                        {
+                            foreach (var nomParam in tabNames)
+                            {
+                                configParam.Name = nomParam;
+                                configParam.Value = hyScript.call("return  dc:getValue('" + nomParam + "')");
+                                _logger.Info(configParam.Name + " ====> " + configParam.Value);
+                                configParamList.Add(configParam);
+                            }
+                        }
+                    }
+                    else
+                    {
+                        _logger.Info("ERREUR :  NO DEVICE DETECTED");
+                    }
+                }
+                else
+                {
+                    _logger.Info("ERREUR:  Script execution : " + sScript + " : Result = " + sRep);
+                }
+
+            }
+            else
+            {
+                _logger.Info("ERREUR:   License activation ");
+            }
+            _logger.Info("Parameter List: " + configParamList.ToString());
+            return configParamList;
+        }
+
+        [HttpGet]
+        [Route("configuration/{portcom}/{configParamList}")]
+        public string SetDeviceConfiguration(string portcom, List<ConfigParam> configParamList)
+        {
+            HyScript hyScript = new HyScript();
+            string result = "";
+            int port = Convert.ToInt32(portcom);
+            string comPort = "com://" + port;
+            string sBTHead = "hybtoh://";
+            string response = "false";
+            string sScript = "";
+            string sRep = "";
+            string sS1 = "";
+            string sS2 = "";
+            string sS3 = "";
+            string radioAddress = "";
+
+            ConfigParam configParam = new ConfigParam();
+            string luaScriptPath = "C:\\Temp\\IZAR@CSI\\Script\\CSILib_OPTO.lua";
+
+            _logger.Info("----------------------Writeback------------------------");
+
+            _logger.Info("--- Check licence");
+            sRep = hyScript.call("setLogLevel(-1); setLogFileName('IzarCSI.log'); return License.check('EGEEEGEE','I1ARCQI0')");
+            _logger.Info("--- Resultat : " + response);
+
+            if (sRep == "true" && configParamList != null)
+            {
+                sScript = luaScriptPath.Replace(@"\", @"\\");
+                //Chargement du script de configuration
+                sRep = hyScript.call("return exec('" + sScript + "')");
+
+                if(sRep == luaScriptPath)
+                {
+                    // Start identification of a product 
+                    sRep = hyScript.call("return indentifyProduct('" + comPort + "', '" + sBTHead + "', '" + sS1 + "', '" + sS2 + "', '" + sS3 + "')");
+
+                    if (sRep == "true")
+                    {
+                        //vérifier que le module en cours de configuration est égale à celui passer en paramètre
+                        radioAddress = hyScript.call("return  dc:getValue('RadioAddress')");
+                        configParam = (ConfigParam)configParamList.Where(c => c.Value == radioAddress);
+
+                        if(configParam != null)
+                        {
+                            foreach (var item in configParamList)
+                            {
+                                configParam = (ConfigParam)item;
+                                sRep = hyScript.call("return setValue('" + configParam.Name + "', '" + configParam.Value + "')");
+                            }
+
+                            result = hyScript.call("return writeback()");
+                        }
+                        else
+                        {
+                            result = "false";
+                        }
+
+                    }
+                    else
+                    {
+                        result = "false";
+                    }
 
                 }
-            }
+                else
+                {
+                    result = "false";
+                }
 
-            return dataJSON;
+            }
+            else
+            {
+                result = "false";
+            }
+            return result;
         }
 
         [HttpGet]

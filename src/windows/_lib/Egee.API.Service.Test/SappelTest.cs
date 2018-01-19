@@ -73,5 +73,13 @@ namespace Egee.API.Service.Test
             data = SappelController.ReadAllTelegram("6", "0012f18e03e");
         }
 
+        [Test]
+        [Category("SappelTest")]
+        public void GetDeviceConfiguration()
+        {
+            List<ConfigParam> dataParam = new List<ConfigParam>();
+            dataParam = SappelController.GetDeviceConfiguration("6");
+        }
+
     }
 }

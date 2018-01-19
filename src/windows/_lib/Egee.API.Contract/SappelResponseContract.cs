@@ -21,6 +21,37 @@ namespace Egee.API.Contract
         public string data { get; set; }
     }
 
+    public class Hex2
+    {
+        public string data { get; set; }
+    }
+
+    public class ManuByte2
+    {
+        public string data { get; set; }
+    }
+
+    public class Spdeid
+    {
+        public int classid { get; set; }
+        public Hex2 hex { get; set; }
+        public ManuByte2 manuByte { get; set; }
+        public string manuString { get; set; }
+        public string spde { get; set; }
+        public int reference { get; set; }
+        public int subunit { get; set; }
+        public int fieldOrder { get; set; }
+        public string format { get; set; }
+        public string supplierCode { get; set; }
+        public string manufactureYear { get; set; }
+        public string meterType { get; set; }
+        public string diameter { get; set; }
+        public string serialNumber { get; set; }
+        public bool valid { get; set; }
+        public object master { get; set; }
+        public string idAsString { get; set; }
+    }
+
     public class DeviceId
     {
         public int classid { get; set; }
@@ -30,9 +61,14 @@ namespace Egee.API.Contract
         public int reference { get; set; }
         public int subunit { get; set; }
         public int fieldOrder { get; set; }
+        public Spdeid spdeid { get; set; }
         public bool valid { get; set; }
         public object master { get; set; }
         public string idAsString { get; set; }
+        public int? version { get; set; }
+        public int? type { get; set; }
+        public int? ident { get; set; }
+        public string identStr { get; set; }
     }
 
     public class QualityIndicator
@@ -67,14 +103,44 @@ namespace Egee.API.Contract
         public string timeZoneInfo { get; set; }
     }
 
-    public class Hex2
+    public class Hex3
     {
         public string data { get; set; }
     }
 
-    public class ManuByte2
+    public class ManuByte3
     {
         public string data { get; set; }
+    }
+    public class Hex4
+    {
+        public string data { get; set; }
+    }
+
+    public class ManuByte4
+    {
+        public string data { get; set; }
+    }
+
+    public class Spdeid2
+    {
+        public int classid { get; set; }
+        public Hex4 hex { get; set; }
+        public ManuByte4 manuByte { get; set; }
+        public string manuString { get; set; }
+        public string spde { get; set; }
+        public int reference { get; set; }
+        public int subunit { get; set; }
+        public int fieldOrder { get; set; }
+        public string format { get; set; }
+        public string supplierCode { get; set; }
+        public string manufactureYear { get; set; }
+        public string meterType { get; set; }
+        public string diameter { get; set; }
+        public string serialNumber { get; set; }
+        public bool valid { get; set; }
+        public object master { get; set; }
+        public string idAsString { get; set; }
     }
 
     public class DeviceId2
@@ -86,9 +152,14 @@ namespace Egee.API.Contract
         public int reference { get; set; }
         public int subunit { get; set; }
         public int fieldOrder { get; set; }
+        public Spdeid2 spdeid { get; set; }
         public bool valid { get; set; }
         public object master { get; set; }
         public string idAsString { get; set; }
+        public int? version { get; set; }
+        public int? type { get; set; }
+        public int? ident { get; set; }
+        public string identStr { get; set; }
     }
 
     public class AlarmField
@@ -174,6 +245,11 @@ namespace Egee.API.Contract
         public int checkSumCalc { get; set; }
         public int lengthOrg { get; set; }
         public int lengthCalc { get; set; }
+        public int? accessNo { get; set; }
+        public int? state { get; set; }
+        public int? hopCounter { get; set; }
+        public bool? isSynchronized { get; set; }
+        public int? contentType { get; set; }
         public int decryptionState { get; set; }
         public UncryptedData uncryptedData { get; set; }
         public bool moreDataInFollowingTelegram { get; set; }

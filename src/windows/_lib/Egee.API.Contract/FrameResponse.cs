@@ -13,6 +13,7 @@ namespace Egee.API.Contract
     {
         public string deviceId { get; set; }
         public string manuString { get; set; }
+        public string structure { get; set; }
         public int ciField { get; set; }
         //Volume
         public string volumeCode { get; set; }
@@ -31,6 +32,7 @@ namespace Egee.API.Contract
 
         //Alarme
         public string alarmeCode { get; set; }
+        //public string alarmeMessage { get; set; }
         public int alarmeFormated { get; set; }
 
         //Battery
