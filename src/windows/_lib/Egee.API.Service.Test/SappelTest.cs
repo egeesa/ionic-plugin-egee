@@ -10,6 +10,7 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Http.Results;
 
 namespace Egee.API.Service.Test
 {
@@ -63,6 +64,14 @@ namespace Egee.API.Service.Test
             }
 
             
+        }
+
+        [Test]
+        [Category("SappelTest")]
+        public void GetVersion()
+        {
+            var result = SappelController.GetVersion() as OkNegotiatedContentResult<string>;
+            string version = result.Content;
         }
 
         [Test]

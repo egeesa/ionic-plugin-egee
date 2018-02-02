@@ -25,3 +25,4 @@ C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee.API.Service.Test\obj\Debug
 C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee.API.Service.Test\obj\Debug\Egee.API.Service.Test.csproj.CoreCompileInputs.cache
 C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee.API.Service.Test\obj\Debug\Egee.API.Service.Test.dll
 C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee.API.Service.Test\obj\Debug\Egee.API.Service.Test.pdb
+C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee.API.Service.Test\bin\Debug\IZAR_CSIX.dll

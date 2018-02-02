@@ -99,7 +99,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="IZAR_CSIX.dll" />
+    <Content Include="IZAR_CSIX.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <COMReference Include="IZAR_CSIXLib">

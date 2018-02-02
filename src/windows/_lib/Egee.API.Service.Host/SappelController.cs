@@ -230,12 +230,12 @@ namespace Egee.API.Service.Host
                                         //Récupération des alarmes
                                         if (telegram.mBusData.alarmField.data != "00" && telegram.mBusData.alarmField.data != "00 00")
                                         {
-                                            dataFrame.alarmeCode = telegramAlarmFormat(telegram.mBusData.alarmField.data);
+                                            dataFrame.alarmeCode = TelegramAlarmFormat(telegram.mBusData.alarmField.data);
 
                                         }
 
 
-                                        string rawData = telegramFormat(telegram.mBusData.rawData.data);
+                                        string rawData = TelegramFormat(telegram.mBusData.rawData.data);
 
                                         //On récupére la raw data
                                         rawDataInterpretJSON = Interpreter(rawData);
@@ -251,7 +251,7 @@ namespace Egee.API.Service.Host
                                                     if (mBusValue.storageNumber == 0 && mBusValue.tariffNumber == 0 && mBusValue.subUnitNumber == 0)
                                                     {
                                                         dataFrame.volumeValue = Convert.ToInt32(mBusValue.formated);
-                                                        dataFrame.volumeIndex = calculIndex(Convert.ToInt32(mBusValue.formated), Convert.ToInt32(mBusValue.exponent));
+                                                        dataFrame.volumeIndex = CalculIndex(Convert.ToInt32(mBusValue.formated), Convert.ToInt32(mBusValue.exponent));
                                                         dataFrame.volumeCode = mBusValue.dimension.stringId;
                                                         dataFrame.volumeUnite = mBusValue.unit.stringId;
                                                         dataFrame.volumeExponent = Convert.ToInt32(mBusValue.exponent);
@@ -264,7 +264,7 @@ namespace Egee.API.Service.Host
                                                     if (mBusValue.storageNumber == 0 && mBusValue.tariffNumber == 0 && mBusValue.subUnitNumber == 0)
                                                     {
                                                         dataFrame.energyValue = Convert.ToInt32(mBusValue.formated);
-                                                        dataFrame.energyIndex = calculIndex(Convert.ToInt32(mBusValue.formated), Convert.ToInt32(mBusValue.exponent));
+                                                        dataFrame.energyIndex = CalculIndex(Convert.ToInt32(mBusValue.formated), Convert.ToInt32(mBusValue.exponent));
                                                         dataFrame.energyCode = mBusValue.dimension.stringId;
                                                         dataFrame.energyUnite = mBusValue.unit.stringId;
                                                         dataFrame.energyExponent = Convert.ToInt32(mBusValue.exponent);
@@ -323,12 +323,12 @@ namespace Egee.API.Service.Host
             return myFrameList;
         }
 
-        private double calculIndex(int value, int exponent)
+        private double CalculIndex(int value, int exponent)
         {
             return (value * Math.Pow(10, exponent)) / 1000;
         }
 
-        private string telegramFormat(string data)
+        private string TelegramFormat(string data)
         {
             string rawData = "";
             string[] myData = data.Split(' ');
@@ -341,7 +341,7 @@ namespace Egee.API.Service.Host
             return rawData;
         }
 
-        private string telegramAlarmFormat(string data)
+        private string TelegramAlarmFormat(string data)
         {
             string rawAlarme = "";
             string[] myData = data.Split(' ');
@@ -796,10 +796,23 @@ namespace Egee.API.Service.Host
 
         [HttpGet]
         [Route("getVersion")]
-        public string GetVersion()
+        public IHttpActionResult GetVersion()
         {
-            HyScript hyScript = new HyScript();
-            return hyScript.call("setLogLevel(-1); setLogFileName('IzarCSI.log'); return Environment.getVersion()");
+            try
+            {
+                HyScript hyScript = new HyScript();
+
+                var version = hyScript.call("setLogLevel(-1); setLogFileName('IzarCSI.log'); return Environment.getVersion()");
+                if (version == null)
+                    return NotFound();
+
+                return Ok(version);
+            }
+            catch (Exception ex)
+            {
+                _logger.Info($"Echec get version : {ex}");
+                return BadRequest("Echec appel get version, consultez les logs.");
+            }
         }
     }
 }
