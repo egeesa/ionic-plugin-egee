@@ -285,4 +285,24 @@ namespace Egee.API.Contract
         public Value value { get; set; }
     }
 
+    public class RadioAddressObj
+    {
+        public int classId { get; set; }
+        public Hex hex { get; set; }
+        public ManuByte manuByte { get; set; }
+        public string manuString { get; set; }
+        public string spde { get; set; }
+        public int reference { get; set; }
+        public int subunit { get; set; }
+        public int fieldOrder { get; set; }
+        public string format { get; set; }
+        public string supplierCode { get; set; }
+        public string manufactureYear { get; set; }
+        public string meterType { get; set; }
+        public string diameter { get; set; }
+        public string serialNumber { get; set; }
+        public string valid { get; set; }
+        public string master { get; set; }
+        public string idAsString { get; set; }
+    }
 }

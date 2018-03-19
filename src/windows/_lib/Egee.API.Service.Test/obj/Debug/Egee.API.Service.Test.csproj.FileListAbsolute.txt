@@ -1,3 +1,4 @@
+C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee.API.Service.Test\bin\Debug\IZAR_CSIX.dll
 C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee.API.Service.Test\bin\Debug\NLog.config
 C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee.API.Service.Test\bin\Debug\Egee.API.Service.Test.dll
 C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee.API.Service.Test\bin\Debug\Egee.API.Service.Test.pdb

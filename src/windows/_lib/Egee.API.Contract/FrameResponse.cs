@@ -15,6 +15,7 @@ namespace Egee.API.Contract
         public string manuString { get; set; }
         public string structure { get; set; }
         public int ciField { get; set; }
+        public int rssi { get; set; }
         //Volume
         public string volumeCode { get; set; }
         public string volumeUnite { get; set; }
