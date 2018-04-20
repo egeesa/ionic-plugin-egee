@@ -64,8 +64,8 @@ namespace Egee.API.Service.Host
         #region LECTURE DES MODULES 
 
         [HttpGet]
-        [Route("telegrams/{portcom}/{macadresseprt}")]
-        public List<FrameResponse> GetTelegrams(string portcom, string macadresseprt)
+        [Route("telegrams/{portcom}/{macadresseprt}/{nombreappel}")]
+        public List<FrameResponse> GetTelegrams(string portcom, string macadresseprt, string nombreappel)
         {
             try
             {
@@ -73,6 +73,7 @@ namespace Egee.API.Service.Host
 
                 HyScript hyScript = new HyScript();
                 string cheminLog = @"C:\CSILogfile.log";
+                int appel = Convert.ToInt32(nombreappel); // 1000 = 1 seconde
                 int port = Convert.ToInt32(portcom);
                 string comPort = "com://" + port;
                 string response = "false";
@@ -111,7 +112,9 @@ namespace Egee.API.Service.Host
                                      "IDeviceID.setMeterNumberAddressInterpretation(7, 'DDDDDDDDDD');" +
                                      "IDeviceID.setMeterNumberAddressInterpretation(8, 'LDDDDDDDDL');" +
                                      "IDeviceID.setMeterNumberAddressInterpretation(9, 'LDDDDDD');" +
-                                     "IDeviceID.setMeterNumberAddressInterpretation(10, 'XXXXXXXXXXXX');";
+                                     "IDeviceID.setMeterNumberAddressInterpretation(10, 'XXXXXXXXXXXX');" +
+                                     "IDeviceID.setMeterNumberAddressInterpretation(11, 'DDDDDD');"+
+                                     "IDeviceID.setMeterNumberAddressInterpretation(12, 'LDDLLDDDDD');";
 
                 //Check Licence
                 string licenceOK = hyScript.call(cmdLicence);
@@ -140,21 +143,21 @@ namespace Egee.API.Service.Host
                     }
                     else
                     {
+                        //Timer
+                        if (appel == 0)
+                            appel = 8000;
                         //start async
                         _logger.Info("Début de la synchronisation des signaux. startASync()");
                         hyScript.call("ds:startASync()");
 
-                        Thread.Sleep(10000);
+                        Thread.Sleep(appel);
 
                         //stop async
                         _logger.Info("Fin de la synchronisation des signaux. stopASync()");
                         hyScript.call("ds:stopASync()");
 
-                        //string telegramProcessed = hyScript.call("return dc:getNumberOfProcessedTelegrams()");
                         _logger.Info("Nombre de télégrammes traités: " + hyScript.call("return dc:getNumberOfProcessedTelegrams()"));
-                        //string telegramCollected = hyScript.call("return dc:getNumberOfCollectedTelegrams()");
                         _logger.Info("Nombre de télégrammes collectés: " + hyScript.call("return dc:getNumberOfCollectedTelegrams()"));
-                        //string falseTelegram = hyScript.call("return dc:getNumberOfFalseTelegrams()");
                         _logger.Info("Nombre de faux télégrammes : " + hyScript.call("return dc:getNumberOfFalseTelegrams()"));
 
 
@@ -169,23 +172,22 @@ namespace Egee.API.Service.Host
                         }
                         else
                         {
-                            //Init structure
-                            //hyScript.call(cmdInitStructure);
-
                             //Récupération et traitement des télégrammes 
                             dataJSON = hyScript.call(" dl = dc:getDeviceList() f = ToStringFormater.new() f:setAddSPDEAddress(true) return dl:__tostring(dl:getBeginDeviceDescriptionIterator(true))");
 
                             FrameResponse dataFrame;
                             SappelResponseContract sappelResponseContract = JsonConvert.DeserializeObject<SappelResponseContract>(dataJSON);
-                            
 
-                            List<Entry> entries = sappelResponseContract.entries.ToList();
+                            List<Entry> entries = new List<Entry>();
+
+                            entries = sappelResponseContract.entries.ToList();
 
                             if (entries.Any())
                             {
                                 foreach (var entry in entries)
                                 {
-                                    List<Telegram> telegrams = entry.value.meteringPoint.telegrams.ToList();
+                                    List<Telegram> telegrams = new List<Telegram>();
+                                    telegrams = entry.value.meteringPoint.telegrams.ToList();
 
                                     foreach (var telegram in telegrams)
                                     {
@@ -257,10 +259,10 @@ namespace Egee.API.Service.Host
                                                             if (mBusValue.storageNumber == 0 && mBusValue.tariffNumber == 0 && mBusValue.subUnitNumber == 0)
                                                             {
                                                                 dataFrame.volumeValue = Convert.ToInt32(mBusValue.formated);
-                                                                dataFrame.volumeIndex = Math.Round(CalculIndex(Convert.ToInt32(mBusValue.formated), Convert.ToInt32(mBusValue.exponent)));
                                                                 dataFrame.volumeCode = mBusValue.dimension.stringId;
                                                                 dataFrame.volumeUnite = mBusValue.unit.stringId;
                                                                 dataFrame.volumeExponent = Convert.ToInt32(mBusValue.exponent);
+                                                                dataFrame.volumeIndex = Math.Truncate(CalculIndex(Convert.ToInt32(mBusValue.formated), Convert.ToInt32(mBusValue.exponent)));
                                                                 dataFrame.volumeFormat = dataFrame.volumeCode + "  " + dataFrame.volumeIndex + "  m3";
                                                             }
                                                         }
@@ -270,10 +272,10 @@ namespace Egee.API.Service.Host
                                                             if (mBusValue.storageNumber == 0 && mBusValue.tariffNumber == 0 && mBusValue.subUnitNumber == 0)
                                                             {
                                                                 dataFrame.energyValue = Convert.ToInt32(mBusValue.formated);
-                                                                dataFrame.energyIndex = Math.Round(CalculIndex(Convert.ToInt32(mBusValue.formated), Convert.ToInt32(mBusValue.exponent)));
                                                                 dataFrame.energyCode = mBusValue.dimension.stringId;
                                                                 dataFrame.energyUnite = mBusValue.unit.stringId;
                                                                 dataFrame.energyExponent = Convert.ToInt32(mBusValue.exponent);
+                                                                dataFrame.energyIndex = Math.Truncate(CalculIndex(Convert.ToInt32(mBusValue.formated), Convert.ToInt32(mBusValue.exponent)));
                                                                 dataFrame.energyFormat = dataFrame.energyCode + "  " + dataFrame.energyIndex + " KWh";
                                                             }
                                                         }
@@ -337,7 +339,284 @@ namespace Egee.API.Service.Host
             }
         }
 
-        
+        [HttpGet]
+        [Route("telegramcompteur/{portcom}/{macadresseprt}/{numerocompteur}/{nombreappel}")]
+        public List<FrameResponse> GetTelegramCompteur(string portcom, string macadresseprt, string numerocompteur, string nombreappel)
+        {
+            try
+            {
+                List<FrameResponse> myFrameList = new List<FrameResponse>();
+
+                HyScript hyScript = new HyScript();
+                string cheminLog = @"C:\CSILogfile.log";
+                int appel = Convert.ToInt32(nombreappel); // 1000 = 1 seconde
+                string compteur = "PSAP0" + numerocompteur.ToUpper() + "000";
+                int port = Convert.ToInt32(portcom);
+                string comPort = "com://" + port;
+                string response = "false";
+                string dataJSON = "";
+                string rawDataInterpretJSON = "";
+                string cmdClear = "if(dc~=nil) then dc:close(); end cl=nil pl=nil dc=nil tsf=nil";
+                string cmdLicence = "return License.check('EGEEEGEE','I1ARCQI0')";
+
+                string cmdLecture = " setLogLevel(-1); setLogFileName('" + cheminLog.Replace(@"\", @"\\") + "');" +
+                                   " dc = DataConcentrator.new();" +
+                                   " ds = BtReceiverDataSource.new();" +
+                                   " ds:setDataConcentrator(ref(dc));" +
+                                   " pl = IPhysicalLayer.new('" + comPort + "');" +
+                                   " cl = ICommunicationLayer.new('hybtoh://', ref(pl));" +
+                                   " ds:setCommunicationLayer(ref(cl));" +
+                                   " local ri = RadioInterpreter.new();" +
+                                   " ri:setProcessLevel();" +
+                                   " dc:setRadioInterpreter(ri);" +
+                                   " ri:enableDecryption(false);" +
+                                   " tsf=ToStringFormater.new();" +
+                                   " tsf:setAddSPDEAddress(true);" +
+                                   " setFormater(tsf);" +
+                                   " ds:setSourceId('" + macadresseprt + "');" +
+                                   " ds:config('timeoutNoAnswer', 150);" +
+                                   " ds:config('timeoutNoDataFollows', 2);" +
+                                   " ds:config('timeoutAfterTelegram', 10); return true";
+
+
+                string cmdInitStructure = "IDeviceID.setDefaultAddressInterpretationMode(0);" +
+                                     "IDeviceID.setMeterNumberAddressInterpretation(1, 'LLDDDDDD');" +
+                                     "IDeviceID.setMeterNumberAddressInterpretation(2, 'ddDDDDDDLLL');" +
+                                     "IDeviceID.setMeterNumberAddressInterpretation(3, 'DDDDDDDDL');" +
+                                     "IDeviceID.setMeterNumberAddressInterpretation(4, 'DDLLLDDDDD');" +
+                                     "IDeviceID.setMeterNumberAddressInterpretation(5, 'DDDDDDdd');" +
+                                     "IDeviceID.setMeterNumberAddressInterpretation(6, 'DDLLDDDDDD');" +
+                                     "IDeviceID.setMeterNumberAddressInterpretation(7, 'DDDDDDDDDD');" +
+                                     "IDeviceID.setMeterNumberAddressInterpretation(8, 'LDDDDDDDDL');" +
+                                     "IDeviceID.setMeterNumberAddressInterpretation(9, 'LDDDDDD');" +
+                                     "IDeviceID.setMeterNumberAddressInterpretation(10, 'XXXXXXXXXXXX');" +
+                                     "IDeviceID.setMeterNumberAddressInterpretation(11, 'DDDDDD');" +
+                                     "IDeviceID.setMeterNumberAddressInterpretation(12, 'LDDLLDDDDD');";
+
+                //Check Licence
+                string licenceOK = hyScript.call(cmdLicence);
+                _logger.Info("Vérification Licence : " + licenceOK);
+
+                if (licenceOK != "true")
+                {
+                    _logger.Info("Licence invalide.");
+                    return null;
+                }
+                else
+                {
+                    //clear
+                    hyScript.call(cmdClear);
+
+                    //Init structure
+                    hyScript.call(cmdInitStructure);
+
+                    //Init lecture
+                    response = hyScript.call(cmdLecture);
+
+                    if (response != "true")
+                    {
+                        _logger.Info("Echec initialisation de la lecture.");
+                        return null;
+                    }
+                    else
+                    {
+                        //Timer
+                        if (appel == 0)
+                            appel = 8000;
+
+                        //start async
+                        _logger.Info("Début réception des signaux par le PRT. startASync()");
+                        hyScript.call("ds:startASync()");
+
+                        Thread.Sleep(appel);
+
+                        //stop async
+                        _logger.Info("Fin réception des signaux par le PRT. stopASync()");
+                        hyScript.call("ds:stopASync()");
+
+                        _logger.Info("Nombre de télégrammes traités: " + hyScript.call("return dc:getNumberOfProcessedTelegrams()"));
+                        _logger.Info("Nombre de télégrammes collectés: " + hyScript.call("return dc:getNumberOfCollectedTelegrams()"));
+                        _logger.Info("Nombre de faux télégrammes : " + hyScript.call("return dc:getNumberOfFalseTelegrams()"));
+
+
+                        string foundedDevice = hyScript.call("return dc:getNumberOfFoundedDevices()");
+                        _logger.Info("Nombre de modules trouvés : " + foundedDevice);
+
+                        //
+                        if (Convert.ToInt32(foundedDevice) == 0)
+                        {
+                            _logger.Info("Pas de télégrammes reçus.");
+                            return null;
+                        }
+                        else
+                        {
+                            //Récupération et traitement des télégrammes 
+                            dataJSON = hyScript.call(" dl = dc:getDeviceList() f = ToStringFormater.new() f:setAddSPDEAddress(true) return dl:__tostring(dl:getBeginDeviceDescriptionIterator(true))");
+
+                            FrameResponse dataFrame;
+                            SappelResponseContract sappelResponseContract = JsonConvert.DeserializeObject<SappelResponseContract>(dataJSON);
+
+                            List<Entry> entries = new List<Entry>();
+
+                            entries = sappelResponseContract.entries.Where(e => e.key.ToUpper() == compteur).ToList();
+
+                            if (entries.Any())
+                            {
+                                foreach (var entry in entries)
+                                {
+                                    List<Telegram> telegrams = new List<Telegram>();
+                                    telegrams = entry.value.meteringPoint.telegrams.ToList();
+
+                                    foreach (var telegram in telegrams)
+                                    {
+                                        dataFrame = new FrameResponse();
+
+                                        if (telegram.mBusData.deviceId != null)
+                                        {
+                                            if (telegram.mBusData.deviceId.spdeid != null)
+                                            {
+                                                dataFrame.deviceId = telegram.mBusData.deviceId.spdeid.spde;
+                                                dataFrame.structure = telegram.mBusData.deviceId.spdeid.format;
+                                            }
+
+                                            if (telegram.mBusData.deviceId.manuString != null)
+                                                dataFrame.manuString = telegram.mBusData.deviceId.manuString;
+
+                                            if (telegram.mBusData.deviceId.idAsString != null)
+                                            {
+                                                string idAds = telegram.mBusData.deviceId.idAsString;
+                                                dataFrame.deviceId = ExtractSPDEString(idAds);
+                                            }
+                                        }
+
+                                        dataFrame.ciField = telegram.mBusData.ciField;
+
+                                        dataFrame.rssi = telegram.telegramTypeSpecifica.qualityIndicator.rssi;
+
+                                        //Date
+                                        if (telegram.mBusData.timestamp != null)
+                                        {
+                                            if (telegram.mBusData.timestamp.valid == true)
+                                            {
+                                                string dateString = telegram.mBusData.timestamp.day.ToString() + "/" + telegram.mBusData.timestamp.month.ToString() + "/" + telegram.mBusData.timestamp.year.ToString();
+                                                string heureString = telegram.mBusData.timestamp.hour.ToString() + ":" + telegram.mBusData.timestamp.minute.ToString();
+                                                dataFrame.date = dateString + " " + heureString;
+                                            }
+
+                                        }
+
+                                        //Alarmes
+                                        if (telegram.mBusData.alarmField != null)
+                                        {
+                                            if (telegram.mBusData.alarmField.data != "00" && telegram.mBusData.alarmField.data != "00 00")
+                                            {
+                                                dataFrame.alarmeCode = TelegramAlarmFormat(telegram.mBusData.alarmField.data);
+
+                                            }
+                                        }
+
+                                        //raw data
+                                        string rawData = TelegramFormat(telegram.mBusData.rawData.data);
+                                        rawDataInterpretJSON = Interpreter(rawData);
+
+                                        Telegram telegramResponse = JsonConvert.DeserializeObject<Telegram>(rawDataInterpretJSON);
+                                        List<MBusValue> mBusValues = telegramResponse.mBusData.mBusValues.ToList();
+
+                                        if (mBusValues.Any())
+                                        {
+                                            foreach (var mBusValue in mBusValues)
+                                            {
+
+                                                if ((mBusValue.valid == true))
+                                                {
+                                                    if (mBusValue.dimension != null)
+                                                    {
+                                                        if (mBusValue.dimension.stringId == "VOLUME")
+                                                        {
+                                                            //volume
+                                                            if (mBusValue.storageNumber == 0 && mBusValue.tariffNumber == 0 && mBusValue.subUnitNumber == 0)
+                                                            {
+                                                                dataFrame.volumeValue = Convert.ToInt32(mBusValue.formated);
+                                                                dataFrame.volumeCode = mBusValue.dimension.stringId;
+                                                                dataFrame.volumeUnite = mBusValue.unit.stringId;
+                                                                dataFrame.volumeExponent = Convert.ToInt32(mBusValue.exponent);
+                                                                dataFrame.volumeIndex = Math.Truncate(CalculIndex(Convert.ToInt32(mBusValue.formated), Convert.ToInt32(mBusValue.exponent)));
+                                                                dataFrame.volumeFormat = dataFrame.volumeCode + "  " + dataFrame.volumeIndex + "  m3";
+                                                            }
+                                                        }
+                                                        if (mBusValue.dimension.stringId == "ENERGY")
+                                                        {
+                                                            //Energy
+                                                            if (mBusValue.storageNumber == 0 && mBusValue.tariffNumber == 0 && mBusValue.subUnitNumber == 0)
+                                                            {
+                                                                dataFrame.energyValue = Convert.ToInt32(mBusValue.formated);
+                                                                dataFrame.energyCode = mBusValue.dimension.stringId;
+                                                                dataFrame.energyUnite = mBusValue.unit.stringId;
+                                                                dataFrame.energyExponent = Convert.ToInt32(mBusValue.exponent);
+                                                                dataFrame.energyIndex = Math.Truncate(CalculIndex(Convert.ToInt32(mBusValue.formated), Convert.ToInt32(mBusValue.exponent)));
+                                                                dataFrame.energyFormat = dataFrame.energyCode + "  " + dataFrame.energyIndex + " KWh";
+                                                            }
+                                                        }
+
+                                                        if (mBusValue.dimension.stringId == "OPERATIONTIMEBATTERY")
+                                                        {
+                                                            if (mBusValue.unit.stringId == "YEAR")
+                                                            {
+                                                                dataFrame.batteryFormated = Convert.ToInt32(mBusValue.formated) / 12;
+                                                            }
+                                                            if (mBusValue.unit.stringId == "DAY")
+                                                            {
+                                                                dataFrame.batteryFormated = Convert.ToInt32(mBusValue.formated) / 365;
+                                                            }
+
+                                                            dataFrame.batteryCode = mBusValue.dimension.stringId;
+                                                            dataFrame.batteryUnite = mBusValue.unit.stringId;
+                                                        }
+                                                    }
+
+                                                }
+                                            }
+                                        }
+                                        else
+                                        {
+                                            _logger.Info("Pas de mBusValues reçus.");
+                                            return null;
+                                        }
+
+                                        if (!myFrameList.Where(x => x.deviceId == dataFrame.deviceId).Any())
+                                        {
+                                            if ((dataFrame.volumeCode != null || dataFrame.energyCode != null) && dataFrame.ciField != 0 && dataFrame.deviceId != null)
+                                                myFrameList.Add(dataFrame);
+                                        }
+
+                                    }
+                                }
+                            }
+                            else
+                            {
+                                _logger.Info("Pas de télégrammes reçus pour le compteur N° "+ numerocompteur.ToUpper() + ".");
+                                return null;
+                            }
+
+                        }
+                    }
+                }
+                if (myFrameList == null)
+                    return null;
+                //cleanup
+                _logger.Info("Cleanup");
+                hyScript.call("dc:getDeviceList():clear()");
+
+                _logger.Info("Resultat: " + JsonConvert.SerializeObject(myFrameList));
+                return myFrameList;
+            }
+            catch (Exception ex)
+            {
+                _logger.Info($"Echec get telegrams : {ex}");
+                return null;
+            }
+        }
+
 
         #endregion
 
@@ -619,6 +898,14 @@ namespace Egee.API.Service.Host
                                     {
                                         structureRadioAddress = StructureCompteur(newRadioAddress);
                                         structureCompteur = structureList.Where(s => s.Format == structureRadioAddress).FirstOrDefault();
+                                        if(structureCompteur == null)
+                                        {
+                                            structureCompteur = new StructureCompteur
+                                            {
+                                                Index = 10,
+                                                Format = "XXXXXXXXXXXX"
+                                            };
+                                        }
                                     }
                                     else
                                     {
@@ -626,6 +913,15 @@ namespace Egee.API.Service.Host
                                         {
                                             structureRadioAddress = StructureCompteur(newMeterAddress);
                                             structureCompteur = structureList.Where(s => s.Format == structureRadioAddress).FirstOrDefault();
+
+                                            if (structureCompteur == null)
+                                            {
+                                                structureCompteur = new StructureCompteur
+                                                {
+                                                    Index = 10,
+                                                    Format = "XXXXXXXXXXXX"
+                                                };
+                                            }
                                         }
                                     }
 
@@ -805,12 +1101,14 @@ namespace Egee.API.Service.Host
                                      "IDeviceID.setMeterNumberAddressInterpretation(2, 'ddDDDDDDLLL');" +
                                      "IDeviceID.setMeterNumberAddressInterpretation(3, 'DDDDDDDDL');" +
                                      "IDeviceID.setMeterNumberAddressInterpretation(4, 'DDLLLDDDDDd');" +
-                                     "IDeviceID.setMeterNumberAddressInterpretation(5, 'DDDDDDdd');" +
+                                     "IDeviceID.setMeterNumberAddressInterpretation(5, 'DDDDDDDD');" +
                                      "IDeviceID.setMeterNumberAddressInterpretation(6, 'DDLLDDDDDD');" +
                                      "IDeviceID.setMeterNumberAddressInterpretation(7, 'DDDDDDDDDD');" +
                                      "IDeviceID.setMeterNumberAddressInterpretation(8, 'LDDDDDDDDL');" +
                                      "IDeviceID.setMeterNumberAddressInterpretation(9, 'LDDDDDD');" +
-                                     "IDeviceID.setMeterNumberAddressInterpretation(10, 'XXXXXXXXXXXX');";
+                                     "IDeviceID.setMeterNumberAddressInterpretation(10, 'XXXXXXXXXXXX');" +
+                                     "IDeviceID.setMeterNumberAddressInterpretation(11, 'DDDDDD');" +
+                                     "IDeviceID.setMeterNumberAddressInterpretation(12, 'LDDLLDDDDD');";
 
                 //Check Licence
                 string licenceOK = hyScript.call(cmdLicence);
@@ -996,12 +1294,14 @@ namespace Egee.API.Service.Host
                                       "IDeviceID.setMeterNumberAddressInterpretation(2, 'ddDDDDDDLLL');" +
                                       "IDeviceID.setMeterNumberAddressInterpretation(3, 'DDDDDDDDL');" +
                                       "IDeviceID.setMeterNumberAddressInterpretation(4, 'DDLLLDDDDD');" +
-                                      "IDeviceID.setMeterNumberAddressInterpretation(5, 'DDDDDDdd');" +
+                                      "IDeviceID.setMeterNumberAddressInterpretation(5, 'DDDDDDDD');" +
                                       "IDeviceID.setMeterNumberAddressInterpretation(6, 'DDLLDDDDDD');" +
                                       "IDeviceID.setMeterNumberAddressInterpretation(7, 'DDDDDDDDDD');" +
                                       "IDeviceID.setMeterNumberAddressInterpretation(8, 'LDDDDDDDDL');" +
                                       "IDeviceID.setMeterNumberAddressInterpretation(9, 'LDDDDDD');" +
-                                      "IDeviceID.setMeterNumberAddressInterpretation(10, 'XXXXXXXXXXXX');";
+                                      "IDeviceID.setMeterNumberAddressInterpretation(10, 'XXXXXXXXXXXX');" +
+                                      "IDeviceID.setMeterNumberAddressInterpretation(11, 'DDDDDD');" +
+                                     "IDeviceID.setMeterNumberAddressInterpretation(12, 'LDDLLDDDDD');";
 
                 //Check Licence
                 string licenceOK = hyScript.call(cmdLicence);
@@ -1226,7 +1526,54 @@ namespace Egee.API.Service.Host
 
         private double CalculIndex(int value, int exponent)
         {
-            return (value * Math.Pow(10, exponent)) / 1000;
+            double unite = uniteValeur(exponent);
+            //double pulse = Math.Pow(10, exponent);
+            return (value * unite);
+        }
+
+        private double uniteValeur(int exponent)
+        {
+            double valeur = 1;
+
+            switch (exponent)
+            {
+                case -4:
+                    valeur = 0.0000001;
+                    break;
+                case -3:
+                    valeur = 0.000001;
+                    break;
+                case -2:
+                    valeur = 0.00001;
+                    break;
+                case -1:
+                    valeur = 0.0001;
+                    break;
+                case 0:
+                    valeur = 0.001;
+                    break;
+                case 1:
+                    valeur = 0.01;
+                    break;
+                case 2:
+                    valeur = 0.1;
+                    break;
+                case 3:
+                    valeur = 1;
+                    break;
+                case 4:
+                    valeur = 10;
+                    break;
+                case 5:
+                    valeur = 100;
+                    break;
+                case 6:
+                    valeur = 1000;
+                    break;
+                default:
+                    break;
+            }
+            return valeur;
         }
 
         private string TelegramFormat(string data)
@@ -1274,8 +1621,6 @@ namespace Egee.API.Service.Host
                  )
                );
 
-            //if(byte1.Length == 8 && byte2.Length == 8)
-            //{
             if (byte1[0] == '1')
                 alarms += "| Leak current ";
 
@@ -1308,7 +1653,7 @@ namespace Egee.API.Service.Host
 
             if (byte2[7] == '1')
                 alarms += "| Mechanic previously";
-            //}
+
             return alarms;
 
         }
@@ -1411,12 +1756,9 @@ namespace Egee.API.Service.Host
         private string HexStr(byte[] p)
         {
 
-            //char[] c = new char[p.Length * 2 + 2];
             char[] c = new char[p.Length * 2];
 
             byte b;
-
-            //c[0] = '0'; c[1] = 'x';
 
             for (int y = 0, x = 0; y < p.Length; ++y, ++x)
             {
@@ -1518,12 +1860,15 @@ namespace Egee.API.Service.Host
                                     "IDeviceID.setMeterNumberAddressInterpretation(2, 'ddDDDDDDLLL');" +
                                     "IDeviceID.setMeterNumberAddressInterpretation(3, 'DDDDDDDDL');" +
                                     "IDeviceID.setMeterNumberAddressInterpretation(4, 'DDLLLDDDDD');" +
-                                    "IDeviceID.setMeterNumberAddressInterpretation(5, 'DDDDDDdd');" +
+                                    "IDeviceID.setMeterNumberAddressInterpretation(5, 'DDDDDDDD');" +
                                     "IDeviceID.setMeterNumberAddressInterpretation(6, 'DDLLDDDDDD');" +
                                     "IDeviceID.setMeterNumberAddressInterpretation(7, 'DDDDDDDDDD');" +
                                     "IDeviceID.setMeterNumberAddressInterpretation(8, 'LDDDDDDDDL');" +
                                     "IDeviceID.setMeterNumberAddressInterpretation(9, 'LDDDDDD');" +
-                                    "IDeviceID.setMeterNumberAddressInterpretation(10, 'XXXXXXXXXXXX');";
+                                    "IDeviceID.setMeterNumberAddressInterpretation(10, 'XXXXXXXXXXXX');"+
+                                    "IDeviceID.setMeterNumberAddressInterpretation(11, 'DDDDDD');" +
+                                     "IDeviceID.setMeterNumberAddressInterpretation(12, 'LDDLLDDDDD');";
+
             string cmdSPDEFormater = "f = ToStringFormater.new() " +
                                      "f:setAddSPDEAddress(true) " +
                                      "setFormater(f) ";
@@ -1567,7 +1912,6 @@ namespace Egee.API.Service.Host
         }
         private string StructureCompteur(string cpt)
         {
-
             if (cpt != null)
             {
                 cpt = cpt.Replace("A", "ù");
@@ -1657,7 +2001,7 @@ namespace Egee.API.Service.Host
             maStructure = new StructureCompteur
             {
                 Index = 5,
-                Format = "DDDDDD"
+                Format = "DDDDDDDD"
             };
             maListe.Add(maStructure);
 
@@ -1693,6 +2037,20 @@ namespace Egee.API.Service.Host
             {
                 Index = 10,
                 Format = "XXXXXXXXXXXX"
+            };
+            maListe.Add(maStructure);
+
+            maStructure = new StructureCompteur
+            {
+                Index = 11,
+                Format = "DDDDDD"
+            };
+            maListe.Add(maStructure);
+
+            maStructure = new StructureCompteur
+            {
+                Index = 12,
+                Format = "LDDLLDDDDD"
             };
             maListe.Add(maStructure);
 

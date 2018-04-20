@@ -57,7 +57,17 @@ namespace Egee.API.Service.Test
         public void GetTelegrams()
         {
             string data = "";
-            var result = SappelController.GetTelegrams("5", "0012f18e03e");
+            var result = SappelController.GetTelegrams("5", "0012f18e03e","5000");
+            if (result != null)
+                data = result.ToString();
+        }
+
+        [Test]
+        [Category("SappelTest")]
+        public void GetTelegramCompteur()
+        {
+            string data = "";
+            var result = SappelController.GetTelegramCompteur("5", "0012f18e03e","C16BA789456","5000");
             if (result != null)
                 data = result.ToString();
         }
@@ -91,7 +101,7 @@ namespace Egee.API.Service.Test
             configParam = new ConfigParam
             {
                 Name = "RadioAddress",
-                Value = "148361DEC"
+                Value = "C06AB12345"
             };
             configParamList.Add(configParam);
             //
@@ -105,7 +115,7 @@ namespace Egee.API.Service.Test
             configParam = new ConfigParam
             {
                 Name = "ProductionNumber",
-                Value = "40600841"
+                Value = "40600228"
             };
             configParamList.Add(configParam);
             //
@@ -119,14 +129,14 @@ namespace Egee.API.Service.Test
             configParam = new ConfigParam
             {
                 Name = "CurrentDate",
-                Value = "20180226"
+                Value = "20180419"
             };
             configParamList.Add(configParam);
             //
             configParam = new ConfigParam
             {
                 Name = "CurrentTime",
-                Value = "1045"
+                Value = "1745"
             };
             configParamList.Add(configParam);
             //
@@ -300,7 +310,7 @@ namespace Egee.API.Service.Test
             configParam = new ConfigParam
             {
                 Name = "RadioAddress",
-                Value = "148361DEC"
+                Value = "C06AB123456"
             };
             configParamList.Add(configParam);
             //
@@ -314,7 +324,7 @@ namespace Egee.API.Service.Test
             configParam = new ConfigParam
             {
                 Name = "ProductionNumber",
-                Value = "40600841"
+                Value = "40600228"
             };
             configParamList.Add(configParam);
             //
@@ -328,7 +338,7 @@ namespace Egee.API.Service.Test
             configParam = new ConfigParam
             {
                 Name = "CurrentDate",
-                Value = "20180226"
+                Value = "20180419"
             };
             configParamList.Add(configParam);
             //
@@ -377,7 +387,7 @@ namespace Egee.API.Service.Test
             configParam = new ConfigParam
             {
                 Name = "IndexE",
-                Value = "18350"
+                Value = "52364"
             };
             configParamList.Add(configParam);
             //
@@ -465,7 +475,7 @@ namespace Egee.API.Service.Test
             configParamList.Add(configParam);
 
             //Port COM
-            request.PortComEntrant = "7";
+            request.PortComEntrant = "6";
 
             //Path script
             request.PathScript = EncodeTo64(@"C:\Temp\IZAR@CSI");

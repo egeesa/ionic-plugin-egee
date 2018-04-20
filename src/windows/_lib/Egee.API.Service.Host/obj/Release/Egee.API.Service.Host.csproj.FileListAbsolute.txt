@@ -1,13 +1,12 @@
-C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee.API.Service.Host\bin\Release\Newtonsoft.Json.dll
-C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee.API.Service.Host\bin\Release\System.Net.Http.Formatting.dll
-C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee.API.Service.Host\bin\Release\System.Net.Http.Formatting.xml
 C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee.API.Service.Host\bin\Release\IZAR_CSIX.dll
 C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee.API.Service.Host\bin\Release\NLog.config
 C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee.API.Service.Host\bin\Release\Egee.API.Service.Host.exe.config
 C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee.API.Service.Host\bin\Release\Egee.API.Service.Host.exe
 C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee.API.Service.Host\bin\Release\Egee.API.Service.Host.pdb
 C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee.API.Service.Host\bin\Release\Egee.API.Contract.dll
+C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee.API.Service.Host\bin\Release\Newtonsoft.Json.dll
 C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee.API.Service.Host\bin\Release\NLog.dll
+C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee.API.Service.Host\bin\Release\System.Net.Http.Formatting.dll
 C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee.API.Service.Host\bin\Release\System.Web.Cors.dll
 C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee.API.Service.Host\bin\Release\System.Web.Http.Cors.dll
 C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee.API.Service.Host\bin\Release\System.Web.Http.dll
@@ -16,6 +15,7 @@ C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee.API.Service.Host\bin\Relea
 C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee.API.Service.Host\bin\Release\Egee.API.Contract.pdb
 C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee.API.Service.Host\bin\Release\Newtonsoft.Json.xml
 C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee.API.Service.Host\bin\Release\NLog.xml
+C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee.API.Service.Host\bin\Release\System.Net.Http.Formatting.xml
 C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee.API.Service.Host\bin\Release\System.Web.Http.xml
 C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee.API.Service.Host\bin\Release\System.Web.Http.Cors.xml
 C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee.API.Service.Host\bin\Release\System.Web.Http.SelfHost.xml
