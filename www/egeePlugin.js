@@ -1,35 +1,25 @@
-var argscheck = require('cordova/argscheck'),
-    utils = require('cordova/utils'),
-    exec = require('cordova/exec'),
-    channel = require('cordova/channel');
+/*global cordova, module*/
 
-
-function EgeePlugin() {};
-
-EgeePlugin.prototype.helloworld = function (success, error, message) {
-    exec(success, error, "EgeePlugin", "helloworld", [message]);
+module.exports = {
+  hello: function (input, successCallback, errorCallback) {
+      cordova.exec(successCallback, errorCallback, "EgeePlugin", "hello", [input]);
+  },
+  getLicense: function (input, successCallback, errorCallback) {
+    cordova.exec(successCallback, errorCallback, "EgeePlugin", "getLicense", [input]);
+  },
+  getTelegram: function (successCallback, errorCallback) {
+    cordova.exec(successCallback, errorCallback, "EgeePlugin", "getTelegram", []);
+  },
+  startBluetoothTelegrams: function (input, successCallback, errorCallback) {
+    cordova.exec(successCallback, errorCallback, "EgeePlugin", "startBluetoothTelegrams", [input]);
+  },
+  stopBluetoothTelegrams: function (input, successCallback, errorCallback) {
+    cordova.exec(successCallback, errorCallback, "EgeePlugin", "stopBluetoothTelegrams", [input]);
+  },
+  interpreter: function (input, successCallback, errorCallback) {
+    cordova.exec(successCallback, errorCallback, "EgeePlugin", "interpreter", [input]);
+  },
+  headInterpreter: function (input, successCallback, errorCallback) {
+    cordova.exec(successCallback, errorCallback, "EgeePlugin", "headInterpreter", [input]);
+  }
 };
-
-EgeePlugin.prototype.getversion = function (success, error, message) {
-    exec(success, error, "EgeePlugin", "getversion", [message]);
-};
-
-EgeePlugin.prototype.testwcf = function (success, error, message) {
-    exec(success, error, "EgeePlugin", "testwcf", [message]);
-};
-
-EgeePlugin.prototype.sappelLicense = function (success, error, message) {
-    exec(success, error, "EgeePlugin", "sappelLicense", [message]);
-};
-
-EgeePlugin.prototype.sappelTraitement = function (success, error, frame) {
-    exec(success, error, "EgeePlugin", "sappelTraitement", [frame]);
-};
-
-EgeePlugin.prototype.sappelBluetooth = function (success, error, adresseMAC) {
-    exec(success, error, "EgeePlugin", "sappelBluetooth", [adresseMAC]);
-};
-
-
-
-module.exports = new EgeePlugin();
