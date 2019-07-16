@@ -33,20 +33,22 @@ namespace Egee.API.Service.Host
             [Route("init")]
             public void Init()
             {
+                string cheminLog = @"C:\logs\CSILecture.log";
                 HyScript hyScript = new HyScript();
                 string initResponse = hyScript.call("init");
-                string licenseResponse = hyScript.call("setLogLevel(-1); setLogFileName('IzarCSI.log'); return License.check('EGEEEGEE','I1ARCQI0')");
+                string licenseResponse = hyScript.call("setLogLevel(-1); setLogFileName('" + cheminLog.Replace(@"\", @"\\") + "'); return License.check('EGEEEGEE','I1ARCQI0')");
             }
 
             [HttpGet]
             [Route("getversion")]
             public string GetVersion()
             {
+                string cheminLog = @"C:\logs\CSILecture.log";
                 try
                 {
                     HyScript hyScript = new HyScript();
 
-                    var version = hyScript.call("setLogLevel(-1); setLogFileName('IzarCSI.log'); return Environment.getVersion()");
+                    var version = hyScript.call("setLogLevel(-1); setLogFileName('" + cheminLog.Replace(@"\", @"\\") + "'); return Environment.getVersion()");
                     if (version == null)
                         return "";
 
@@ -54,7 +56,7 @@ namespace Egee.API.Service.Host
                 }
                 catch (Exception ex)
                 {
-                    _logger.Info($"Echec get version : {ex}");
+                    _logger.Log(LogLevel.Info, DateTime.Now.ToString("dd-MMM-yyyy HH:mm:ss") + $" Echec get version : {ex}");
                     return null;
                 }
             }
@@ -72,7 +74,7 @@ namespace Egee.API.Service.Host
                 List<FrameResponse> myFrameList = new List<FrameResponse>();
 
                 HyScript hyScript = new HyScript();
-                string cheminLog = @"C:\CSILogfile.log";
+                string cheminLog = @"C:\logs\CSILecture.log";
                 int appel = Convert.ToInt32(nombreappel); // 1000 = 1 seconde
                 int port = Convert.ToInt32(portcom);
                 string comPort = "com://" + port;
@@ -118,11 +120,11 @@ namespace Egee.API.Service.Host
 
                 //Check Licence
                 string licenceOK = hyScript.call(cmdLicence);
-                _logger.Info("Vérification Licence : " + licenceOK);
+                _logger.Log(LogLevel.Info,DateTime.Now.ToString("dd-MMM-yyyy HH:mm:ss") + " Vérification Licence : " + licenceOK);
 
                 if (licenceOK != "true")
                 {
-                    _logger.Info("Licence invalide.");
+                    _logger.Log(LogLevel.Info,DateTime.Now.ToString("dd-MMM-yyyy HH:mm:ss") + " Licence invalide.");
                     return null;
                 }
                 else
@@ -138,7 +140,7 @@ namespace Egee.API.Service.Host
 
                     if (response != "true")
                     {
-                        _logger.Info("Echec initialisation de la lecture.");
+                        _logger.Log(LogLevel.Info,DateTime.Now.ToString("dd-MMM-yyyy HH:mm:ss") + " Echec initialisation de la lecture.");
                         return null;
                     }
                     else
@@ -147,27 +149,27 @@ namespace Egee.API.Service.Host
                         if (appel == 0)
                             appel = 8000;
                         //start async
-                        _logger.Info("Début de la synchronisation des signaux. startASync()");
+                        _logger.Log(LogLevel.Info, DateTime.Now.ToString("dd-MMM-yyyy HH:mm:ss")+"Début de la synchronisation des signaux. startASync()");
                         hyScript.call("ds:startASync()");
 
                         Thread.Sleep(appel);
 
                         //stop async
-                        _logger.Info("Fin de la synchronisation des signaux. stopASync()");
+                        _logger.Log(LogLevel.Info,"Fin de la synchronisation des signaux. stopASync()");
                         hyScript.call("ds:stopASync()");
 
-                        _logger.Info("Nombre de télégrammes traités: " + hyScript.call("return dc:getNumberOfProcessedTelegrams()"));
-                        _logger.Info("Nombre de télégrammes collectés: " + hyScript.call("return dc:getNumberOfCollectedTelegrams()"));
-                        _logger.Info("Nombre de faux télégrammes : " + hyScript.call("return dc:getNumberOfFalseTelegrams()"));
+                        _logger.Log(LogLevel.Info, DateTime.Now.ToString("dd-MMM-yyyy HH:mm:ss")+" Nombre de télégrammes traités: " + hyScript.call("return dc:getNumberOfProcessedTelegrams()"));
+                        _logger.Log(LogLevel.Info, DateTime.Now.ToString("dd-MMM-yyyy HH:mm:ss") + " Nombre de télégrammes collectés: " + hyScript.call("return dc:getNumberOfCollectedTelegrams()"));
+                        _logger.Log(LogLevel.Info, DateTime.Now.ToString("dd-MMM-yyyy HH:mm:ss") + " Nombre de faux télégrammes : " + hyScript.call("return dc:getNumberOfFalseTelegrams()"));
 
 
                         string foundedDevice = hyScript.call("return dc:getNumberOfFoundedDevices()");
-                        _logger.Info("Nombre de modules trouvés : " + foundedDevice);
+                        _logger.Log(LogLevel.Info, DateTime.Now.ToString("dd-MMM-yyyy HH:mm:ss") + " Nombre de modules trouvés : " + foundedDevice);
                         
                         //
                         if (Convert.ToInt32(foundedDevice) == 0)
                         {
-                            _logger.Info("Pas de télégrammes reçus.");
+                            _logger.Log(LogLevel.Info, DateTime.Now.ToString("dd-MMM-yyyy HH:mm:ss") + " Pas de télégrammes reçus.");
                             return null;
                         }
                         else
@@ -301,7 +303,7 @@ namespace Egee.API.Service.Host
                                         }
                                         else
                                         {
-                                            _logger.Info("Pas de mBusValues reçus.");
+                                            _logger.Log(LogLevel.Info,DateTime.Now.ToString("dd-MMM-yyyy HH:mm:ss") + " Pas de mBusValues reçus.");
                                             return null;
                                         }
 
@@ -316,7 +318,7 @@ namespace Egee.API.Service.Host
                             }
                             else
                             {
-                                _logger.Info("Pas de télégrammes reçus.");
+                                _logger.Log(LogLevel.Info,DateTime.Now.ToString("dd-MMM-yyyy HH:mm:ss") + " Pas de télégrammes reçus.");
                                 return null;
                             }
                             
@@ -326,15 +328,15 @@ namespace Egee.API.Service.Host
                 if (myFrameList == null)
                     return null;
                 //cleanup
-                _logger.Info("Cleanup");
+                _logger.Log(LogLevel.Info,"Cleanup");
                 hyScript.call("dc:getDeviceList():clear()");
 
-                _logger.Info("Resultat: " + JsonConvert.SerializeObject(myFrameList));
+                _logger.Log(LogLevel.Info,DateTime.Now.ToString("dd-MMM-yyyy HH:mm:ss") + " Resultat: " + JsonConvert.SerializeObject(myFrameList));
                 return myFrameList;
             }
             catch (Exception ex)
             {
-                _logger.Info($"Echec get telegrams : {ex}");
+                _logger.Log(LogLevel.Info,DateTime.Now.ToString("dd-MMM-yyyy HH:mm:ss") + $" Echec get telegrams : {ex}");
                 return null;
             }
         }
@@ -348,7 +350,7 @@ namespace Egee.API.Service.Host
                 List<FrameResponse> myFrameList = new List<FrameResponse>();
 
                 HyScript hyScript = new HyScript();
-                string cheminLog = @"C:\CSILogfile.log";
+                string cheminLog = @"C:\logs\CSILogfile.log";
                 int appel = Convert.ToInt32(nombreappel); // 1000 = 1 seconde
                 string compteur = "PSAP0" + numerocompteur.ToUpper() + "000";
                 int port = Convert.ToInt32(portcom);
@@ -395,11 +397,11 @@ namespace Egee.API.Service.Host
 
                 //Check Licence
                 string licenceOK = hyScript.call(cmdLicence);
-                _logger.Info("Vérification Licence : " + licenceOK);
+                _logger.Log(LogLevel.Info,DateTime.Now.ToString("dd-MMM-yyyy HH:mm:ss") + " Vérification Licence : " + licenceOK);
 
                 if (licenceOK != "true")
                 {
-                    _logger.Info("Licence invalide.");
+                    _logger.Log(LogLevel.Info,DateTime.Now.ToString("dd-MMM-yyyy HH:mm:ss") + " Licence invalide.");
                     return null;
                 }
                 else
@@ -415,7 +417,7 @@ namespace Egee.API.Service.Host
 
                     if (response != "true")
                     {
-                        _logger.Info("Echec initialisation de la lecture.");
+                        _logger.Log(LogLevel.Info,DateTime.Now.ToString("dd-MMM-yyyy HH:mm:ss") + " Echec initialisation de la lecture.");
                         return null;
                     }
                     else
@@ -425,27 +427,27 @@ namespace Egee.API.Service.Host
                             appel = 8000;
 
                         //start async
-                        _logger.Info("Début réception des signaux par le PRT. startASync()");
+                        _logger.Log(LogLevel.Info,DateTime.Now.ToString("dd-MMM-yyyy HH:mm:ss") + " Début réception des signaux par le PRT. startASync()");
                         hyScript.call("ds:startASync()");
 
                         Thread.Sleep(appel);
 
                         //stop async
-                        _logger.Info("Fin réception des signaux par le PRT. stopASync()");
+                        _logger.Log(LogLevel.Info,DateTime.Now.ToString("dd-MMM-yyyy HH:mm:ss") + " Fin réception des signaux par le PRT. stopASync()");
                         hyScript.call("ds:stopASync()");
 
-                        _logger.Info("Nombre de télégrammes traités: " + hyScript.call("return dc:getNumberOfProcessedTelegrams()"));
-                        _logger.Info("Nombre de télégrammes collectés: " + hyScript.call("return dc:getNumberOfCollectedTelegrams()"));
-                        _logger.Info("Nombre de faux télégrammes : " + hyScript.call("return dc:getNumberOfFalseTelegrams()"));
+                        _logger.Log(LogLevel.Info,DateTime.Now.ToString("dd-MMM-yyyy HH:mm:ss") + " Nombre de télégrammes traités: " + hyScript.call("return dc:getNumberOfProcessedTelegrams()"));
+                        _logger.Log(LogLevel.Info,DateTime.Now.ToString("dd-MMM-yyyy HH:mm:ss") + " Nombre de télégrammes collectés: " + hyScript.call("return dc:getNumberOfCollectedTelegrams()"));
+                        _logger.Log(LogLevel.Info,DateTime.Now.ToString("dd-MMM-yyyy HH:mm:ss") + " Nombre de faux télégrammes : " + hyScript.call("return dc:getNumberOfFalseTelegrams()"));
 
 
                         string foundedDevice = hyScript.call("return dc:getNumberOfFoundedDevices()");
-                        _logger.Info("Nombre de modules trouvés : " + foundedDevice);
+                        _logger.Log(LogLevel.Info,DateTime.Now.ToString("dd-MMM-yyyy HH:mm:ss") + " Nombre de modules trouvés : " + foundedDevice);
 
                         //
                         if (Convert.ToInt32(foundedDevice) == 0)
                         {
-                            _logger.Info("Pas de télégrammes reçus.");
+                            _logger.Log(LogLevel.Info,DateTime.Now.ToString("dd-MMM-yyyy HH:mm:ss") + " Pas de télégrammes reçus.");
                             return null;
                         }
                         else
@@ -579,7 +581,7 @@ namespace Egee.API.Service.Host
                                         }
                                         else
                                         {
-                                            _logger.Info("Pas de mBusValues reçus.");
+                                            _logger.Log(LogLevel.Info,DateTime.Now.ToString("dd-MMM-yyyy HH:mm:ss") + " Pas de mBusValues reçus.");
                                             return null;
                                         }
 
@@ -594,7 +596,7 @@ namespace Egee.API.Service.Host
                             }
                             else
                             {
-                                _logger.Info("Pas de télégrammes reçus pour le compteur N° "+ numerocompteur.ToUpper() + ".");
+                                _logger.Log(LogLevel.Info,DateTime.Now.ToString("dd-MMM-yyyy HH:mm:ss") + " Pas de télégrammes reçus pour le compteur N° " + numerocompteur.ToUpper() + ".");
                                 return null;
                             }
 
@@ -604,15 +606,14 @@ namespace Egee.API.Service.Host
                 if (myFrameList == null)
                     return null;
                 //cleanup
-                _logger.Info("Cleanup");
                 hyScript.call("dc:getDeviceList():clear()");
-
-                _logger.Info("Resultat: " + JsonConvert.SerializeObject(myFrameList));
+                 
+                _logger.Log(LogLevel.Info,DateTime.Now.ToString("dd-MMM-yyyy HH:mm:ss") + " Resultat: " + JsonConvert.SerializeObject(myFrameList));
                 return myFrameList;
             }
             catch (Exception ex)
             {
-                _logger.Info($"Echec get telegrams : {ex}");
+                _logger.Log(LogLevel.Info,DateTime.Now.ToString("dd-MMM-yyyy HH:mm:ss") + $" Echec get telegrams : {ex}");
                 return null;
             }
         }
@@ -649,15 +650,15 @@ namespace Egee.API.Service.Host
                 sScript = luaScriptPath.Replace(@"\", @"\\");
 
 
-                _logger.Info("--------GET MODULE CONFIGURATION ------------------");
+                _logger.Log(LogLevel.Info,"--------GET MODULE CONFIGURATION ------------------");
 
                 //Check Licence
                 string licenceOK = hyScript.call("return License.check('EGEEEGEE','I1ARCQI0')");
-                _logger.Info("Vérification Licence : " + licenceOK);
+                _logger.Log(LogLevel.Info,DateTime.Now.ToString("dd-MMM-yyyy HH:mm:ss") + " Vérification Licence : " + licenceOK);
 
                 if (licenceOK != "true")
                 {
-                    _logger.Info("Licence invalide.");
+                    _logger.Log(LogLevel.Info,DateTime.Now.ToString("dd-MMM-yyyy HH:mm:ss") + " Licence invalide.");
                     return null;
                 }
                 else
@@ -666,16 +667,16 @@ namespace Egee.API.Service.Host
                     hyScript.call("clearLastException()");
 
                     //Chargement du script de configuration
-                    _logger.Info("--- Load configuration script : " + sScript);
+                    _logger.Log(LogLevel.Info,DateTime.Now.ToString("dd-MMM-yyyy HH:mm:ss") + " --- Load configuration script : " + sScript);
                     sRep = hyScript.call("return exec('" + sScript + "')");
 
-                    _logger.Info("Result: " + sRep);
+                    _logger.Log(LogLevel.Info,"Result: " + sRep);
 
                     if (sRep != luaScriptPath)
                     {
                         string exception = hyScript.call("return getLastException();");
-                        _logger.Info("Last Exception: " + exception);
-                        _logger.Info("Echec chargement script de configuration.");
+                        _logger.Log(LogLevel.Info,DateTime.Now.ToString("dd-MMM-yyyy HH:mm:ss") + " Last Exception: " + exception);
+                        _logger.Log(LogLevel.Info,DateTime.Now.ToString("dd-MMM-yyyy HH:mm:ss") + " Echec chargement script de configuration.");
                         return null;
                     }
                     else
@@ -684,23 +685,23 @@ namespace Egee.API.Service.Host
                         hyScript.call("clearLastException()");
 
                         //clear
-                        _logger.Info("---Clear data configuration.");
+                        _logger.Log(LogLevel.Info,DateTime.Now.ToString("dd-MMM-yyyy HH:mm:ss") + " ---Clear data configuration.");
                         sRep = hyScript.call("clear();");
 
                         //Version CSI
                         sRep = hyScript.call("return Environment.getVersion();");
-                        _logger.Info("IZAR@CSI Version: " + sRep);
+                        _logger.Log(LogLevel.Info,DateTime.Now.ToString("dd-MMM-yyyy HH:mm:ss") + " IZAR@CSI Version: " + sRep);
 
                         // Start identification of a product
-                        _logger.Info("---  Start identification of a product : " + "return indentifyProduct('" + comPort + "', '" + sBTHead + "', '" + sS1 + "', '" + sS2 + "', '" + sS3 + "')");
+                        _logger.Log(LogLevel.Info,DateTime.Now.ToString("dd-MMM-yyyy HH:mm:ss") + " ---  Start identification of a product : " + "return indentifyProduct('" + comPort + "', '" + sBTHead + "', '" + sS1 + "', '" + sS2 + "', '" + sS3 + "')");
                         sRep = hyScript.call("return indentifyProduct('" + comPort + "', '" + sBTHead + "', '" + sS1 + "', '" + sS2 + "', '" + sS3 + "')");
-                        _logger.Info("Identification result: " + sRep);
+                        _logger.Log(LogLevel.Info,DateTime.Now.ToString("dd-MMM-yyyy HH:mm:ss") + " Identification result: " + sRep);
 
                         if (sRep != "true")
                         {
                             string exception = hyScript.call("return getLastException();");
-                            _logger.Info("Last Exception: " + exception);
-                            _logger.Info("Echec identification du module.");
+                            _logger.Log(LogLevel.Info,DateTime.Now.ToString("dd-MMM-yyyy HH:mm:ss") + " Last Exception: " + exception);
+                            _logger.Log(LogLevel.Info,DateTime.Now.ToString("dd-MMM-yyyy HH:mm:ss") + " Echec identification du module.");
                             sRep = hyScript.call("clear();");
                             return null;
                         }
@@ -708,7 +709,7 @@ namespace Egee.API.Service.Host
                         {
                             //Description: Nom du produit
                             response = hyScript.call("return getDescription()");
-                            _logger.Info("--- Description: " + response);
+                            _logger.Log(LogLevel.Info,"--- Description: " + response);
                             configParam = new ConfigParam();
                             configParam.Name = "Description";
                             configParam.Value = response;
@@ -717,7 +718,7 @@ namespace Egee.API.Service.Host
 
                             //Nom du script de config en cours d'emploi
                             response = hyScript.call("return getDMName()");
-                            _logger.Info("--- DM Nom: " + response);
+                            _logger.Log(LogLevel.Info,"--- DM Nom: " + response);
                             configParam = new ConfigParam();
                             configParam.Name = "DMName";
                             configParam.Value = response;
@@ -725,7 +726,7 @@ namespace Egee.API.Service.Host
 
                             //Version du script de config en cours d'emploi
                             response = hyScript.call("return getDMVersion()");
-                            _logger.Info("--- DM Version: " + response);
+                            _logger.Log(LogLevel.Info,"--- DM Version: " + response);
                             configParam = new ConfigParam();
                             configParam.Name = "DMVersion";
                             configParam.Value = response;
@@ -746,8 +747,8 @@ namespace Egee.API.Service.Host
                             if (tabNames == null)
                             {
                                 string exception = hyScript.call("return getLastException();");
-                                _logger.Info("Last Exception: " + exception);
-                                _logger.Info("Echec chargement liste des paramètres.");
+                                _logger.Log(LogLevel.Info,DateTime.Now.ToString("dd-MMM-yyyy HH:mm:ss") + " Last Exception: " + exception);
+                                _logger.Log(LogLevel.Info,DateTime.Now.ToString("dd-MMM-yyyy HH:mm:ss") + " Echec chargement liste des paramètres.");
                                 return null;
                             }
                             else
@@ -760,7 +761,7 @@ namespace Egee.API.Service.Host
                                     configParam.Name = nomParam;
                                     configParam.Value = result;
                                     configParamList.Add(configParam);
-                                    _logger.Info(configParam.Name + " ====> " + configParam.Value);
+                                    _logger.Log(LogLevel.Info,DateTime.Now.ToString("dd-MMM-yyyy HH:mm:ss") + configParam.Name + " ====> " + configParam.Value);
                                 }
                             }
                         }
@@ -769,13 +770,13 @@ namespace Egee.API.Service.Host
                 if (configParamList == null)
                     return null;
                 sRep = hyScript.call("clear();");
-                _logger.Info("Resultat: " + JsonConvert.SerializeObject(configParamList));
+                _logger.Log(LogLevel.Info,DateTime.Now.ToString("dd-MMM-yyyy HH:mm:ss") + " Resultat: " + JsonConvert.SerializeObject(configParamList));
 
                 return configParamList;
             }
             catch (Exception ex)
             {
-                _logger.Info($"Echec get configuration : {ex}");
+                _logger.Log(LogLevel.Info,DateTime.Now.ToString("dd-MMM-yyyy HH:mm:ss") + $" Echec get configuration : {ex}");
                 return null;
             }
         }
@@ -801,15 +802,15 @@ namespace Egee.API.Service.Host
                 sScript = luaScriptPath.Replace(@"\", @"\\");
 
 
-                _logger.Info("--------WRITE BACK ------------------");
+                _logger.Log(LogLevel.Info,"--------WRITE BACK ------------------");
 
                 //Check Licence
                 string licenceOK = hyScript.call("return License.check('EGEEEGEE','I1ARCQI0')");
-                _logger.Info("Vérification Licence : " + licenceOK);
+                _logger.Log(LogLevel.Info,DateTime.Now.ToString("dd-MMM-yyyy HH:mm:ss") + " Vérification Licence : " + licenceOK);
 
                 if (licenceOK != "true")
                 {
-                    _logger.Info("Licence invalide.");
+                    _logger.Log(LogLevel.Info,DateTime.Now.ToString("dd-MMM-yyyy HH:mm:ss") + " Licence invalide.");
                     return false;
                 }
                 else
@@ -818,22 +819,22 @@ namespace Egee.API.Service.Host
                     hyScript.call("clearLastException()");
 
                     //clear
-                    _logger.Info("---Clear data configuration.");
+                    _logger.Log(LogLevel.Info,DateTime.Now.ToString("dd-MMM-yyyy HH:mm:ss") + " ---Clear data configuration.");
                     sRep = hyScript.call("clear();");
 
                     //Version CSI
                     sRep = hyScript.call("return Environment.getVersion();");
-                    _logger.Info("IZAR@CSI Version: " + sRep);
+                    _logger.Log(LogLevel.Info,DateTime.Now.ToString("dd-MMM-yyyy HH:mm:ss") + " IZAR@CSI Version: " + sRep);
 
                     //Chargement du script de configuration
-                    _logger.Info("--- Load configuration script : " + sScript);
+                    _logger.Log(LogLevel.Info,DateTime.Now.ToString("dd-MMM-yyyy HH:mm:ss") + " --- Load configuration script : " + sScript);
                     sRep = hyScript.call("return exec('" + sScript + "')");
 
                     if (sRep != luaScriptPath)
                     {
                         string exception = hyScript.call("return getLastException();");
-                        _logger.Info("Last Exception: " + exception);
-                        _logger.Info("Echec chargement script de configuration.");
+                        _logger.Log(LogLevel.Info,DateTime.Now.ToString("dd-MMM-yyyy HH:mm:ss") + " Last Exception: " + exception);
+                        _logger.Log(LogLevel.Info,DateTime.Now.ToString("dd-MMM-yyyy HH:mm:ss") + " Echec chargement script de configuration.");
                         return false;
                     }
                     else
@@ -842,14 +843,14 @@ namespace Egee.API.Service.Host
                         hyScript.call("clearLastException()");
 
                         // Start identification of a product
-                        _logger.Info("---  Start identification of a product : " + "return indentifyProduct('" + comPort + "', '" + sBTHead + "', '" + sS1 + "', '" + sS2 + "', '" + sS3 + "')");
+                        _logger.Log(LogLevel.Info,DateTime.Now.ToString("dd-MMM-yyyy HH:mm:ss") + " ---  Start identification of a product : " + "return indentifyProduct('" + comPort + "', '" + sBTHead + "', '" + sS1 + "', '" + sS2 + "', '" + sS3 + "')");
                         sRep = hyScript.call("return indentifyProduct('" + comPort + "', '" + sBTHead + "', '" + sS1 + "', '" + sS2 + "', '" + sS3 + "')");
 
                         if (sRep != "true")
                         {
                             string exception = hyScript.call("return getLastException();");
-                            _logger.Info("Last Exception: " + exception);
-                            _logger.Info("Echec identification du module.");
+                            _logger.Log(LogLevel.Info,DateTime.Now.ToString("dd-MMM-yyyy HH:mm:ss") + " Last Exception: " + exception);
+                            _logger.Log(LogLevel.Info,DateTime.Now.ToString("dd-MMM-yyyy HH:mm:ss") + " Echec identification du module.");
                             return false;
                         }
                         else
@@ -864,7 +865,7 @@ namespace Egee.API.Service.Host
 
                             if (configParam.Value != productNumberConnect)
                             {
-                                _logger.Info("Le module à configurer est différent du module connecté. Module connecté: " + productNumberConnect + " || Module à configurer: " + configParam.Value);
+                                _logger.Log(LogLevel.Info,DateTime.Now.ToString("dd-MMM-yyyy HH:mm:ss") + " Le module à configurer est différent du module connecté. Module connecté: " + productNumberConnect + " || Module à configurer: " + configParam.Value);
                                 return false;
                             }
                             else
@@ -934,14 +935,14 @@ namespace Egee.API.Service.Host
                                             if (newRadioAddress != "" || newRadioAddress != null)
                                             {
                                                 sRep = hyScript.call("return dc:setValue('RadioAddress', '" + newRadioAddress + "')");
-                                                _logger.Info("Parameter RadioAddress set status: " + sRep);
+                                                _logger.Log(LogLevel.Info,DateTime.Now.ToString("dd-MMM-yyyy HH:mm:ss") + " Parameter RadioAddress set status: " + sRep);
                                             }
                                             else
                                             {
                                                 if (newMeterAddress != "" || newMeterAddress != null)
                                                 {
                                                     sRep = hyScript.call("return dc:setValue('MeterAddress', '" + newMeterAddress + "')");
-                                                    _logger.Info("Parameter MeterAddress set status: " + sRep);
+                                                    _logger.Log(LogLevel.Info,DateTime.Now.ToString("dd-MMM-yyyy HH:mm:ss") + " Parameter MeterAddress set status: " + sRep);
                                                 }
                                             }
                                         }
@@ -959,11 +960,11 @@ namespace Egee.API.Service.Host
                                                 if (sRep != "true")
                                                 {
                                                     string exception = hyScript.call("return getLastException();");
-                                                    _logger.Info("Last Exception: " + exception);
+                                                    _logger.Log(LogLevel.Info,DateTime.Now.ToString("dd-MMM-yyyy HH:mm:ss") + " Last Exception: " + exception);
                                                 }
                                                 else
                                                 {
-                                                    _logger.Info("Parameter RadioAddressObj set status: " + sRep);
+                                                    _logger.Log(LogLevel.Info,DateTime.Now.ToString("dd-MMM-yyyy HH:mm:ss") + " Parameter RadioAddressObj set status: " + sRep);
                                                 }
                                             }
                                             else
@@ -979,13 +980,13 @@ namespace Egee.API.Service.Host
                                                     if (sRep != "true")
                                                     {
                                                         string exception = hyScript.call("return getLastException();");
-                                                        _logger.Info("Last Exception: " + exception);
-                                                        _logger.Info("Echec set MeterAddressObj.");
+                                                        _logger.Log(LogLevel.Info,DateTime.Now.ToString("dd-MMM-yyyy HH:mm:ss") + " Last Exception: " + exception);
+                                                        _logger.Log(LogLevel.Info,DateTime.Now.ToString("dd-MMM-yyyy HH:mm:ss") + " Echec set MeterAddressObj.");
 
                                                     }
                                                     else
                                                     {
-                                                        _logger.Info("Parameter MeterAddressObj set status: " + sRep);
+                                                        _logger.Log(LogLevel.Info,DateTime.Now.ToString("dd-MMM-yyyy HH:mm:ss") + " Parameter MeterAddressObj set status: " + sRep);
                                                     }
                                                 }
                                             }
@@ -995,14 +996,14 @@ namespace Egee.API.Service.Host
                                     }
                                     else
                                     {
-                                        _logger.Info("Structure de compteur non prise en compte: " + structureRadioAddress);
+                                        _logger.Log(LogLevel.Info,DateTime.Now.ToString("dd-MMM-yyyy HH:mm:ss") + " Structure de compteur non prise en compte: " + structureRadioAddress);
                                     }
                                 }
                                 else
                                 {
                                     //Code fabricannt = "HYP" ou "DME"
                                     sRep = hyScript.call("return dc:setValue('RadioAddress', '" + productNumberConnect + "')");
-                                    _logger.Info("Parameter RadioAddress/MeterAddress set status: " + sRep);
+                                    _logger.Log(LogLevel.Info,DateTime.Now.ToString("dd-MMM-yyyy HH:mm:ss") + " Parameter RadioAddress/MeterAddress set status: " + sRep);
                                 }
 
 
@@ -1013,7 +1014,7 @@ namespace Egee.API.Service.Host
                                     if (configParam.Name != "Description" && configParam.Name != "DMName" && configParam.Name != "ProductionNumber" && configParam.Name != "RadioAddress" && configParam.Name != "MeterAddress")
                                     {
                                         sRep = hyScript.call("return dc:setValue('" + configParam.Name + "', '" + configParam.Value + "')");
-                                        _logger.Info("Parameter " + configParam.Name + " set status: " + sRep);
+                                        _logger.Log(LogLevel.Info,DateTime.Now.ToString("dd-MMM-yyyy HH:mm:ss") + " Parameter " + configParam.Name + " set status: " + sRep);
                                     }
                                 }
 
@@ -1029,7 +1030,7 @@ namespace Egee.API.Service.Host
             }
             catch (Exception ex)
             {
-                _logger.Info($"Echec set configuration : {ex}");
+                _logger.Log(LogLevel.Info,DateTime.Now.ToString("dd-MMM-yyyy HH:mm:ss") + $" Echec set configuration : {ex}");
                 return false;
             }
         }
@@ -1075,7 +1076,7 @@ namespace Egee.API.Service.Host
                     "AlarmExcessFlowTime",
                     "HistoricFrame"
                 };
-                string cheminLog = @"C:\logfileLecture.log";
+                string cheminLog = @"C:\logs\CSIConfiguration.log";
                 string comPort = "com://" + Convert.ToInt32(portcom);
                 string sBTHead = "hybtoh://";
                 string response = "";
@@ -1112,35 +1113,35 @@ namespace Egee.API.Service.Host
 
                 //Check Licence
                 string licenceOK = hyScript.call(cmdLicence);
-                _logger.Info("Vérification Licence : " + licenceOK);
+                _logger.Log(LogLevel.Info,DateTime.Now.ToString("dd-MMM-yyyy HH:mm:ss") + " Vérification Licence : " + licenceOK);
 
                 if (licenceOK != "true")
                 {
-                    _logger.Info("Licence invalide.");
+                    _logger.Log(LogLevel.Info,DateTime.Now.ToString("dd-MMM-yyyy HH:mm:ss") + " Licence invalide.");
                     return null;
                 }
                 else
                 {
                     //clear
-                    _logger.Info("Clear : " + cmdClear);
+                    _logger.Log(LogLevel.Info,DateTime.Now.ToString("dd-MMM-yyyy HH:mm:ss") + " Clear : " + cmdClear);
                     hyScript.call(cmdClear);
 
                     //clear last exception
                     hyScript.call("clearLastException()");
 
                     //Set structure 
-                    _logger.Info("Set structure ");
+                    _logger.Log(LogLevel.Info,DateTime.Now.ToString("dd-MMM-yyyy HH:mm:ss") + " Set structure ");
                     hyScript.call(cmdInitStructure);
 
                     //initialisation lecture
-                    _logger.Info("Initialisation : " + cmdConfigOpen);
+                    _logger.Log(LogLevel.Info,DateTime.Now.ToString("dd-MMM-yyyy HH:mm:ss") + " Initialisation : " + cmdConfigOpen);
                     response = hyScript.call(cmdConfigOpen);
 
                     if (response != "true")
                     {
                         string exception = hyScript.call("return getLastException();");
-                        _logger.Info("Last Exception: " + exception);
-                        _logger.Info("Echec connexion Opto Irda.");
+                        _logger.Log(LogLevel.Info,DateTime.Now.ToString("dd-MMM-yyyy HH:mm:ss") + " Last Exception: " + exception);
+                        _logger.Log(LogLevel.Info,DateTime.Now.ToString("dd-MMM-yyyy HH:mm:ss") + " Echec connexion Opto Irda.");
                         hyScript.call(cmdClear);
                         return null;
                     }
@@ -1150,18 +1151,18 @@ namespace Egee.API.Service.Host
                         configParamList = new List<ConfigParam>();
                         //Description: Nom du produit
                         response = hyScript.call("return dc:getDescription()");
-                        _logger.Info("--- Description: " + response);
+                        _logger.Log(LogLevel.Info,DateTime.Now.ToString("dd-MMM-yyyy HH:mm:ss") + " --- Description: " + response);
                         configParam = new ConfigParam
                         {
                             Name = "Description",
                             Value = response
                         };
                         configParamList.Add(configParam);
-                        _logger.Info(configParam.Name + " ====> " + configParam.Value);
+                        _logger.Log(LogLevel.Info,DateTime.Now.ToString("dd-MMM-yyyy HH:mm:ss") + configParam.Name + " ====> " + configParam.Value);
 
                         //Nom du script de config en cours d'emploi
                         response = hyScript.call("return dc:getDMName()");
-                        _logger.Info("--- DM Nom: " + response);
+                        _logger.Log(LogLevel.Info,DateTime.Now.ToString("dd-MMM-yyyy HH:mm:ss") + " --- DM Nom: " + response);
                         configParam = new ConfigParam
                         {
                             Name = "DMName",
@@ -1169,18 +1170,18 @@ namespace Egee.API.Service.Host
                         };
 
                         configParamList.Add(configParam);
-                        _logger.Info(configParam.Name + " ====> " + configParam.Value);
+                        _logger.Log(LogLevel.Info,DateTime.Now.ToString("dd-MMM-yyyy HH:mm:ss") + configParam.Name + " ====> " + configParam.Value);
 
                         //Version du script de config en cours d'emploi
                         response = hyScript.call("return dc:getDMVersion()");
-                        _logger.Info("--- DM Version: " + response);
+                        _logger.Log(LogLevel.Info,DateTime.Now.ToString("dd-MMM-yyyy HH:mm:ss") + " --- DM Version: " + response);
                         configParam = new ConfigParam
                         {
                             Name = "DMVersion",
                             Value = response
                         };
                         configParamList.Add(configParam);
-                        _logger.Info(configParam.Name + " ====> " + configParam.Value);
+                        _logger.Log(LogLevel.Info,DateTime.Now.ToString("dd-MMM-yyyy HH:mm:ss") + configParam.Name + " ====> " + configParam.Value);
 
                         //Init structure()
                         hyScript.call(cmdInitStructure);
@@ -1197,7 +1198,7 @@ namespace Egee.API.Service.Host
                             };
                         
                             configParamList.Add(configParam);
-                            _logger.Info("--- RadioAddressObj: " + jsonRadio);
+                            _logger.Log(LogLevel.Info,DateTime.Now.ToString("dd-MMM-yyyy HH:mm:ss") + " --- RadioAddressObj: " + jsonRadio);
                         }
                        
                         // get MeterAddressObj 
@@ -1212,7 +1213,7 @@ namespace Egee.API.Service.Host
                             };
 
                             configParamList.Add(configParam);
-                            _logger.Info("--- MeterAddressObj: " + jsonMeter);
+                            _logger.Log(LogLevel.Info,DateTime.Now.ToString("dd-MMM-yyyy HH:mm:ss") + " --- MeterAddressObj: " + jsonMeter);
                         }
                        
 
@@ -1233,7 +1234,7 @@ namespace Egee.API.Service.Host
                                     };
 
                                     configParamList.Add(configParam);
-                                    _logger.Info(configParam.Name + " ====> " + configParam.Value);
+                                    _logger.Log(LogLevel.Info,configParam.Name + " ====> " + configParam.Value);
                                 }
                             }
                             
@@ -1244,13 +1245,13 @@ namespace Egee.API.Service.Host
                     return null;
 
                 hyScript.call("dc:close()");
-                _logger.Info("Resultat: " + JsonConvert.SerializeObject(configParamList));
+                _logger.Log(LogLevel.Info,DateTime.Now.ToString("dd-MMM-yyyy HH:mm:ss") + " Resultat: " + JsonConvert.SerializeObject(configParamList));
 
                 return configParamList;
             }
             catch (Exception ex)
             {
-                _logger.Info($"Echec identification module : {ex}");
+                _logger.Log(LogLevel.Info,DateTime.Now.ToString("dd-MMM-yyyy HH:mm:ss") + $" Echec identification module : {ex}");
                 return null;
             }
         }
@@ -1262,11 +1263,11 @@ namespace Egee.API.Service.Host
         {
             try
             {
-                _logger.Info($"Objet recu : " + JsonConvert.SerializeObject(request));
+                _logger.Log(LogLevel.Info,DateTime.Now.ToString("dd-MMM-yyyy HH:mm:ss") + $" Objet recu : " + JsonConvert.SerializeObject(request));
 
                 //@"C:\Temp\IZAR@CSI";
                 HyScript hyScript = new HyScript();
-                string cheminLog = @"C:\logfileConfiguration.log";
+                string cheminLog = @"C:\logs\CSIConfiguration.log";
                 string path = DecodeFrom64(request.PathScript);
                 string sRep = "";
                 string result = "";
@@ -1305,17 +1306,17 @@ namespace Egee.API.Service.Host
 
                 //Check Licence
                 string licenceOK = hyScript.call(cmdLicence);
-                _logger.Info("Vérification Licence : " + licenceOK);
+                _logger.Log(LogLevel.Info,DateTime.Now.ToString("dd-MMM-yyyy HH:mm:ss") + " Vérification Licence : " + licenceOK);
 
 
                 if (licenceOK != "true")
                 {
-                    _logger.Info("Licence invalide.");
+                    _logger.Log(LogLevel.Info,DateTime.Now.ToString("dd-MMM-yyyy HH:mm:ss") + " Licence invalide.");
                     return false;
                 }
                 else
                 {
-                    _logger.Info("Clear : " + cmdClear);
+                    _logger.Log(LogLevel.Info,DateTime.Now.ToString("dd-MMM-yyyy HH:mm:ss") + " Clear : " + cmdClear);
                     //clear
                     hyScript.call(cmdClear);
 
@@ -1323,18 +1324,18 @@ namespace Egee.API.Service.Host
                     hyScript.call("clearLastException()");
 
                     //Set structure 
-                    _logger.Info("Set structure ");
+                    _logger.Log(LogLevel.Info,DateTime.Now.ToString("dd-MMM-yyyy HH:mm:ss") + " Set structure ");
                     hyScript.call(cmdInitStructure);
 
                     //initialisation lecture
-                    _logger.Info("Initialisation : " + cmdConfigOpen);
+                    _logger.Log(LogLevel.Info,DateTime.Now.ToString("dd-MMM-yyyy HH:mm:ss") + " Initialisation : " + cmdConfigOpen);
                     response = hyScript.call(cmdConfigOpen);
 
                     if (response != "true")
                     {
                         string exception = hyScript.call("return getLastException();");
-                        _logger.Info("Last Exception: " + exception);
-                        _logger.Info("Echec connexion Opto Irda.");
+                        _logger.Log(LogLevel.Info,DateTime.Now.ToString("dd-MMM-yyyy HH:mm:ss") + " Last Exception: " + exception);
+                        _logger.Log(LogLevel.Info,DateTime.Now.ToString("dd-MMM-yyyy HH:mm:ss") + " Echec connexion Opto Irda.");
                         return false;
                     }
                     else
@@ -1349,7 +1350,7 @@ namespace Egee.API.Service.Host
 
                         if (configParam.Value != productNumberConnect)
                         {
-                            _logger.Info("Le module à configurer est différent du module connecté. Module connecté: " + productNumberConnect + " || Module à configurer: " + configParam.Value);
+                            _logger.Log(LogLevel.Info,DateTime.Now.ToString("dd-MMM-yyyy HH:mm:ss") + " Le module à configurer est différent du module connecté. Module connecté: " + productNumberConnect + " || Module à configurer: " + configParam.Value);
                             return false;
                         }
                         else
@@ -1406,14 +1407,14 @@ namespace Egee.API.Service.Host
                                         if(newRadioAddress != "" || newRadioAddress != null)
                                         {
                                             sRep = hyScript.call("return dc:setValue('RadioAddress', '" + newRadioAddress + "')");
-                                            _logger.Info("Parameter RadioAddress set status: " + sRep);
+                                            _logger.Log(LogLevel.Info,DateTime.Now.ToString("dd-MMM-yyyy HH:mm:ss") + " Parameter RadioAddress set status: " + sRep);
                                         }
                                         else
                                         {
                                             if (newMeterAddress != "" || newMeterAddress != null)
                                             {
                                                 sRep = hyScript.call("return dc:setValue('MeterAddress', '" + newMeterAddress + "')");
-                                                _logger.Info("Parameter MeterAddress set status: " + sRep);
+                                                _logger.Log(LogLevel.Info,DateTime.Now.ToString("dd-MMM-yyyy HH:mm:ss") + " Parameter MeterAddress set status: " + sRep);
                                             }
                                         }   
                                     }
@@ -1426,11 +1427,11 @@ namespace Egee.API.Service.Host
                                             hyScript.call(cmdInitStructure);
 
                                             string numeroSerie = "PSAP" + structureCompteur.Index + "" + newRadioAddress + "000";
-                                            _logger.Info(" Numéro de série: " + numeroSerie);
+                                            _logger.Log(LogLevel.Info,DateTime.Now.ToString("dd-MMM-yyyy HH:mm:ss") + " Numéro de série: " + numeroSerie);
 
 
                                             string radioAddressJSON = hyScript.call("return SPDEDeviceID.new('" + numeroSerie + "');");
-                                            _logger.Info(" RadioAddressObj: " + radioAddressJSON);
+                                            _logger.Log(LogLevel.Info,DateTime.Now.ToString("dd-MMM-yyyy HH:mm:ss") + " RadioAddressObj: " + radioAddressJSON);
 
                                             //
                                             string cmdSetAdress = "d0 = SPDEDeviceID.new('" + numeroSerie + "') return dc:setValue('RadioAddressObj', d0)";
@@ -1439,12 +1440,12 @@ namespace Egee.API.Service.Host
                                             if (sRep != "true")
                                             {
                                                 string exception = hyScript.call("return getLastException();");
-                                                _logger.Info("Last Exception: " + exception);
+                                                _logger.Log(LogLevel.Info,DateTime.Now.ToString("dd-MMM-yyyy HH:mm:ss") + " Last Exception: " + exception);
                                             }
                                             else
                                             {
                                                 sRep = hyScript.call("return dc:setValue('RadioAddress', '" + newRadioAddress + "')");
-                                                _logger.Info("Parameter RadioAddressObj set status: " + sRep);
+                                                _logger.Log(LogLevel.Info,DateTime.Now.ToString("dd-MMM-yyyy HH:mm:ss") + " Parameter RadioAddressObj set status: " + sRep);
                                             }
                                         }
                                         else
@@ -1455,11 +1456,11 @@ namespace Egee.API.Service.Host
                                                 hyScript.call(cmdInitStructure);
 
                                                 string numeroSerie = "PSAP" + structureCompteur.Index + "" + newMeterAddress + "000";
-                                                _logger.Info(" Numéro de série: " + numeroSerie);
+                                                _logger.Log(LogLevel.Info,DateTime.Now.ToString("dd-MMM-yyyy HH:mm:ss") + " Numéro de série: " + numeroSerie);
 
 
                                                 string meterAddressJSON = hyScript.call("return SPDEDeviceID.new('" + numeroSerie + "');");
-                                                _logger.Info(" MeterAddressObj: " + meterAddressJSON);
+                                                _logger.Log(LogLevel.Info,DateTime.Now.ToString("dd-MMM-yyyy HH:mm:ss") + " MeterAddressObj: " + meterAddressJSON);
 
                                                 //
                                                 sRep = hyScript.call("return dc:setValue(MeterAddressObj, '" + meterAddressJSON + "');");
@@ -1467,13 +1468,13 @@ namespace Egee.API.Service.Host
                                                 if (sRep != "true")
                                                 {
                                                     string exception = hyScript.call("return getLastException();");
-                                                    _logger.Info("Last Exception: " + exception);
-                                                    _logger.Info("Echec set MeterAddressObj.");
+                                                    _logger.Log(LogLevel.Info,DateTime.Now.ToString("dd-MMM-yyyy HH:mm:ss") + " Last Exception: " + exception);
+                                                    _logger.Log(LogLevel.Info,DateTime.Now.ToString("dd-MMM-yyyy HH:mm:ss") + " Echec set MeterAddressObj.");
 
                                                 }
                                                 else
                                                 {
-                                                    _logger.Info("Parameter MeterAddressObj set status: " + sRep);
+                                                    _logger.Log(LogLevel.Info,DateTime.Now.ToString("dd-MMM-yyyy HH:mm:ss") + " Parameter MeterAddressObj set status: " + sRep);
                                                 }
                                             }
                                         }
@@ -1483,14 +1484,14 @@ namespace Egee.API.Service.Host
                                 }
                                 else
                                 {
-                                    _logger.Info("Structure de compteur non prise en compte: " + structureRadioAddress);
+                                    _logger.Log(LogLevel.Info,DateTime.Now.ToString("dd-MMM-yyyy HH:mm:ss") + " Structure de compteur non prise en compte: " + structureRadioAddress);
                                 }                            
                             }
                             else
                             {
                                 //Code fabricannt = "HYP" ou "DME"
                                 sRep = hyScript.call("return dc:setValue('RadioAddress', '" + productNumberConnect+ "')");
-                                _logger.Info("Parameter RadioAddress/MeterAddress set status: " + sRep);
+                                _logger.Log(LogLevel.Info,DateTime.Now.ToString("dd-MMM-yyyy HH:mm:ss") + " Parameter RadioAddress/MeterAddress set status: " + sRep);
                             }
 
 
@@ -1501,7 +1502,7 @@ namespace Egee.API.Service.Host
                                 if (configParam.Name != "Description" && configParam.Name != "DMName" && configParam.Name != "ProductionNumber" && configParam.Name != "RadioAddress" && configParam.Name != "MeterAddress")
                                 {
                                     sRep = hyScript.call("return dc:setValue('" + configParam.Name + "', '" + configParam.Value + "')");
-                                    _logger.Info("Parameter " + configParam.Name + " set status: " + sRep);
+                                    _logger.Log(LogLevel.Info,DateTime.Now.ToString("dd-MMM-yyyy HH:mm:ss") + " Parameter " + configParam.Name + " set status: " + sRep);
                                 }
                             }
 
@@ -1516,7 +1517,7 @@ namespace Egee.API.Service.Host
             }
             catch (Exception ex)
             {
-                _logger.Info($"Echec write back module : {ex}");
+                _logger.Log(LogLevel.Info,DateTime.Now.ToString("dd-MMM-yyyy HH:mm:ss") + $" Echec write back module : {ex}");
                 return false;
             }
         }

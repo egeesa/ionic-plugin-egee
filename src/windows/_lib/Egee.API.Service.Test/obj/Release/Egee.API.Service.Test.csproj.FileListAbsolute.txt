@@ -1,0 +1,2 @@
+C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee.API.Service.Test\obj\Release\Egee.API.Service.Test.csprojAssemblyReference.cache
+C:\ProjetsGIT\ionic-plugin-egee\src\windows\_lib\Egee.API.Service.Test\obj\Release\Egee.API.Service.Test.csproj.CoreCompileInputs.cache
